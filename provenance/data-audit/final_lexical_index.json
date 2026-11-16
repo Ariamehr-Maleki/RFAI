@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "rows": 464942,
+  "nnz": 38501080,
+  "index_bytes": 320890040,
+  "source_sha256": "5e5e8ebf47b7a47d62faf5b747895b13e4e48a27081d55293e92d2aab8f89d14",
+  "columns": [
+    "corpus_id",
+    "date",
+    "title",
+    "abstract"
+  ],
+  "evaluation": "Label-free index verification only; no authors, roles, references or qrels read; no test scores"
+}

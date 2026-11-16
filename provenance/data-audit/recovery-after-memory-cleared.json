@@ -1,0 +1,32 @@
+{
+  "status": "PASS recovery after all study processes found absent",
+  "created_utc": "2026-10-27T14:20:21.462468+00:00",
+  "verified_receipts": 450,
+  "removed_dead_supervisor_locks": [
+    {
+      "path": "work\\expanded-chain.lock",
+      "record": {
+        "pid": 20620
+      }
+    },
+    {
+      "path": "work\\cost-chain.lock",
+      "record": {
+        "pid": 17440
+      }
+    },
+    {
+      "path": "work\\frozen-study-supervisor.lock",
+      "record": {
+        "pid": 19284,
+        "lock": "C:\\Users\\User\\Documents\\Codex\\2026-10-25\\new-chat\\outputs\\researchforge-study\\final\\global-lock.json",
+        "run_id": "researchforge-final-v1"
+      }
+    }
+  ],
+  "dead_collectors": [
+    9852,
+    23400
+  ],
+  "cause": "Not established; no new failure recorded in supervisor logs"
+}

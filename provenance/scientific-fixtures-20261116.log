@@ -1,0 +1,75 @@
+test_cross_seed_label_mutation_rejected (test_final_statistics.StatisticsTests.test_cross_seed_label_mutation_rejected) ... ok
+test_identical_predictions_and_reproducibility (test_final_statistics.StatisticsTests.test_identical_predictions_and_reproducibility) ... ok
+test_known_holm_family (test_final_statistics.StatisticsTests.test_known_holm_family) ... ok
+test_seed_average_does_not_triple_sample_count (test_final_statistics.StatisticsTests.test_seed_average_does_not_triple_sample_count) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.530s
+
+OK
+test_changed_lock_and_invalid_comparison_rejected (test_final_evaluation_gate.GateTests.test_changed_lock_and_invalid_comparison_rejected) ... ok
+test_complete_ncn_schema_accepted_but_partial_history_rejected (test_final_evaluation_gate.GateTests.test_complete_ncn_schema_accepted_but_partial_history_rejected) ... ok
+test_immutable_lock_and_only_identical_run_resume (test_final_evaluation_gate.GateTests.test_immutable_lock_and_only_identical_run_resume) ... ok
+test_missing_artifact_rejected_before_lock (test_final_evaluation_gate.GateTests.test_missing_artifact_rejected_before_lock) ... ok
+test_missing_or_draft_plan_never_creates_lock (test_final_evaluation_gate.GateTests.test_missing_or_draft_plan_never_creates_lock) ... ok
+test_modified_code_rejected_before_test_authorization (test_final_evaluation_gate.GateTests.test_modified_code_rejected_before_test_authorization) ... ok
+test_ncn_best_score_must_match_complete_history (test_final_evaluation_gate.GateTests.test_ncn_best_score_must_match_complete_history) ... ok
+test_running_report_cannot_finalize (test_final_evaluation_gate.GateTests.test_running_report_cannot_finalize) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.932s
+
+OK
+test_authors_deduplicated_without_reordering_seed (test_protocol.ProtocolTests.test_authors_deduplicated_without_reordering_seed) ... ok
+15:36:30 validation queries 1/1
+15:36:30 validation queries 1/1
+test_candidates_do_not_see_labels_or_future (test_protocol.ProtocolTests.test_candidates_do_not_see_labels_or_future) ... ok
+test_metrics_against_upstream (test_protocol.ProtocolTests.test_metrics_against_upstream) ... ok
+test_seed_is_first_eligible_author (test_protocol.ProtocolTests.test_seed_is_first_eligible_author) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.045s
+
+OK
+test_against_direct_document_loop (test_hashed_bm25.HashedBM25Tests.test_against_direct_document_loop) ... ok
+test_candidate_features_do_not_use_validation_labels (test_hashed_bm25.HashedBM25Tests.test_candidate_features_do_not_use_validation_labels) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.955s
+
+OK
+test_active_worker_rejects_isolated_cost_claim (test_frozen_inference.FrozenInferenceTests.test_active_worker_rejects_isolated_cost_claim) ... ok
+test_saved_families_and_factorial_schema_roundtrip (test_frozen_inference.FrozenInferenceTests.test_saved_families_and_factorial_schema_roundtrip) ... ok
+test_timing_measures_fixed_query_set_without_labels (test_frozen_inference.FrozenInferenceTests.test_timing_measures_fixed_query_set_without_labels) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.043s
+
+OK
+test_audit_only_records_used_citation_field (test_official_comparator.ComparatorTests.test_audit_only_records_used_citation_field) ... ok
+test_cumulative_bin_boundary (test_official_comparator.ComparatorTests.test_cumulative_bin_boundary) ... ok
+test_dedup_preserves_first_order (test_official_comparator.ComparatorTests.test_dedup_preserves_first_order) ... ok
+test_exact_function_equal_when_inputs_unchanged (test_official_comparator.ComparatorTests.test_exact_function_equal_when_inputs_unchanged) ... ok
+test_future_and_same_day_references_hidden (test_official_comparator.ComparatorTests.test_future_and_same_day_references_hidden) ... ok
+test_future_citation_mutation_cannot_change_historical_predictions (test_official_comparator.ComparatorTests.test_future_citation_mutation_cannot_change_historical_predictions) ... ok
+test_metrics_penalize_missing_truth (test_official_comparator.ComparatorTests.test_metrics_penalize_missing_truth) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.053s
+
+OK
+test_missing_none_duplicate_and_same_day (test_indexed_helper.IndexedHistoryParity.test_missing_none_duplicate_and_same_day) ... ok
+test_reused_cache_across_reverse_cutoffs_and_history_objects (test_indexed_helper.IndexedHistoryParity.test_reused_cache_across_reverse_cutoffs_and_history_objects) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.191s
+
+OK
+test_eviction_preserves_values (test_bounded_helper.BoundedParity.test_eviction_preserves_values) ... ok
+test_missing_none_duplicate_and_same_day (test_bounded_helper.BoundedParity.test_missing_none_duplicate_and_same_day) ... ok
+test_reused_cache_across_reverse_cutoffs_and_history_objects (test_bounded_helper.BoundedParity.test_reused_cache_across_reverse_cutoffs_and_history_objects) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.242s
+
+OK

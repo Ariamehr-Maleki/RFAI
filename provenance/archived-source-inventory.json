@@ -1,0 +1,534 @@
+{
+  "experiments/outputs/researchforge-study/environment-current.json": {
+    "bytes": 3217,
+    "sha256": "30bec7060f6431a7eb7f15487fc19b1a7c22782b666b91c49021cb5d1263537c"
+  },
+  "experiments/outputs/researchforge-study/final/global-lock.json": {
+    "bytes": 139659,
+    "sha256": "84fb1ff42ca5cdc6006df7b0c2b3b3ff715e073d5d22a587da06c9aa33045670"
+  },
+  "experiments/outputs/researchforge-study/FINAL_RUNNER_CONTRACT.md": {
+    "bytes": 13204,
+    "sha256": "1dff64edceb044492958c86af24cd3d3ffd933dc1c05657884fa11ee8782203c"
+  },
+  "experiments/outputs/researchforge-study/ncn-runtime.json": {
+    "bytes": 531,
+    "sha256": "bd21fbc12135a02ca228fd3dd28d9b755a06371cf916db327f50acdc764afa01"
+  },
+  "experiments/outputs/researchforge-study/PROTOCOL.md": {
+    "bytes": 26241,
+    "sha256": "830b5bd92c816dce7e0801a24ba0ac4b7d39ef5ce5b3530a87fb4dff293e6bc5"
+  },
+  "experiments/outputs/researchforge-study/requirements.lock.txt": {
+    "bytes": 870,
+    "sha256": "7c5a0c2e3f0ad867ef93fabe62f61ba8cfc26a0e84e524df877372d2735ec920"
+  },
+  "experiments/outputs/researchforge-study/scripts/account_train_encoding_cost.py": {
+    "bytes": 3463,
+    "sha256": "75b7deca46039703e863f6fef4169fe5af34518f3e7fe594713b99206ab83809"
+  },
+  "experiments/outputs/researchforge-study/scripts/audit_author_dedup_effect.py": {
+    "bytes": 2285,
+    "sha256": "e43c80c2e9edb3303faf0f49e429fdae5e283e01eb1890daf50279a344b9c818"
+  },
+  "experiments/outputs/researchforge-study/scripts/audit_candidate_contribution.py": {
+    "bytes": 4753,
+    "sha256": "900343b6903e583a4eb0713f9e488c12136c58e2564325d3a4507441c04c90f0"
+  },
+  "experiments/outputs/researchforge-study/scripts/audit_expanded_cohort.py": {
+    "bytes": 4989,
+    "sha256": "fc17e5cee5865c4ebf08486d7ed38123d620ed1319a17667b61895311538619f"
+  },
+  "experiments/outputs/researchforge-study/scripts/audit_loader_equivalence.py": {
+    "bytes": 1372,
+    "sha256": "ab0fbdc712a0f7c7935ffcf65f4062866a1aec9f3d7f4a4e8fdf13cfedefe951"
+  },
+  "experiments/outputs/researchforge-study/scripts/build_final_plan.py": {
+    "bytes": 13903,
+    "sha256": "fb77df46f7e1c449c5539023d61b72403674558265627486a8850f869ab8b8be"
+  },
+  "experiments/outputs/researchforge-study/scripts/build_final_professor_report.py": {
+    "bytes": 14466,
+    "sha256": "92f0e716215209f42164ad6e596b447aec4a2488efb3f578402e561a4d687db6"
+  },
+  "experiments/outputs/researchforge-study/scripts/build_professor_report.py": {
+    "bytes": 46162,
+    "sha256": "13974f61f36a724e2b56272fa933fa22bd5e15680bce45ecf94a4897540abf52"
+  },
+  "experiments/outputs/researchforge-study/scripts/build_reproducibility_package.py": {
+    "bytes": 6428,
+    "sha256": "86e030aace46eafb01ac255e75c9ff16be64890746d0b7c78639104b942bf70f"
+  },
+  "experiments/outputs/researchforge-study/scripts/capture_environment.py": {
+    "bytes": 1960,
+    "sha256": "63c2d03d9b8d418ea848c4cde2c793b6fba51eaf60c0ff8bac512321c68ddee4"
+  },
+  "experiments/outputs/researchforge-study/scripts/compact_data.py": {
+    "bytes": 1879,
+    "sha256": "1f407b6e24c50981ae7773cd16e40079131b291dd1fb52aba59d1d65f7f822e0"
+  },
+  "experiments/outputs/researchforge-study/scripts/compact_final_checkpoints.py": {
+    "bytes": 3502,
+    "sha256": "6cb12b0001afad1458cf3fb5103a1076b9065704df0afdf73f895fe14a209347"
+  },
+  "experiments/outputs/researchforge-study/scripts/compact_final_predictions.py": {
+    "bytes": 2034,
+    "sha256": "321f71b5d2f108e273af7998ca225555fda049432b51d74bb91e33d872bc67bc"
+  },
+  "experiments/outputs/researchforge-study/scripts/compare_ncn_development.py": {
+    "bytes": 4379,
+    "sha256": "77f70ca34112c50ff8323159470512981e985c84ec772f0394352fd698519097"
+  },
+  "experiments/outputs/researchforge-study/scripts/development_precision_planning.py": {
+    "bytes": 4715,
+    "sha256": "0f4b52264f1aba90c9bc4616d2b78d2c5e7a4bd3cd25e5b410faa7abaa83ce53"
+  },
+  "experiments/outputs/researchforge-study/scripts/development_summary.py": {
+    "bytes": 2389,
+    "sha256": "8570a0230e9f354c6406e12093038bcb316452e59d5944a191a4eb3c1450cad0"
+  },
+  "experiments/outputs/researchforge-study/scripts/download_data.py": {
+    "bytes": 5316,
+    "sha256": "5539829e06e3bc3778340b47f5e3497e84d0918cdc9865caaffbfa0b2c63f1db"
+  },
+  "experiments/outputs/researchforge-study/scripts/download_ncn_torch.py": {
+    "bytes": 2595,
+    "sha256": "dba859cbc1b8d13e982570158ad9f2962f44443854982589a8fa3eacaa9b0d6d"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_authors.py": {
+    "bytes": 1903,
+    "sha256": "d023c1cf4bbf294eb76eb2ebad23fc254c18ae26816c67eb6dbd8d353a961942"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_bm25_pilot.py": {
+    "bytes": 11131,
+    "sha256": "65e662a3839f5d1d50c4beec291444d37d39e9721c9b79a01a2698ff79c0ff57"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_bm25_stats.py": {
+    "bytes": 3159,
+    "sha256": "1a67dbc60dc54ce8724c06ce4ca498e6cdb45590ef6dc64909f3f090a84936c5"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_expanded.py": {
+    "bytes": 4174,
+    "sha256": "66cfd63d26a69584e06f681d35c8ec42618671bf45a1f130c9a88cf26a6392f9"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_final_run.py": {
+    "bytes": 15936,
+    "sha256": "8d9002b80e718c9a1db1fbd2cccc8102bf8eb57b7a68a272b9fc06513e70d171"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_index.py": {
+    "bytes": 3484,
+    "sha256": "fa2716035a04cd1c353307b8eaa81fb228058303a5810bf6a9d1d054d9e64e56"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_label_audit.py": {
+    "bytes": 1965,
+    "sha256": "57b6aad8e68e72b6dea827a61e8eec9b280cdba7bc95ce605cd5ea7d06f7f987"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_paired_analysis.py": {
+    "bytes": 3571,
+    "sha256": "e0e78d9db8927c23fc748f38bf20f77588371ca55ccdcb8ef8822020866de180"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_pilot.py": {
+    "bytes": 10242,
+    "sha256": "959240da1d6213ca0f9e1080f866e6790f19829019ccd395978c5afedca98ace"
+  },
+  "experiments/outputs/researchforge-study/scripts/exharmony_prepare.py": {
+    "bytes": 6379,
+    "sha256": "b51ceb9a129ac2587459e979a5d3f5bc9b9b5c59cdc9cd78b771317d0d7525dd"
+  },
+  "experiments/outputs/researchforge-study/scripts/export_completed_final.py": {
+    "bytes": 1878,
+    "sha256": "72d6e1f0ff5856d5be6aef78a0403f0aeb65876bfc4c78b59099072a4d939902"
+  },
+  "experiments/outputs/researchforge-study/scripts/final_evaluation_gate.py": {
+    "bytes": 7740,
+    "sha256": "1c7addadae5dfb3933ecb8dc8d2c16805c2f331c51862a992129759e51da40b0"
+  },
+  "experiments/outputs/researchforge-study/scripts/final_results_figures.py": {
+    "bytes": 9516,
+    "sha256": "bf40fb63fbd08a1bbc003610e49434371348cd25c3103bda33767702ca4cffd8"
+  },
+  "experiments/outputs/researchforge-study/scripts/final_results_tables.py": {
+    "bytes": 5640,
+    "sha256": "289b5fefdfd9bf7a6489db94371706e9cb5211c3ff7b76042ce1264be4f56b84"
+  },
+  "experiments/outputs/researchforge-study/scripts/final_statistics.py": {
+    "bytes": 4991,
+    "sha256": "178780df7841e2888c81d114233899bb03a14f7e8f7317df8658f9b322dce617"
+  },
+  "experiments/outputs/researchforge-study/scripts/final_subgroups.py": {
+    "bytes": 4678,
+    "sha256": "b6f043f8fd392058ca46b8c1e1decca583002a389b3028557eef0d9324385f8b"
+  },
+  "experiments/outputs/researchforge-study/scripts/fit_expanded_models.py": {
+    "bytes": 7166,
+    "sha256": "17655e82422ddea461394a1caf5125d79bb24934d9bdc8d8ec91f05a159392c3"
+  },
+  "experiments/outputs/researchforge-study/scripts/fit_factorial.py": {
+    "bytes": 8536,
+    "sha256": "2d1f7d1ee0b3175171127f7d2f4466772c46f99ddbd3bf004a367b543317d0d9"
+  },
+  "experiments/outputs/researchforge-study/scripts/frozen_ranker.py": {
+    "bytes": 3342,
+    "sha256": "5133ee583e5d9e707929e1278c5fb4bb26d4a68f28737a8a58d49566b3b02f11"
+  },
+  "experiments/outputs/researchforge-study/scripts/hashed_bm25.py": {
+    "bytes": 1092,
+    "sha256": "7e5161e3c4fd743298209c6972c34159228d0a0d865a2e26b4962ab1bc71b89b"
+  },
+  "experiments/outputs/researchforge-study/scripts/install_ncn_torch.py": {
+    "bytes": 3558,
+    "sha256": "24ce81088f02933020ecee2e1b3bf38430b186117c3a7b5245861a8e631aa7a7"
+  },
+  "experiments/outputs/researchforge-study/scripts/ncn_development.py": {
+    "bytes": 8019,
+    "sha256": "dc711b5b9488843b052ae909b8e25b5644961a094a6c2d2339c30070c582b580"
+  },
+  "experiments/outputs/researchforge-study/scripts/ncn_multiseed.py": {
+    "bytes": 2425,
+    "sha256": "8a247350a9a842e27fc193490758e3aae39f8d0f0763b9fa7670aa4fe7e0fb83"
+  },
+  "experiments/outputs/researchforge-study/scripts/ncn_temporal.py": {
+    "bytes": 10202,
+    "sha256": "0fad0563787d240b551efe4f8e51edd90ecb5d95b584825028920f6d7508535d"
+  },
+  "experiments/outputs/researchforge-study/scripts/ogb_final_run.py": {
+    "bytes": 13315,
+    "sha256": "91cd043fca1c17d2455f5e43dabda181a2aedcc5c5640ed5b5826742e912af10"
+  },
+  "experiments/outputs/researchforge-study/scripts/ogb_multiseed.py": {
+    "bytes": 7944,
+    "sha256": "9f0adc10d72787b3a31aa50650e5a42d973e97387a5d91f688f8fa912121bc3d"
+  },
+  "experiments/outputs/researchforge-study/scripts/ogb_paired_analysis.py": {
+    "bytes": 2369,
+    "sha256": "94faf57076157a2e7d9bf655562dbf65612beb5ed0ff9b97e5ce3ad50ba89c59"
+  },
+  "experiments/outputs/researchforge-study/scripts/ogb_validation.py": {
+    "bytes": 7147,
+    "sha256": "fb6791fe9e8a500aa4c0d72d87bb2f176b2c9b6ea1c6319254a68467193c9f63"
+  },
+  "experiments/outputs/researchforge-study/scripts/pipeline_cost.py": {
+    "bytes": 8507,
+    "sha256": "8f8670dd31c509fda0340ed6d7a23c9708c8565d153c55a374c8709155aca12c"
+  },
+  "experiments/outputs/researchforge-study/scripts/preflight_saved_models.py": {
+    "bytes": 5378,
+    "sha256": "29d8d536b75036a43eeefe8c27d3b22a58e7a910b3bcb4c5a43bfb6343473670"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_expanded.py": {
+    "bytes": 7379,
+    "sha256": "e0fd6b631ddc28c2dafb3e1e91e7b07850bfeb16caf84ad62094744407ea0360"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_final_data.py": {
+    "bytes": 3447,
+    "sha256": "871ab020f3925b75c7f886fbaa56e15f9e162b0f7600d27116d8105b4909d701"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_final_lexical.py": {
+    "bytes": 5945,
+    "sha256": "fa5034a6bb9f069e64fa3a72372e5abc39d6df23f35c0fad4d8669c2269639bf"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_final_run.py": {
+    "bytes": 15902,
+    "sha256": "43eefb18de8d2424d822089359f3eb577ec8d4b73ee6253e6fc442fe1a6c4664"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_fixed_scorer.py": {
+    "bytes": 2989,
+    "sha256": "48ad717c72062d6ec02cd1bd585d657ddbf2b6baa5a24add67972be25475b547"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_fixed_sensitivity.py": {
+    "bytes": 3899,
+    "sha256": "824ddd061cc17345756a7b76a869eeb822594ab9083b2a9d9b0f7f097760fea1"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_frequency_audit.py": {
+    "bytes": 4741,
+    "sha256": "07c954bdd79973735479d9030d390c7f95dc2353b4293e08dc7f1ed255a7e67e"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_hybrid_graph.py": {
+    "bytes": 17759,
+    "sha256": "f2d50b2422306ec06540a7605e81ea4b3abe6ea9062d473696ccf88a0d9e222e"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_original_comparator.py": {
+    "bytes": 1732,
+    "sha256": "201578abe35ca6d00cf1b11b1d134d3a454435c663fb7a0563602db5b0b1ddb8"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_pilot.py": {
+    "bytes": 14217,
+    "sha256": "04c916708efac1854d22428b7e5bb36a7c4853dae859dde942442648f27bb8e4"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_quality_audit.py": {
+    "bytes": 3597,
+    "sha256": "7ba3bf5268f0642ad2b869cb8737090af640f3c057da45437667c9d1e7a6a8a9"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_retrieval_ablation.py": {
+    "bytes": 1364,
+    "sha256": "c0526e6820a79362b4d742c1d8511b2fdb6e45f877a5eed2b8ad428dfc5827e5"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_test_text_cache.py": {
+    "bytes": 8676,
+    "sha256": "262e84815fb38be95a53eb47d146cfe10d2188d96358c5c9b580ea372dc44a48"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_text_graph.py": {
+    "bytes": 15960,
+    "sha256": "6607c733878cf531118dd0107713d0618a901c70e1fb0823ddad72de969ba607"
+  },
+  "experiments/outputs/researchforge-study/scripts/prescience_text_reuse_plan.py": {
+    "bytes": 4197,
+    "sha256": "545a4e8fdd27e6e824c7d0e6c396ecdd1b55cca55cb1692e9c9e1495e6bdf0d5"
+  },
+  "experiments/outputs/researchforge-study/scripts/profile_hybrid_memory.py": {
+    "bytes": 2686,
+    "sha256": "ca0220b1b9680a0f676d90f5d1662a6b3d94f9eea6a1c2be36c22cc5d8a7c4e0"
+  },
+  "experiments/outputs/researchforge-study/scripts/publication_ablation_design.py": {
+    "bytes": 1689,
+    "sha256": "8a6ec2a07600c388cb0f000daff7c1d7df52789afeb58ff94eec8e0f7170d4da"
+  },
+  "experiments/outputs/researchforge-study/scripts/recover_final_writer.py": {
+    "bytes": 3392,
+    "sha256": "e353dc4a037e9a2e817e9c4d48733e7c8272966e155ca0845e930d2a7c3e7575"
+  },
+  "experiments/outputs/researchforge-study/scripts/refresh_manuscript_structure.py": {
+    "bytes": 14621,
+    "sha256": "e6edb59c9e8cef4c77132fe3d92521c3c7f1bee17700482fc8458945b946a029"
+  },
+  "experiments/outputs/researchforge-study/scripts/render_final_documents.py": {
+    "bytes": 8889,
+    "sha256": "dcc1423e1cb7dc9154ab9078fb4f45d734b1da716713b367da82cb0baa4e9d19"
+  },
+  "experiments/outputs/researchforge-study/scripts/reranking_cost.py": {
+    "bytes": 5605,
+    "sha256": "0d42293dbc668093b32677500173a4c7744b8532a0d6fdc7efe4888b61c50491"
+  },
+  "experiments/outputs/researchforge-study/scripts/researchforge_scoring.py": {
+    "bytes": 2555,
+    "sha256": "3192c6427d0e7f1e2f3ac044ec8694f3c7e0b94bd75ac9918e65fcfbf26ef1b5"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_bm25_chain.py": {
+    "bytes": 2158,
+    "sha256": "09b49fecf20f7178788a0c1b44f118dd1bc45d97057650f62ff18d7ae34005f7"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_cost_when_ready.py": {
+    "bytes": 2932,
+    "sha256": "fe3919e4693d9ce6e6c3c65d3d833618205195ace8dd706c1f16a9ac5857234a"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_expanded_when_ready.py": {
+    "bytes": 9763,
+    "sha256": "caf0d80d4af70512a2a9f5e15d4944a78604baa08540df7ea4d8a4a7faed89bb"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_factorial_when_ready.py": {
+    "bytes": 2691,
+    "sha256": "470a2efc716fc5b9e986c88e92ec64352e0ae9b098f6250aa7ac921286122444"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_final_text_when_ready.py": {
+    "bytes": 4284,
+    "sha256": "3548cada935c1bbebdc70074ad193861de4ca879b6aa5b4fbd377baaf7f75d0b"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_final_with_recovery.py": {
+    "bytes": 5012,
+    "sha256": "64de145c4a52e7ef7123316f75aca6b3eb4cd3c4151d3b4ea94b9a1400858bf3"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_frozen_study.py": {
+    "bytes": 7622,
+    "sha256": "53791080eaced45dc84bcbf76fafe2d579c2a51920f5fbc9b2cd02b0dc0d48f6"
+  },
+  "experiments/outputs/researchforge-study/scripts/run_hybrid_when_ready.py": {
+    "bytes": 4495,
+    "sha256": "47e5248e339e8ffae56e4f330d07d193dddf46da6486d6c0dda9cccb4d79ba9d"
+  },
+  "experiments/outputs/researchforge-study/scripts/semantic_encode.py": {
+    "bytes": 7286,
+    "sha256": "781b1ab36b728bf34df5bab21d00c9f83dac57b8a48ee8cf44361aabdb97b1b6"
+  },
+  "experiments/outputs/researchforge-study/scripts/semantic_index.py": {
+    "bytes": 2491,
+    "sha256": "202fca76d020fc70458a88196b8fd11ca6bcd4ab43e6a45767c21e2b05ab444c"
+  },
+  "experiments/outputs/researchforge-study/scripts/subgroup_analysis.py": {
+    "bytes": 5456,
+    "sha256": "e91cedc30a1f032dc4b733246eedc9b0a994628b7944272929002a76646feb05"
+  },
+  "experiments/outputs/researchforge-study/scripts/summarize_expanded.py": {
+    "bytes": 4267,
+    "sha256": "f3553f249a827c1723e6ee3e67c75306469423a37bd9cf297caca76655396025"
+  },
+  "experiments/outputs/researchforge-study/scripts/supervisor_state.py": {
+    "bytes": 783,
+    "sha256": "83c3ff03e46a5e3dd6d8a1ee2cd6f11feedf4f87700c725fba9ec5fece710dfa"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_build_final_plan.py": {
+    "bytes": 9203,
+    "sha256": "a7631df14327019854118f015d6fb8a0418216a971ecba108367700e9fde868b"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_candidate_contribution.py": {
+    "bytes": 1453,
+    "sha256": "9be260fb7e850dbd12a63b41fc833952f1c66fd4dd52e987731f7cc7e0a26e1f"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_collection_recovery.py": {
+    "bytes": 1742,
+    "sha256": "6fa9a87ef0f2b6a7f73710af17cf7b99c20a8efd3e5852cc62642936868c7e2b"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_encoding_cost_accounting.py": {
+    "bytes": 815,
+    "sha256": "4b0f9df3aca8a021a0a40a5d8188d805d30d6eaea408c7d6a809d165d84eff2b"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_exharmony.py": {
+    "bytes": 3100,
+    "sha256": "1805cb1b96e88b5e05d21904efca92c5b679a32fe0432b52b7f6721176eef1be"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_exharmony_final_run.py": {
+    "bytes": 8892,
+    "sha256": "50650ae4713b93526452ade1dcafdd024defdd84f883bece01035ecc30508c1d"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_expanded_pipeline.py": {
+    "bytes": 3629,
+    "sha256": "21766a3b9f33cdda1ff59c355eb7018a645f58760528a0c7cd35e6a50c6baaa1"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_expanded_summary.py": {
+    "bytes": 3291,
+    "sha256": "3f78e65b8ba70fa577d1e24ca71efb9e93ddc945fc079e6f25fdb6a9323316be"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_factorial_runner.py": {
+    "bytes": 3924,
+    "sha256": "b5103b64689650c63e412d28510a8be150551a9044487ffd859f8b4a044cfa68"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_corpus_adapter.py": {
+    "bytes": 3426,
+    "sha256": "08f970201dc40e68853c0feb4bfbbe181332b73c64e922792b549aeaa1128d63"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_evaluation_gate.py": {
+    "bytes": 4934,
+    "sha256": "4f08be9cf01e550b33ec6469ca8818d10ac7f29053dc3d8b766837cdefab6667"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_lexical.py": {
+    "bytes": 2938,
+    "sha256": "bb84cce908b1334b7cfbb8e4a0338f8549f80009eb45bb696843616f0c09c5ab"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_professor_report.py": {
+    "bytes": 1849,
+    "sha256": "32c11a7e132fa0ad72cc8ff60a50e28dfdc3bc3b6a90c04895dfb06e398ab538"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_resource_recovery.py": {
+    "bytes": 2633,
+    "sha256": "c910bb0a142edc9e21398fd3d7519c7b6ce5faf23c518d99875931c2571b4ad2"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_results_figures.py": {
+    "bytes": 1946,
+    "sha256": "3f1d91d76c28490cd92e43802d6093134f1077aa9e1df2c1e3766d94260263f2"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_results_tables.py": {
+    "bytes": 2306,
+    "sha256": "89b622d70e3488dc3bccc1f3f2c7769b37d2a864f3393dd3b65a8917856f55e3"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_statistics.py": {
+    "bytes": 1962,
+    "sha256": "38fbc21a7122ae950359dec1e065f56b65a7cdde81d6855017e5c7f3e4729715"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_final_subgroups.py": {
+    "bytes": 1525,
+    "sha256": "dbef71e05b0c2ab376b329b6a94fb0c93bd0f406d88c9aaade9b95f2f32a97f1"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_fixed_scorer.py": {
+    "bytes": 1085,
+    "sha256": "ce9aa7c6fb52d39ec958299ab768cfd156689ffa80551a8e55ba9117a3ac19d2"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_frozen_inference.py": {
+    "bytes": 3508,
+    "sha256": "b42378cf06e4664baa451d2add8174d0c94892cdd195b8a3573e9ca3d4579563"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_hashed_bm25.py": {
+    "bytes": 1952,
+    "sha256": "7464d47f1f09ff21770b2ab1ef1b2781d5396a073787773e787aa5fa141f04bb"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_hybrid_graph.py": {
+    "bytes": 1293,
+    "sha256": "3d1a738501ef026d682e591853ed32a5081202b79a006861d8f95a34130604a2"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_ogb_extended.py": {
+    "bytes": 945,
+    "sha256": "02f43b820fb9cbd0f3d9a0971de065d91704558f3311309f0542fb0b366f9c1e"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_ogb_final_ncn.py": {
+    "bytes": 2708,
+    "sha256": "ab639e132ab4ad63c265aec391857d37b9a798216835270a1f2d4c37afac9096"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_ogb_final_run.py": {
+    "bytes": 5841,
+    "sha256": "2b3ba8475b225923b986dc61ef369bc8715310fcb6f2c5db6f8e837914d82d10"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_pipeline_cost.py": {
+    "bytes": 3641,
+    "sha256": "c5ad8cc6b8a7d3523ef663a8836d892745fb47a2e813fc4978193c7d52644eac"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_prescience_final_run.py": {
+    "bytes": 8815,
+    "sha256": "195e18616bd47dac8858b8e1e830c68af3e1a1a6a7fd163d05f1aeffbe4b59a5"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_protocol.py": {
+    "bytes": 2852,
+    "sha256": "dad266c72cb31220a0a7145ffebec6e3f13ca2d92d64eda295dd3b3328948f1e"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_publication_ablation_design.py": {
+    "bytes": 1561,
+    "sha256": "1975773f7c89ea603b587b08629f9e4d9498f5065de0cd8e084f40773a5e3c23"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_reproducibility_package.py": {
+    "bytes": 3825,
+    "sha256": "87d9a951abf72c7662e2384a78dc65f7f1fae47fdca48f56a699d8db466bb1ed"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_researchforge_scoring.py": {
+    "bytes": 2562,
+    "sha256": "3d213dbc9415fb2e855f25ba347ca3bab93e19174030f8ba9564584b9c4e130f"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_run_frozen_study.py": {
+    "bytes": 4159,
+    "sha256": "000b4269f41c28168b14a9617d97e93b68924a4d12315e858aca27c1f521c73a"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_schedule_change.py": {
+    "bytes": 2038,
+    "sha256": "9d7c554c2797a2fd996f3e797461955420761ea44d19178443bed3ef4ca6db76"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_semantic_index.py": {
+    "bytes": 1304,
+    "sha256": "6b49e9b2ba2c57bd13d06ccbff7a9f6af873d2ec5bdd467edfaba1cb1509fbbe"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_subgroup_analysis.py": {
+    "bytes": 1520,
+    "sha256": "ecc7da61c775ca3d5e2677f5ec8e97b58f77028b630fd400c7e17457043777bd"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_supervisor_state.py": {
+    "bytes": 1777,
+    "sha256": "75f68724b0fb55a5ef3b61b17f9321ed328ee1dd97bcf675705d88a4298dfba7"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_test_text_cache.py": {
+    "bytes": 5238,
+    "sha256": "f0e76844043dd80a07c8f33a7a65b0fd08007157ecefda774c36f99e8b56ccf1"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_text_graph.py": {
+    "bytes": 3157,
+    "sha256": "5124c2ba352b091be07c0290a75a6ea3051a4e22ca146ee8bad509981fd636fd"
+  },
+  "experiments/outputs/researchforge-study/scripts/test_text_reuse_plan.py": {
+    "bytes": 1197,
+    "sha256": "e5bcfbbb298db4e881dc75e8b84c801dd4830b61f5c9da8c66d9bdaf5b710c15"
+  },
+  "experiments/outputs/researchforge-study/scripts/text_index.py": {
+    "bytes": 3555,
+    "sha256": "a34ee2d9fba36cd90ee4f49c6b5c358ea7ada5141945da52841f7a00ca058d3e"
+  },
+  "experiments/outputs/researchforge-study/scripts/verify_exharmony_metrics.py": {
+    "bytes": 1761,
+    "sha256": "25c760c2f67091e1827f435a3486df3ddb779a79f7bcf485afd9327b4daca764"
+  },
+  "experiments/outputs/researchforge-study/scripts/verify_ncn_development.py": {
+    "bytes": 2532,
+    "sha256": "bde809c541ab15b3266915127b1b3fdd323eb3f04b4d369bbdb22b5487be3100"
+  },
+  "experiments/outputs/researchforge-study/scripts/verify_rank_predictions.py": {
+    "bytes": 3576,
+    "sha256": "bd8e07642c19d30cbed0087df95d643886e1aba030dceeedefcdfaf1af272b77"
+  },
+  "experiments/outputs/researchforge-study/scripts/verify_train_semantic.py": {
+    "bytes": 1901,
+    "sha256": "a1b50f7e97abf45015f06a668018f35ca325ab1c2456dba375557e667dfc388f"
+  }
+}

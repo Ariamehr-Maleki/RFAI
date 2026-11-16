@@ -1,0 +1,1127 @@
+{
+  "full_lambdamart__minus__full_binary_lightgbm": {
+    "status": "Frozen secondary subgroup analysis; marginal intervals, no multiplicity-adjusted claims",
+    "query_count": 1000,
+    "model_seed_count": 3,
+    "bootstrap": {
+      "repetitions": 10000,
+      "seed": 314159,
+      "unit": "seed author; joint draws across groups, after model-seed averaging"
+    },
+    "groups": {
+      "ndcg1000:all": {
+        "delta": 0.010070056752219858,
+        "queries": 1000,
+        "author_clusters": 989,
+        "sparse_group": false,
+        "ci95": [
+          0.0055373348273851306,
+          0.014684580364398347
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3": {
+        "delta": 0.0046088416314921075,
+        "queries": 388,
+        "author_clusters": 388,
+        "sparse_group": false,
+        "ci95": [
+          -0.001897737772168458,
+          0.010842586321181923
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10": {
+        "delta": 0.005797232516321011,
+        "queries": 299,
+        "author_clusters": 295,
+        "sparse_group": false,
+        "ci95": [
+          -0.0015275900744475483,
+          0.013076121930076378
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:11+": {
+        "delta": 0.02092157724223941,
+        "queries": 313,
+        "author_clusters": 309,
+        "sparse_group": false,
+        "ci95": [
+          0.01097991626575272,
+          0.031194375768159036
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:all": {
+        "delta": -0.0017978620019436346,
+        "queries": 686,
+        "author_clusters": 678,
+        "sparse_group": false,
+        "ci95": [
+          -0.005450689344316529,
+          0.0020218414663219788
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3": {
+        "delta": -0.0043274853801169594,
+        "queries": 285,
+        "author_clusters": 285,
+        "sparse_group": false,
+        "ci95": [
+          -0.013137185432034345,
+          0.004859206677929761
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10": {
+        "delta": 0.0,
+        "queries": 193,
+        "author_clusters": 191,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:11+": {
+        "delta": 0.0,
+        "queries": 208,
+        "author_clusters": 204,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:all": {
+        "delta": 0.03201089548971447,
+        "queries": 779,
+        "author_clusters": 775,
+        "sparse_group": false,
+        "ci95": [
+          0.020755039429549177,
+          0.04364274832644652
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3": {
+        "delta": 0.010042735042735045,
+        "queries": 286,
+        "author_clusters": 286,
+        "sparse_group": false,
+        "ci95": [
+          -0.0008890681003584222,
+          0.021111203396087116
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10": {
+        "delta": 0.025094170337085324,
+        "queries": 247,
+        "author_clusters": 245,
+        "sparse_group": false,
+        "ci95": [
+          0.007953408406137334,
+          0.04411697725158794
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:11+": {
+        "delta": 0.06449595646750121,
+        "queries": 246,
+        "author_clusters": 246,
+        "sparse_group": false,
+        "ci95": [
+          0.0366038699561427,
+          0.09322762088212358
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "interactions": {
+      "ndcg1000:1-3_minus_4-10": {
+        "difference_of_deltas": -0.0011883908848289038,
+        "ci95": [
+          -0.010954172049396258,
+          0.008387738961522112
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3_minus_11+": {
+        "difference_of_deltas": -0.016312735610747302,
+        "ci95": [
+          -0.028416834383723184,
+          -0.0045361373603553514
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10_minus_11+": {
+        "difference_of_deltas": -0.015124344725918398,
+        "ci95": [
+          -0.027758546351898467,
+          -0.002640971603615488
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": -0.0043274853801169594,
+        "ci95": [
+          -0.013137185432034345,
+          0.004859206677929761
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.0043274853801169594,
+        "ci95": [
+          -0.013137185432034345,
+          0.004859206677929761
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10_minus_11+": {
+        "difference_of_deltas": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": -0.015051435294350279,
+        "ci95": [
+          -0.03714239074551678,
+          0.005411298743988636
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.05445322142476616,
+        "ci95": [
+          -0.08561270718973676,
+          -0.02468590015779012
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.03940178613041589,
+        "ci95": [
+          -0.07338167535863896,
+          -0.005558074015753621
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "limitations": [
+      "Subgroups observational, not causal.",
+      "Sparse groups flagged below20 author clusters; no reliable subgroup superiority claim.",
+      "Crossed network dependence not fully modeled; intervals marginal and secondary.",
+      "Empty new/repeat truth excluded for that metric only; all use the same full ranking.",
+      "A difference between significant and nonsignificant groups is not a significant interaction."
+    ]
+  },
+  "full_lambdamart__minus__no_content_lambdamart": {
+    "status": "Frozen secondary subgroup analysis; marginal intervals, no multiplicity-adjusted claims",
+    "query_count": 1000,
+    "model_seed_count": 3,
+    "bootstrap": {
+      "repetitions": 10000,
+      "seed": 314159,
+      "unit": "seed author; joint draws across groups, after model-seed averaging"
+    },
+    "groups": {
+      "ndcg1000:all": {
+        "delta": 0.012077697297303886,
+        "queries": 1000,
+        "author_clusters": 989,
+        "sparse_group": false,
+        "ci95": [
+          0.006133428601649015,
+          0.018232122395274476
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3": {
+        "delta": 0.021916608587136274,
+        "queries": 388,
+        "author_clusters": 388,
+        "sparse_group": false,
+        "ci95": [
+          0.010531577505456309,
+          0.033899469275469316
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10": {
+        "delta": 0.007916478196664228,
+        "queries": 299,
+        "author_clusters": 295,
+        "sparse_group": false,
+        "ci95": [
+          -0.0008616639293116163,
+          0.01701412681049441
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:11+": {
+        "delta": 0.0038563136891131148,
+        "queries": 313,
+        "author_clusters": 309,
+        "sparse_group": false,
+        "ci95": [
+          -0.004632805893383549,
+          0.012736097944301587
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:all": {
+        "delta": 0.011054421768707483,
+        "queries": 686,
+        "author_clusters": 678,
+        "sparse_group": false,
+        "ci95": [
+          0.005068930267733125,
+          0.017916334303696144
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3": {
+        "delta": 0.026608187134502925,
+        "queries": 285,
+        "author_clusters": 285,
+        "sparse_group": false,
+        "ci95": [
+          0.012110726643598616,
+          0.04283253284478773
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10": {
+        "delta": 0.0,
+        "queries": 193,
+        "author_clusters": 191,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:11+": {
+        "delta": 0.0,
+        "queries": 208,
+        "author_clusters": 204,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:all": {
+        "delta": 0.029092908232831203,
+        "queries": 779,
+        "author_clusters": 775,
+        "sparse_group": false,
+        "ci95": [
+          0.017928695342690645,
+          0.040889568786114334
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3": {
+        "delta": 0.04297561412946027,
+        "queries": 286,
+        "author_clusters": 286,
+        "sparse_group": false,
+        "ci95": [
+          0.02263482833795335,
+          0.06549319785254516
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10": {
+        "delta": 0.022590499918435144,
+        "queries": 247,
+        "author_clusters": 245,
+        "sparse_group": false,
+        "ci95": [
+          0.006696972606246799,
+          0.04054000707007923
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:11+": {
+        "delta": 0.019481692652424373,
+        "queries": 246,
+        "author_clusters": 246,
+        "sparse_group": false,
+        "ci95": [
+          -0.0010742718105939946,
+          0.04171637296685334
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "interactions": {
+      "ndcg1000:1-3_minus_4-10": {
+        "difference_of_deltas": 0.014000130390472047,
+        "ci95": [
+          -0.0006889916060931698,
+          0.028820355394981588
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3_minus_11+": {
+        "difference_of_deltas": 0.01806029489802316,
+        "ci95": [
+          0.003568034477665322,
+          0.032646831985157276
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10_minus_11+": {
+        "difference_of_deltas": 0.004060164507551113,
+        "ci95": [
+          -0.00829742413890658,
+          0.016526313276796524
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": 0.026608187134502925,
+        "ci95": [
+          0.012110726643598616,
+          0.04283253284478773
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_11+": {
+        "difference_of_deltas": 0.026608187134502925,
+        "ci95": [
+          0.012110726643598616,
+          0.04283253284478773
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10_minus_11+": {
+        "difference_of_deltas": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": 0.020385114211025127,
+        "ci95": [
+          -0.007839420311064535,
+          0.047950224047636214
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_11+": {
+        "difference_of_deltas": 0.023493921477035898,
+        "ci95": [
+          -0.006568396671706074,
+          0.05320937735744406
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10_minus_11+": {
+        "difference_of_deltas": 0.0031088072660107706,
+        "ci95": [
+          -0.024040363501223776,
+          0.030289225833848812
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "limitations": [
+      "Subgroups observational, not causal.",
+      "Sparse groups flagged below20 author clusters; no reliable subgroup superiority claim.",
+      "Crossed network dependence not fully modeled; intervals marginal and secondary.",
+      "Empty new/repeat truth excluded for that metric only; all use the same full ranking.",
+      "A difference between significant and nonsignificant groups is not a significant interaction."
+    ]
+  },
+  "factorial_text+network+explicit_time__minus__factorial_network+explicit_time": {
+    "status": "Frozen secondary subgroup analysis; marginal intervals, no multiplicity-adjusted claims",
+    "query_count": 1000,
+    "model_seed_count": 3,
+    "bootstrap": {
+      "repetitions": 10000,
+      "seed": 314159,
+      "unit": "seed author; joint draws across groups, after model-seed averaging"
+    },
+    "groups": {
+      "ndcg1000:all": {
+        "delta": -0.009146552965215339,
+        "queries": 1000,
+        "author_clusters": 989,
+        "sparse_group": false,
+        "ci95": [
+          -0.012565318693477977,
+          -0.005679711812815605
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3": {
+        "delta": -0.00809878984177388,
+        "queries": 388,
+        "author_clusters": 388,
+        "sparse_group": false,
+        "ci95": [
+          -0.014289418539422514,
+          -0.002210008073863608
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10": {
+        "delta": -0.011758965808153745,
+        "queries": 299,
+        "author_clusters": 295,
+        "sparse_group": false,
+        "ci95": [
+          -0.017534618544787706,
+          -0.006420538261224309
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:11+": {
+        "delta": -0.007949813833767088,
+        "queries": 313,
+        "author_clusters": 309,
+        "sparse_group": false,
+        "ci95": [
+          -0.014198820430892727,
+          -0.0019420489366406331
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:all": {
+        "delta": -0.003887269193391642,
+        "queries": 686,
+        "author_clusters": 678,
+        "sparse_group": false,
+        "ci95": [
+          -0.0072698752110224914,
+          -0.0012389894919131563
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3": {
+        "delta": -0.008187134502923975,
+        "queries": 285,
+        "author_clusters": 285,
+        "sparse_group": false,
+        "ci95": [
+          -0.015965337181689496,
+          -0.0023317112733171126
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10": {
+        "delta": -0.0017271157167530224,
+        "queries": 193,
+        "author_clusters": 191,
+        "sparse_group": false,
+        "ci95": [
+          -0.00558659217877095,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:11+": {
+        "delta": 0.0,
+        "queries": 208,
+        "author_clusters": 204,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:all": {
+        "delta": -0.011707635776955418,
+        "queries": 779,
+        "author_clusters": 775,
+        "sparse_group": false,
+        "ci95": [
+          -0.02131810697325663,
+          -0.0025640503727502456
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3": {
+        "delta": -0.001555495786265018,
+        "queries": 286,
+        "author_clusters": 286,
+        "sparse_group": false,
+        "ci95": [
+          -0.009279539501781882,
+          0.0052591599533325485
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10": {
+        "delta": -0.023206438186195253,
+        "queries": 247,
+        "author_clusters": 245,
+        "sparse_group": false,
+        "ci95": [
+          -0.03872728710565917,
+          -0.0085140559568573
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:11+": {
+        "delta": -0.01196498472921237,
+        "queries": 246,
+        "author_clusters": 246,
+        "sparse_group": false,
+        "ci95": [
+          -0.03660499069604202,
+          0.011194496917224185
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "interactions": {
+      "ndcg1000:1-3_minus_4-10": {
+        "difference_of_deltas": 0.003660175966379865,
+        "ci95": [
+          -0.004547438546508764,
+          0.011934410823361238
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3_minus_11+": {
+        "difference_of_deltas": -0.00014897600800679173,
+        "ci95": [
+          -0.008588950853920434,
+          0.008318646282572116
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10_minus_11+": {
+        "difference_of_deltas": -0.0038091519743866566,
+        "ci95": [
+          -0.011934234541503068,
+          0.004504491082197405
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": -0.006460018786170953,
+        "ci95": [
+          -0.01485563048063048,
+          0.0005926271084217788
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.008187134502923975,
+        "ci95": [
+          -0.015965337181689496,
+          -0.0023317112733171126
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.0017271157167530224,
+        "ci95": [
+          -0.00558659217877095,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": 0.021650942399930234,
+        "ci95": [
+          0.004762233550875817,
+          0.03858692709867232
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_11+": {
+        "difference_of_deltas": 0.010409488942947354,
+        "ci95": [
+          -0.014011255404177093,
+          0.03612825414309364
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.011241453456982882,
+        "ci95": [
+          -0.03885325684314464,
+          0.017207945513006407
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "limitations": [
+      "Subgroups observational, not causal.",
+      "Sparse groups flagged below20 author clusters; no reliable subgroup superiority claim.",
+      "Crossed network dependence not fully modeled; intervals marginal and secondary.",
+      "Empty new/repeat truth excluded for that metric only; all use the same full ranking.",
+      "A difference between significant and nonsignificant groups is not a significant interaction."
+    ]
+  },
+  "factorial_text+network+explicit_time__minus__factorial_text+explicit_time": {
+    "status": "Frozen secondary subgroup analysis; marginal intervals, no multiplicity-adjusted claims",
+    "query_count": 1000,
+    "model_seed_count": 3,
+    "bootstrap": {
+      "repetitions": 10000,
+      "seed": 314159,
+      "unit": "seed author; joint draws across groups, after model-seed averaging"
+    },
+    "groups": {
+      "ndcg1000:all": {
+        "delta": 0.010702368969074462,
+        "queries": 1000,
+        "author_clusters": 989,
+        "sparse_group": false,
+        "ci95": [
+          0.005244544103348488,
+          0.016089540930825905
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3": {
+        "delta": 0.0017450892395270094,
+        "queries": 388,
+        "author_clusters": 388,
+        "sparse_group": false,
+        "ci95": [
+          -0.004919903136600452,
+          0.008444491649780303
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10": {
+        "delta": 0.012895091960748187,
+        "queries": 299,
+        "author_clusters": 295,
+        "sparse_group": false,
+        "ci95": [
+          0.0035438564009441917,
+          0.02210750504285798
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:11+": {
+        "delta": 0.019711315807905062,
+        "queries": 313,
+        "author_clusters": 309,
+        "sparse_group": false,
+        "ci95": [
+          0.00769451926924797,
+          0.032232380095864516
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:all": {
+        "delta": -0.0032393909944930356,
+        "queries": 686,
+        "author_clusters": 678,
+        "sparse_group": false,
+        "ci95": [
+          -0.007067980373535928,
+          -0.0006564910553093714
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3": {
+        "delta": -0.0042884990253411305,
+        "queries": 285,
+        "author_clusters": 285,
+        "sparse_group": false,
+        "ci95": [
+          -0.008532787841661563,
+          -0.00101010101010101
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10": {
+        "delta": -0.0051813471502590676,
+        "queries": 193,
+        "author_clusters": 191,
+        "sparse_group": false,
+        "ci95": [
+          -0.01675977653631285,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:11+": {
+        "delta": 0.0,
+        "queries": 208,
+        "author_clusters": 204,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:all": {
+        "delta": 0.014926890729201382,
+        "queries": 779,
+        "author_clusters": 775,
+        "sparse_group": false,
+        "ci95": [
+          0.0024594275630586697,
+          0.027621220146771822
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3": {
+        "delta": 0.0031020261789492555,
+        "queries": 286,
+        "author_clusters": 286,
+        "sparse_group": false,
+        "ci95": [
+          -0.007514775643989094,
+          0.014427672938268405
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10": {
+        "delta": 0.0017306580059616497,
+        "queries": 247,
+        "author_clusters": 245,
+        "sparse_group": false,
+        "ci95": [
+          -0.021161013393211536,
+          0.024283034478639786
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:11+": {
+        "delta": 0.04192437342843847,
+        "queries": 246,
+        "author_clusters": 246,
+        "sparse_group": false,
+        "ci95": [
+          0.012331322128710256,
+          0.07205878363294069
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "interactions": {
+      "ndcg1000:1-3_minus_4-10": {
+        "difference_of_deltas": -0.011150002721221177,
+        "ci95": [
+          -0.02252865223983208,
+          9.912866064690726e-05
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3_minus_11+": {
+        "difference_of_deltas": -0.017966226568378055,
+        "ci95": [
+          -0.03215937463419397,
+          -0.004256618772515792
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10_minus_11+": {
+        "difference_of_deltas": -0.006816223847156876,
+        "ci95": [
+          -0.02256073542031755,
+          0.008347687016068193
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": 0.000892848124917937,
+        "ci95": [
+          -0.007344840478564308,
+          0.013472719934083853
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.0042884990253411305,
+        "ci95": [
+          -0.008532787841661563,
+          -0.00101010101010101
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.0051813471502590676,
+        "ci95": [
+          -0.01675977653631285,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": 0.0013713681729876058,
+        "ci95": [
+          -0.023732735112881414,
+          0.026700741925822124
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.038822347249489214,
+        "ci95": [
+          -0.07122824400234505,
+          -0.0075868178927218505
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.04019371542247682,
+        "ci95": [
+          -0.07753557269246562,
+          -0.002151836333496447
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "limitations": [
+      "Subgroups observational, not causal.",
+      "Sparse groups flagged below20 author clusters; no reliable subgroup superiority claim.",
+      "Crossed network dependence not fully modeled; intervals marginal and secondary.",
+      "Empty new/repeat truth excluded for that metric only; all use the same full ranking.",
+      "A difference between significant and nonsignificant groups is not a significant interaction."
+    ]
+  },
+  "factorial_text+network+explicit_time__minus__factorial_text+network": {
+    "status": "Frozen secondary subgroup analysis; marginal intervals, no multiplicity-adjusted claims",
+    "query_count": 1000,
+    "model_seed_count": 3,
+    "bootstrap": {
+      "repetitions": 10000,
+      "seed": 314159,
+      "unit": "seed author; joint draws across groups, after model-seed averaging"
+    },
+    "groups": {
+      "ndcg1000:all": {
+        "delta": 0.008223291083918264,
+        "queries": 1000,
+        "author_clusters": 989,
+        "sparse_group": false,
+        "ci95": [
+          0.003338264337230547,
+          0.01308670709100513
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3": {
+        "delta": 0.001342216647794944,
+        "queries": 388,
+        "author_clusters": 388,
+        "sparse_group": false,
+        "ci95": [
+          -0.00714303761691866,
+          0.009919996436073303
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10": {
+        "delta": 0.00900919455186392,
+        "queries": 299,
+        "author_clusters": 295,
+        "sparse_group": false,
+        "ci95": [
+          0.0009190808122735512,
+          0.017494679754734847
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:11+": {
+        "delta": 0.01600243403695369,
+        "queries": 313,
+        "author_clusters": 309,
+        "sparse_group": false,
+        "ci95": [
+          0.008486370457842451,
+          0.02386282783561605
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:all": {
+        "delta": -0.0006883705863297699,
+        "queries": 686,
+        "author_clusters": 678,
+        "sparse_group": false,
+        "ci95": [
+          -0.0018324171247709477,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3": {
+        "delta": -0.001364522417153996,
+        "queries": 285,
+        "author_clusters": 285,
+        "sparse_group": false,
+        "ci95": [
+          -0.004011231448054552,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10": {
+        "delta": 0.0,
+        "queries": 193,
+        "author_clusters": 191,
+        "sparse_group": false,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:11+": {
+        "delta": -0.00040064102564102563,
+        "queries": 208,
+        "author_clusters": 204,
+        "sparse_group": false,
+        "ci95": [
+          -0.0013089005235602095,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:all": {
+        "delta": 0.02458235436412585,
+        "queries": 779,
+        "author_clusters": 775,
+        "sparse_group": false,
+        "ci95": [
+          0.013512262644908839,
+          0.035793935842281736
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3": {
+        "delta": 0.0052925706771860615,
+        "queries": 286,
+        "author_clusters": 286,
+        "sparse_group": false,
+        "ci95": [
+          -0.005883632500654363,
+          0.016768506859652692
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10": {
+        "delta": 0.007118758434547909,
+        "queries": 247,
+        "author_clusters": 245,
+        "sparse_group": false,
+        "ci95": [
+          -0.012452888838311037,
+          0.026701369527774684
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:11+": {
+        "delta": 0.06454327440099795,
+        "queries": 246,
+        "author_clusters": 246,
+        "sparse_group": false,
+        "ci95": [
+          0.03927665488942037,
+          0.09099702021425113
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "interactions": {
+      "ndcg1000:1-3_minus_4-10": {
+        "difference_of_deltas": -0.007666977904068977,
+        "ci95": [
+          -0.019549551616329954,
+          0.004168949541780593
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:1-3_minus_11+": {
+        "difference_of_deltas": -0.014660217389158745,
+        "ci95": [
+          -0.02606122470551729,
+          -0.003241671573240105
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "ndcg1000:4-10_minus_11+": {
+        "difference_of_deltas": -0.006993239485089769,
+        "ci95": [
+          -0.018320666128525148,
+          0.004454086161425106
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": -0.001364522417153996,
+        "ci95": [
+          -0.004011231448054552,
+          0.0
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.0009638813915129704,
+        "ci95": [
+          -0.0037564254646105175,
+          0.0009529010860322994
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "new_recall10:4-10_minus_11+": {
+        "difference_of_deltas": 0.00040064102564102563,
+        "ci95": [
+          0.0,
+          0.0013089005235602095
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_4-10": {
+        "difference_of_deltas": -0.0018261877573618477,
+        "ci95": [
+          -0.02441549371930719,
+          0.02030707716887375
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:1-3_minus_11+": {
+        "difference_of_deltas": -0.059250703723811894,
+        "ci95": [
+          -0.08832782840314506,
+          -0.03158609571954109
+        ],
+        "valid_bootstrap_draws": 10000
+      },
+      "repeat_recall10:4-10_minus_11+": {
+        "difference_of_deltas": -0.05742451596645005,
+        "ci95": [
+          -0.09018873242628697,
+          -0.025596197163789216
+        ],
+        "valid_bootstrap_draws": 10000
+      }
+    },
+    "limitations": [
+      "Subgroups observational, not causal.",
+      "Sparse groups flagged below20 author clusters; no reliable subgroup superiority claim.",
+      "Crossed network dependence not fully modeled; intervals marginal and secondary.",
+      "Empty new/repeat truth excluded for that metric only; all use the same full ranking.",
+      "A difference between significant and nonsignificant groups is not a significant interaction."
+    ]
+  }
+}

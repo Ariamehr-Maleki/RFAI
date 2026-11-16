@@ -1,0 +1,9 @@
+{
+  "status": "PASS label-free semantic cache",
+  "rows": 464942,
+  "sha256": "96a93db8c516037e7ee4684544257205fcb4f736c698b57bfa9b99fd69b2637e",
+  "max_l2_norm_error": 8.434057235717773e-05,
+  "copied_rows": 336792,
+  "encoded_rows": 128150,
+  "manifest_sha256": "de253302e7088331a0070eb859e9a797100767ecd337eca15dfe3aa256655518"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "committed_rows": 324608,
+  "bytes": 249298944,
+  "prefix_sha256": "3953cca5c78ee1993dee0e3fd58d3539184ac290bd63c26188b00021461514bd",
+  "max_norm_error": 8.434057235717773e-05,
+  "disk_free_bytes": 6107475968,
+  "reason": "Resume unchanged encoder after disk-reserve stop; no data deletion needed"
+}

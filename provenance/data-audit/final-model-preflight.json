@@ -1,0 +1,213 @@
+{
+  "created_utc": "2026-10-27T10:54:43.361289+00:00",
+  "status": "PASS for18 saved LightGBM interfaces and3 NCN artifact inventories; full study pending",
+  "lightgbm": [
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt",
+      "sha256": "7c39c18a02efdc43c20368e93196195cb36e32ce0b323336b390705fa7c4d9b7",
+      "width": 8,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt",
+      "sha256": "5401dc99ee2847f71cb66a640eeb9f53ca6d51e65c18087adeffb1a33ac29169",
+      "width": 8,
+      "objective": "binary",
+      "trees": 60,
+      "selected_leaves": 7,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt",
+      "sha256": "d6f709c0cfcd2c5e001a7301db37c886404e86eb41b3cff7daacf5d082e802c4",
+      "width": 266,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt",
+      "sha256": "dcac777e14feea28cf2254848e3afdf6ee0be5ff9c4b883f9354b49c4f5e8b84",
+      "width": 266,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/lambdamart.txt",
+      "sha256": "cd182e7581874eecaf123e50a27a6601fdc3bf8a0a5c7c9973ccc3b5e93ee969",
+      "width": 7,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/binary_lightgbm.txt",
+      "sha256": "0ae648681664504e3340a03ea7f3b736b80f80e5a40137f37f9cfb996b2ed5ea",
+      "width": 7,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt",
+      "sha256": "eab6851ce5701721a9452061c490b94935ce89c0183ac2bf866a926703982dae",
+      "width": 8,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt",
+      "sha256": "bae6cf0da1775df47b229bde0f305f88065cb63174a3da55e518a10ddab1c198",
+      "width": 8,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt",
+      "sha256": "80cfa64668bb01e00c6c28aa708c57f58d315f0e7d941c74d69e416e0b260fa0",
+      "width": 266,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt",
+      "sha256": "943441dac74246d7119a3706b46ff85c0349a39239e1bb7e6e4ade89090e51b3",
+      "width": 266,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/lambdamart.txt",
+      "sha256": "55ae22db469f91a5aed236809b7ea16e66f54f78b7daabdc2e9bf848d56ac01c",
+      "width": 7,
+      "objective": "lambdarank",
+      "trees": 60,
+      "selected_leaves": 7,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/binary_lightgbm.txt",
+      "sha256": "c2e34ffc19afdb20dde8672c27b9dd8389fb3a2755576de95f5224850b88c04a",
+      "width": 7,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt",
+      "sha256": "cf05134c1db9737d2aca5fec43c25fb849e766bef696a6d51d755479fe800bfb",
+      "width": 8,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt",
+      "sha256": "fff44df4cf684498c8fbf7d0e8f2d1826cfb550ea952c3ad2fd2710bfe8dbf13",
+      "width": 8,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt",
+      "sha256": "8ce06e7281dbea524cf0b10d289d8c6ac1cf8c94e4d56cada060c911a97558f7",
+      "width": 266,
+      "objective": "lambdarank",
+      "trees": 100,
+      "selected_leaves": 31,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt",
+      "sha256": "86c6ef9a93c3cceb041f96d9dbb81d545659bbd41cd82b1a03c05441526bc5dd",
+      "width": 266,
+      "objective": "binary",
+      "trees": 100,
+      "selected_leaves": 15,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/lambdamart.txt",
+      "sha256": "135ed17784003c5f3d56c31f419f899cea03b4412306c070c643805b520ff00b",
+      "width": 7,
+      "objective": "lambdarank",
+      "trees": 60,
+      "selected_leaves": 7,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    },
+    {
+      "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/binary_lightgbm.txt",
+      "sha256": "b18ab5201e5a7914ebb925f4a9d7859e5715b7d152897be214ebf2a9d61790f9",
+      "width": 7,
+      "objective": "binary",
+      "trees": 60,
+      "selected_leaves": 7,
+      "synthetic_probe": "PASS; not a quality evaluation"
+    }
+  ],
+  "ncn": [
+    {
+      "seed": 42,
+      "checkpoint": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt",
+      "sha256": "b260e1d4e61b21d9a294c8713622eb06ea04f881563c7928c3175895bef1a8cf",
+      "bytes": 143836,
+      "completed_epochs": 100,
+      "selected_epoch": 29,
+      "development_metric_verification": "PASS"
+    },
+    {
+      "seed": 43,
+      "checkpoint": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt",
+      "sha256": "97c6569aa9f26bb7518bb9d6e1353f457e33b79b85e10c4eccc9b9bbb9053dc9",
+      "bytes": 143836,
+      "completed_epochs": 100,
+      "selected_epoch": 9,
+      "development_metric_verification": "PASS"
+    },
+    {
+      "seed": 44,
+      "checkpoint": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt",
+      "sha256": "2ab352ddc860384c6009bb32e351f9d4190cd7698ec589a0b7d1a5ec242b1f30",
+      "bytes": 143836,
+      "completed_epochs": 100,
+      "selected_epoch": 36,
+      "development_metric_verification": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "outputs/researchforge-study/results/ogb-expanded-10000/report.json": "539c8866b14d6b102129a30eb6044cd657d2816d69b02f48d30f6388b27c6102",
+    "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/report.json": "3249ae9340b08116438d6ec774fe1d07c4013ea51e391e4fb8a9cb14197641f3",
+    "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/report.json": "f7f4aca8e7c065d9252577cfa6d84dbd9e6cb53d1835bdc8e6301a90f1fd0529",
+    "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/report.json": "20676ceec5f06ea1a5d9890b04bbb40470a7589d0a5d881823e92da2885b6869",
+    "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/report.json": "4883d513f263c0f854a427e3311581a5002b2edbade5a30e3bfa2fa5873aa946",
+    "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/report.json": "726fa0af3a8ab002b56a15886946eb258d8b3d5710471ca6c1df2c07fba6eed0",
+    "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/report.json": "e27c1c3e1a040c6f0863b420c14e0215bc0ff6899a5bbedcffe8357adbd8df37"
+  },
+  "limitations": [
+    "No held-out labels opened.",
+    "New hashes establish the current inventory, not historical checkpoint integrity.",
+    "NCN checkpoint loading and inference are not exercised by this lightweight audit.",
+    "Expanded PreScience models and global freeze remain pending."
+  ],
+  "audit_script_sha256": "29d8d536b75036a43eeefe8c27d3b22a58e7a910b3bcb4c5a43bfb6343473670"
+}

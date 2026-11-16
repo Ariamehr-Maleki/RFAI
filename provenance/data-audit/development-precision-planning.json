@@ -1,0 +1,132 @@
+{
+  "status": "Development-only prospective precision worksheet; no final sample size selected",
+  "comparisons": {
+    "practical_ranker_minus_classifier": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.0033495384104026346,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.006565095284389164,
+        "1000": 0.0046422233947274036,
+        "2000": 0.003282547642194582
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "practical_ranker_minus_frequency45": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.0059162370425314675,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.011595824603361676,
+        "1000": 0.008199486210486849,
+        "2000": 0.005797912301680838
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "practical_ranker_minus_semantic_standalone": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.013600239927937028,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.026656470258756573,
+        "1000": 0.018848970882464296,
+        "2000": 0.013328235129378287
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "practical_ranker_minus_rrf": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.0056555818786391794,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.011084940482132792,
+        "1000": 0.007838236583965374,
+        "2000": 0.005542470241066396
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "practical_ranker_minus_selected_fixed": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.004769840363331444,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.00934888711212963,
+        "1000": 0.006610661473534381,
+        "2000": 0.004674443556064815
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "factorial_full_minus_without_text": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.002386847964400563,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.004678222010225103,
+        "1000": 0.0033080025073263324,
+        "2000": 0.0023391110051125515
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "factorial_full_minus_without_network": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.003910567758006719,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.00766471280569317,
+        "1000": 0.00541977040075301,
+        "2000": 0.003832356402846585
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    },
+    "factorial_full_minus_without_explicit_time": {
+      "development_queries": 500,
+      "development_author_clusters": 495,
+      "cluster_robust_mean_se": 0.003054496296248145,
+      "projected_marginal95_normal_halfwidth_by_query_count": {
+        "500": 0.005986812740646364,
+        "1000": 0.004233315886605063,
+        "2000": 0.002993406370323182
+      },
+      "projection_assumption": "Same author cluster composition and paired variance as development; no temporal-shift allowance."
+    }
+  },
+  "selected_fixed_variant": "citation_off",
+  "source_predictions_sha256": {
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/lambdamart.predictions.json": "044d9e570db856ec11ef1380a23ddc7a5e99c94279caad155c055b0a2ed61cf4",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/lambdamart.predictions.json": "d78aa2ae11aec7a217501e1e97500990bc5b6db3b41164bbb41abdcfb1f0d02f",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/lambdamart.predictions.json": "d43c6aef02f83d5644f6ed15e1d7c2766aefb33136d8787aa45624ab0e36e449",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/binary_lightgbm.predictions.json": "78e03d81e1d11347f3388be72e15d2fb0e5cb6444a21a40e8b7fb4b29b40c3ca",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/binary_lightgbm.predictions.json": "d56c5ea4437c8c2cc771111e9630ba90ce30371864e78a1f6249c142e1949af4",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/binary_lightgbm.predictions.json": "b2a72514f8d400625821f81c16fbb73d87b79edd1f3ff9af2a70b0a25edcca4b",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network+explicit_time.predictions.json": "7d5d435f422fa8ea05b4017d2cfbfa3b312021e11319125e03854a639b23fdac",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network+explicit_time.predictions.json": "9d133775a685f391e51428902030f6785ac0cd237ee89ab57575d0c7ca6f6a83",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network+explicit_time.predictions.json": "f02947996898f82d9e31a0a05de52ac97d316e1a942aa98a077e40dad979e5e3",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/frequency45.predictions.json": "982596ed9fe45b1bb492c43afb725bc24cc49b07c31783e5e12230305040b0b2",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/frequency45.predictions.json": "982596ed9fe45b1bb492c43afb725bc24cc49b07c31783e5e12230305040b0b2",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/frequency45.predictions.json": "982596ed9fe45b1bb492c43afb725bc24cc49b07c31783e5e12230305040b0b2",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/semantic_standalone.predictions.json": "7a791ccb9dbecaf0dae889ea43f2c972ceab177572e42e9d7edecc7fdaa2a92a",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/semantic_standalone.predictions.json": "7a791ccb9dbecaf0dae889ea43f2c972ceab177572e42e9d7edecc7fdaa2a92a",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/semantic_standalone.predictions.json": "7a791ccb9dbecaf0dae889ea43f2c972ceab177572e42e9d7edecc7fdaa2a92a",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/rrf.predictions.json": "143e71627f6fc1d9291ccbfc4d4c8863e8990ec4230603043440b0d3cb64161c",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/rrf.predictions.json": "143e71627f6fc1d9291ccbfc4d4c8863e8990ec4230603043440b0d3cb64161c",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/rrf.predictions.json": "143e71627f6fc1d9291ccbfc4d4c8863e8990ec4230603043440b0d3cb64161c",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/fixed-scorer-sensitivity/report.json": "99c8f5ca116b38e26b8e393f7bc064b2a40b1e53dafffa8a8283b740cf8dca17",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/fixed-scorer-sensitivity/citation_off.shared.predictions.json": "fdc66072fc5faacca4ddb304ecfb0fe82917a3ccbe71e2691a1cf1dee2c7a3a0",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network+explicit_time.predictions.json": "4cd27a2cb91525167d16bfa1d4c604dac08dffe1a8856c4e65b343b66f10c035",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network+explicit_time.predictions.json": "88e0c0c6fc27ccb5585a89039bbc79e952a7c9a8b1c7043bc21da164b4e9c775",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network+explicit_time.predictions.json": "866409ebb8306de90e0ddc31a8a5d98e0dfbcd1e104c8eddd401ea9796083941",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+explicit_time.predictions.json": "8b084b13b884e4a2362920ebf4934dd753db72ed8ec4b899145904ba2ddcb78c",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+explicit_time.predictions.json": "5ffc94e951b9ed9419486cef7d5f31d97068e04e98f764f4c97f30a4c9e6988a",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+explicit_time.predictions.json": "292688dfe5625eac1e905ffc30d36e555902e19a9ca7cfde819abdd748b6d757",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network.predictions.json": "ac95973a5f9b2ec4871d23cf153e1423807a3d462d07c66a353cbac05d6786c9",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network.predictions.json": "945beef4cbbb8000874b4c15df49c1a834406c2f3ee53aa93286e526544c81a1",
+    "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network.predictions.json": "8c16a4e433f148bc4844ca5d5f3464df6e1b9e79979401adb689e4568041be49"
+  },
+  "script_sha256": "0f4b52264f1aba90c9bc4616d2b78d2c5e7a4bd3cd25e5b410faa7abaa83ce53",
+  "limitations": [
+    "Validation selection makes these planning variances uncertain.",
+    "Projections are marginal normal approximations, not the final cluster-bootstrap intervals or Holm-adjusted tests.",
+    "Not a power calculation, not evidence of final significance, and not a recommendation to tune using final labels.",
+    "Final sample decision also requires measured pipeline cost, RAM/disk budget and reviewed global lock."
+  ]
+}

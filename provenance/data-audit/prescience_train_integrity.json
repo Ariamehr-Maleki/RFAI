@@ -1,0 +1,37 @@
+{
+  "source": "PreScience TRAIN only",
+  "counts": {
+    "rows": 373716,
+    "missing_corpus_id": 0,
+    "empty_title": 0,
+    "empty_abstract": 0,
+    "papers_without_author_ids": 67671,
+    "duplicate_author_id_papers": 3147,
+    "targets_outside_declared_train_window": 0
+  },
+  "roles": {
+    "target.author.publication_history.key_reference": 149314,
+    "target.author.publication_history": 295897,
+    "target.key_reference": 50653,
+    "target": 44990
+  },
+  "unique_corpus_ids": 373716,
+  "duplicate_id_extra_rows": 0,
+  "repeated_normalized_title_groups": 66,
+  "repeated_normalized_title_extra_rows": 66,
+  "min_date": "1989-10-26",
+  "max_date": "2024-09-30",
+  "references": {
+    "reference_edges": 669754,
+    "reference_same_day": 2,
+    "reference_date_after_citing_date": 18
+  },
+  "v2_paper_reported_train_rows": 373707,
+  "difference_to_v2_reported_train_rows": 9,
+  "caveats": [
+    "Repeated normalized titles alone do not prove duplicate papers.",
+    "Reference date anomalies can reflect preprint/version metadata, not necessarily invalid citations.",
+    "The ranker already excludes same-day and future referenced papers at each query cutoff.",
+    "No test-set integrity or outcomes are inferred from this TRAIN-only audit."
+  ]
+}

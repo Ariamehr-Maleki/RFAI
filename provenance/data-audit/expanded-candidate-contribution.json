@@ -1,0 +1,186 @@
+{
+  "status": "Completed paired descriptive DEVELOPMENT candidate audit; no confirmatory inference",
+  "source_sha256": {
+    "outputs\\researchforge-study\\data-audit\\expanded-full-cohort.json": "eed77add247fbfeafedbbbb77a96363a5fb9fdccd3922bf181bf87edb52f12af",
+    "outputs\\researchforge-study\\data-audit\\expanded-no_content-cohort.json": "a4634166f2ad4ced6a7c16a7ce0f2cc7b8efe969735f3f7f4659ac09f3b160e4",
+    "outputs\\researchforge-study\\results\\prescience-expanded-1200-1000-500-1000\\query_manifest.json": "423ea590ed58e6cce06833edc4ae0f437537bd130da6f5ccf0220d51ca3958b5"
+  },
+  "paired_metadata_sha256": "6dab6dc34b505229b95ae9731acd5f4787d1d98438cd86998ed8cd31714ccbd7",
+  "audit_code_sha256": "900343b6903e583a4eb0713f9e488c12136c58e2564325d3a4507441c04c90f0",
+  "summary": {
+    "all_queries": {
+      "queries": 500,
+      "mean_candidate_overlap": 393.238,
+      "relevance": {
+        "all": {
+          "eligible_queries": 500,
+          "distinct_authors": 495,
+          "full": 0.6715669489007724,
+          "no_content": 0.6643405600118836,
+          "difference": 0.007226388888888889,
+          "queries_improved": 38,
+          "queries_worsened": 39,
+          "queries_tied": 423,
+          "gained_query_label_occurrences": 48,
+          "lost_query_label_occurrences": 54
+        },
+        "new": {
+          "eligible_queries": 335,
+          "distinct_authors": 333,
+          "full": 0.3498279663951306,
+          "no_content": 0.33593060339328995,
+          "difference": 0.013897363001840614,
+          "queries_improved": 38,
+          "queries_worsened": 33,
+          "queries_tied": 264,
+          "gained_query_label_occurrences": 48,
+          "lost_query_label_occurrences": 45
+        },
+        "repeat": {
+          "eligible_queries": 374,
+          "distinct_authors": 372,
+          "full": 0.9847211611917495,
+          "no_content": 0.9937929717341482,
+          "difference": -0.009071810542398778,
+          "queries_improved": 0,
+          "queries_worsened": 6,
+          "queries_tied": 368,
+          "gained_query_label_occurrences": 0,
+          "lost_query_label_occurrences": 9
+        }
+      }
+    },
+    "history_4-10": {
+      "queries": 163,
+      "mean_candidate_overlap": 394.6993865030675,
+      "relevance": {
+        "all": {
+          "eligible_queries": 163,
+          "distinct_authors": 163,
+          "full": 0.7012786523793381,
+          "no_content": 0.686318799689424,
+          "difference": 0.014959852689914038,
+          "queries_improved": 11,
+          "queries_worsened": 7,
+          "queries_tied": 145,
+          "gained_query_label_occurrences": 15,
+          "lost_query_label_occurrences": 9
+        },
+        "new": {
+          "eligible_queries": 111,
+          "distinct_authors": 111,
+          "full": 0.37063849563849566,
+          "no_content": 0.34574932074932074,
+          "difference": 0.02488917488917489,
+          "queries_improved": 11,
+          "queries_worsened": 7,
+          "queries_tied": 93,
+          "gained_query_label_occurrences": 15,
+          "lost_query_label_occurrences": 9
+        },
+        "repeat": {
+          "eligible_queries": 125,
+          "distinct_authors": 125,
+          "full": 1.0,
+          "no_content": 1.0,
+          "difference": 0.0,
+          "queries_improved": 0,
+          "queries_worsened": 0,
+          "queries_tied": 125,
+          "gained_query_label_occurrences": 0,
+          "lost_query_label_occurrences": 0
+        }
+      }
+    },
+    "history_1-3": {
+      "queries": 199,
+      "mean_candidate_overlap": 375.48743718592965,
+      "relevance": {
+        "all": {
+          "eligible_queries": 199,
+          "distinct_authors": 198,
+          "full": 0.7035664433277499,
+          "no_content": 0.6888913815107283,
+          "difference": 0.014675061817021617,
+          "queries_improved": 14,
+          "queries_worsened": 12,
+          "queries_tied": 173,
+          "gained_query_label_occurrences": 14,
+          "lost_query_label_occurrences": 12
+        },
+        "new": {
+          "eligible_queries": 131,
+          "distinct_authors": 131,
+          "full": 0.42476675148430876,
+          "no_content": 0.3967345207803223,
+          "difference": 0.02803223070398643,
+          "queries_improved": 14,
+          "queries_worsened": 12,
+          "queries_tied": 105,
+          "gained_query_label_occurrences": 14,
+          "lost_query_label_occurrences": 12
+        },
+        "repeat": {
+          "eligible_queries": 148,
+          "distinct_authors": 147,
+          "full": 1.0,
+          "no_content": 1.0,
+          "difference": 0.0,
+          "queries_improved": 0,
+          "queries_worsened": 0,
+          "queries_tied": 148,
+          "gained_query_label_occurrences": 0,
+          "lost_query_label_occurrences": 0
+        }
+      }
+    },
+    "history_11+": {
+      "queries": 138,
+      "mean_candidate_overlap": 417.10869565217394,
+      "relevance": {
+        "all": {
+          "eligible_queries": 138,
+          "distinct_authors": 134,
+          "full": 0.5903284919589268,
+          "no_content": 0.6029777589560198,
+          "difference": -0.012649266997093084,
+          "queries_improved": 13,
+          "queries_worsened": 20,
+          "queries_tied": 105,
+          "gained_query_label_occurrences": 19,
+          "lost_query_label_occurrences": 33
+        },
+        "new": {
+          "eligible_queries": 93,
+          "distinct_authors": 91,
+          "full": 0.21943065894678798,
+          "no_content": 0.23856296033715388,
+          "difference": -0.019132301390365904,
+          "queries_improved": 13,
+          "queries_worsened": 14,
+          "queries_tied": 66,
+          "gained_query_label_occurrences": 19,
+          "lost_query_label_occurrences": 24
+        },
+        "repeat": {
+          "eligible_queries": 101,
+          "distinct_authors": 100,
+          "full": 0.9434229137199435,
+          "no_content": 0.977015558698727,
+          "difference": -0.033592644978783594,
+          "queries_improved": 0,
+          "queries_worsened": 6,
+          "queries_tied": 95,
+          "gained_query_label_occurrences": 0,
+          "lost_query_label_occurrences": 9
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Macro recall averages only queries with a nonempty relevant subset; new and repeat groups overlap.",
+    "Gained/lost counts are query-label occurrences, not distinct people.",
+    "The full retrieval pipeline adds content channels and changes fusion; these differences do not isolate semantic versus lexical causality.",
+    "Adaptive validation data; no ranking superiority, significance or final-test claim."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "status": "PASS descriptive DEVELOPMENT cohort and receipt audit; no final evaluation",
+  "mode": "no_content",
+  "source_sha256": {
+    "query_manifest.json": "423ea590ed58e6cce06833edc4ae0f437537bd130da6f5ccf0220d51ca3958b5",
+    "collection_report.json": "4f12ae6c6370840dd56e6c2eca9de805bcefc78b3d1dac623b16339549066602"
+  },
+  "partitions": {
+    "train": {
+      "query_count": 1200,
+      "distinct_seed_authors": 1185,
+      "date_start": "2023-10-01",
+      "date_end": "2024-06-30",
+      "truth_size_mean": 3.526666666666667,
+      "truth_size_median": 3.0,
+      "candidates_min": 1000,
+      "candidates_max": 1025,
+      "candidate_recall_mean": 0.6743439242055822,
+      "total_positive_injections": 1387,
+      "queries_with_injections": 616,
+      "queries_with_new_truth": 821,
+      "queries_with_repeat_truth": 910,
+      "history_query_counts": {
+        "1-3": 471,
+        "4-10": 404,
+        "11+": 325
+      },
+      "receipts_sha256_in_manifest_order": "a873eed7c9115b86d93e9206783d78f08d92801647f5530cec3ee75d6ae644ef"
+    },
+    "valid": {
+      "query_count": 500,
+      "distinct_seed_authors": 495,
+      "date_start": "2024-07-01",
+      "date_end": "2024-09-30",
+      "truth_size_mean": 3.69,
+      "truth_size_median": 3.0,
+      "candidates_min": 1000,
+      "candidates_max": 1000,
+      "candidate_recall_mean": 0.6643405600118836,
+      "total_positive_injections": 0,
+      "queries_with_injections": 0,
+      "queries_with_new_truth": 335,
+      "queries_with_repeat_truth": 374,
+      "history_query_counts": {
+        "4-10": 163,
+        "1-3": 199,
+        "11+": 138
+      },
+      "receipts_sha256_in_manifest_order": "1639c8f06dd53c65419073f7f5356ebf07827e3bb78ccfeccf8a443aff69dddb"
+    }
+  },
+  "limitations": [
+    "Training recall precedes positive injection; validation recall uses untouched retrieved candidates.",
+    "Query counts and author overlap describe the temporal development sample, not final-test representativeness.",
+    "No model rankings or statistical superiority assessed."
+  ],
+  "seed_author_overlap_between_temporal_partitions": 16,
+  "audit_code_sha256": "fc17e5cee5865c4ebf08486d7ed38123d620ed1319a17667b61895311538619f"
+}

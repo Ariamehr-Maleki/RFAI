@@ -1,0 +1,80 @@
+{
+  "action": "Remove redundant task download after verifying every extracted file size and CRC against original ZIP",
+  "archive_sha256": "c5563198e041c338f0a78e11322bb2eb2de76b68f0e9ae3e3b6d6af2d8ca64cc",
+  "bytes_freed": 121625147,
+  "files": [
+    {
+      "path": "collab/split/time/valid.pt",
+      "bytes": 3885091,
+      "crc32": 1526456288,
+      "sha256": "aaf6fdbd3a3783c4a0e2b337de8f0cff8e42351a9216fecff2a6b8b056cc01ac"
+    },
+    {
+      "path": "collab/split/time/test.pt",
+      "bytes": 3404768,
+      "crc32": 3566013576,
+      "sha256": "75315d4e3f3d73fe5cc1079758adecf1a87d17bd4dc4466701b5cbdfcbcac006"
+    },
+    {
+      "path": "collab/split/time/train.pt",
+      "bytes": 41130429,
+      "crc32": 678242022,
+      "sha256": "eb1a1deb3a40fa870fcef21c1f19809ab1806c6395061ef4fbc899fc320e16a1"
+    },
+    {
+      "path": "collab/raw/edge_year.csv.gz",
+      "bytes": 782248,
+      "crc32": 1547902689,
+      "sha256": "74d88167f2e93ac7525c65eebfee5e58574e7d5827a283e5c1f9690a5f58c4de"
+    },
+    {
+      "path": "collab/raw/num-node-list.csv.gz",
+      "bytes": 51,
+      "crc32": 855391837,
+      "sha256": "4309fad9de5333ce56d9c4fca7a7281edda408ca6e29bc59f10b0fb35dc63a0d"
+    },
+    {
+      "path": "collab/raw/edge_weight.csv.gz",
+      "bytes": 106862,
+      "crc32": 1715481047,
+      "sha256": "dd9c8a2c6b49f2e7b155570b1b5fc49f35f435b691171c436d7dd244b1925cab"
+    },
+    {
+      "path": "collab/raw/edge.csv.gz",
+      "bytes": 4933748,
+      "crc32": 2572862275,
+      "sha256": "20d2281149aa0503453d5a13a99e22fc129964155f30b1caf2057c7886e7b82e"
+    },
+    {
+      "path": "collab/raw/node-feat.csv.gz",
+      "bytes": 105975881,
+      "crc32": 4057627458,
+      "sha256": "1e8e52b4ef3558bd823f64db48de0803fcc5d449eccd24ddd8a0187ab799acf8"
+    },
+    {
+      "path": "collab/raw/num-edge-list.csv.gz",
+      "bytes": 52,
+      "crc32": 1121507973,
+      "sha256": "3e521327342e184c9354fd163aae653c6630c5bb3a64825fe2e8b3e80bc64e94"
+    },
+    {
+      "path": "collab/mapping/nodeidx2authorid.csv.gz",
+      "bytes": 1716577,
+      "crc32": 2464699424,
+      "sha256": "55cccaf4afea8da41ceb037cd704da119b86db7681885319c6d9e636904a734b"
+    },
+    {
+      "path": "collab/mapping/README.md",
+      "bytes": 524,
+      "crc32": 569814806,
+      "sha256": "0a141497337e1d7e394c600e9b2b89fcad893374661e8f4d44f6fa1a9e18a6c2"
+    },
+    {
+      "path": "collab/RELEASE_v1.txt",
+      "bytes": 73,
+      "crc32": 3681876111,
+      "sha256": "25f8124aff179cc7b6ea10e109f8c06369d2457ec5044d6d1c11eac1a40df4e5"
+    }
+  ],
+  "test_policy": "Raw bytes hashed only; no test labels deserialized"
+}

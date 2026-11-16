@@ -1,0 +1,61 @@
+{
+  "rows": 1203374,
+  "dimensions": 262144,
+  "nnz": 92945393,
+  "excluded_documents": 776,
+  "exact_normalized_title_and_abstract_overlap": 51,
+  "overlap_examples": [
+    {
+      "id": "https://openalex.org/W4387547207",
+      "title": "Good Models Borrow, Great Models Steal: Intellectual Property Rights and Generative AI",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4387358837",
+      "title": "WattScope: Non-intrusive application-level power disaggregation in datacenters",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4254811138",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4255801147",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4256292645",
+      "title": "Automata Theory",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4256309371",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4256496945",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4283270021",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4283803729",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    },
+    {
+      "id": "https://openalex.org/W4285107632",
+      "title": "Introduction",
+      "same_normalized_abstract": false
+    }
+  ],
+  "note": "Title exclusion is conservative: not every repeated title proves duplicate content.",
+  "kind": "Stateless nonnegative hashed unigram TF cosine; no IDF"
+}

@@ -1,0 +1,73 @@
+{
+  "train_queries": {
+    "queries": 200,
+    "identical_query_ids_seed_and_truth": true,
+    "changed_candidate_sets": 110,
+    "queries_with_changed_common_candidate_features": 198,
+    "compared_common_candidate_rows": 199588,
+    "changed_features": {
+      "frequency10": {
+        "rows": 16,
+        "max_absolute_change": 2.0
+      },
+      "frequency45": {
+        "rows": 20,
+        "max_absolute_change": 8.0
+      },
+      "frequency_all": {
+        "rows": 30,
+        "max_absolute_change": 8.0
+      },
+      "lexical_retrieval": {
+        "rows": 265,
+        "max_absolute_change": 2.768209934234619
+      },
+      "autoresearch_description": {
+        "rows": 27534,
+        "max_absolute_change": 8.72795581817627
+      },
+      "rrf": {
+        "rows": 56454,
+        "max_absolute_change": 0.028312474489212036
+      }
+    }
+  },
+  "valid_queries": {
+    "queries": 100,
+    "identical_query_ids_seed_and_truth": true,
+    "changed_candidate_sets": 60,
+    "queries_with_changed_common_candidate_features": 98,
+    "compared_common_candidate_rows": 99597,
+    "changed_features": {
+      "frequency10": {
+        "rows": 87,
+        "max_absolute_change": 20.0
+      },
+      "frequency45": {
+        "rows": 129,
+        "max_absolute_change": 88.0
+      },
+      "frequency_all": {
+        "rows": 163,
+        "max_absolute_change": 151.0
+      },
+      "lexical_retrieval": {
+        "rows": 283,
+        "max_absolute_change": 77.35478210449219
+      },
+      "autoresearch_description": {
+        "rows": 16246,
+        "max_absolute_change": 100.3314208984375
+      },
+      "citation_pull": {
+        "rows": 3,
+        "max_absolute_change": 1.0
+      },
+      "rrf": {
+        "rows": 27095,
+        "max_absolute_change": 0.028849903494119644
+      }
+    }
+  },
+  "note": "Only common candidate rows compared for features; raw results remain preserved."
+}

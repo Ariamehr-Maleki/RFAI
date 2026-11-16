@@ -1,0 +1,1379 @@
+{
+  "date": "2026-11-07",
+  "repo": "allenai/prescience",
+  "main": {
+    "commit": {
+      "sha": "47384ed79c48cfef610f30af12ba883f2a0093cb",
+      "message": "Lazily import gritlm",
+      "url": "https://api.github.com/repos/allenai/prescience/commits/47384ed79c48cfef610f30af12ba883f2a0093cb",
+      "html_url": "https://github.com/allenai/prescience/commit/47384ed79c48cfef610f30af12ba883f2a0093cb",
+      "diff": "@@ -17,7 +17,6 @@\n from typing import Any\n from collections import defaultdict\n \n-from gritlm import GritLM\n from transformers import AutoTokenizer\n from sentence_transformers import SentenceTransformer\n from datasets import load_dataset\n@@ -1033,6 +1032,7 @@ def embed_on_gpus(document_list, embedding_type, cache_model=True, return_dict=T\n         \n     elif embedding_type == \"grit\":\n         if model is None:\n+            from gritlm import GritLM\n             model = GritLM(\"GritLM/GritLM-7B\", torch_dtype=\"auto\", device_map=\"auto\", mode=\"embedding\")\n             log(\"Caching GritLM model\")\n             model_tokenizer_cache[embedding_type] = (model, None)",
+      "files": [
+        {
+          "filename": "utils.py",
+          "patch": "@@ -17,7 +17,6 @@\n from typing import Any\n from collections import defaultdict\n \n-from gritlm import GritLM\n from transformers import AutoTokenizer\n from sentence_transformers import SentenceTransformer\n from datasets import load_dataset\n@@ -1033,6 +1032,7 @@ def embed_on_gpus(document_list, embedding_type, cache_model=True, return_dict=T\n         \n     elif embedding_type == \"grit\":\n         if model is None:\n+            from gritlm import GritLM\n             model = GritLM(\"GritLM/GritLM-7B\", torch_dtype=\"auto\", device_map=\"auto\", mode=\"embedding\")\n             log(\"Caching GritLM model\")\n             model_tokenizer_cache[embedding_type] = (model, None)"
+        }
+      ],
+      "repository_full_name": "allenai/prescience",
+      "comments": null,
+      "author": {
+        "login": "anirudhajith",
+        "name": null,
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/10707292?v=4",
+        "id": 10707292
+      },
+      "committer": {
+        "login": "anirudhajith",
+        "name": null,
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/10707292?v=4",
+        "id": 10707292
+      },
+      "created_at": "2026-02-28T01:38:52Z",
+      "git_author_email": null,
+      "display_url": "https://github.com/allenai/prescience/commit/47384ed79c48cfef610f30af12ba883f2a0093cb",
+      "display_title": "Lazily import gritlm"
+    },
+    "url": "https://github.com/allenai/prescience/commit/47384ed79c48cfef610f30af12ba883f2a0093cb",
+    "title": "Lazily import gritlm",
+    "diff": "@@ -17,7 +17,6 @@\n from typing import Any\n from collections import defaultdict\n \n-from gritlm import GritLM\n from transformers import AutoTokenizer\n from sentence_transformers import SentenceTransformer\n from datasets import load_dataset\n@@ -1033,6 +1032,7 @@ def embed_on_gpus(document_list, embedding_type, cache_model=True, return_dict=T\n         \n     elif embedding_type == \"grit\":\n         if model is None:\n+            from gritlm import GritLM\n             model = GritLM(\"GritLM/GritLM-7B\", torch_dtype=\"auto\", device_map=\"auto\", mode=\"embedding\")\n             log(\"Caching GritLM model\")\n             model_tokenizer_cache[embedding_type] = (model, None)",
+    "display_url": "https://github.com/allenai/prescience/commit/47384ed79c48cfef610f30af12ba883f2a0093cb",
+    "display_title": "Lazily import gritlm"
+  },
+  "branches": {
+    "branches": [
+      {
+        "branch": "agent"
+      },
+      {
+        "branch": "cocitation"
+      },
+      {
+        "branch": "iclr-refresh"
+      },
+      {
+        "branch": "main"
+      },
+      {
+        "branch": "rebuttal-F-bio-physics"
+      },
+      {
+        "branch": "sft"
+      }
+    ],
+    "cursor": "Ng"
+  },
+  "source_commit": {
+    "commit": {
+      "sha": "e54f6a5441aa389c18acfc11080facea6a95c1d5",
+      "message": "iclr",
+      "url": "https://api.github.com/repos/allenai/prescience/commits/e54f6a5441aa389c18acfc11080facea6a95c1d5",
+      "html_url": "https://github.com/allenai/prescience/commit/e54f6a5441aa389c18acfc11080facea6a95c1d5",
+      "diff": "@@ -0,0 +1,76 @@\n+\"\"\"Stage-by-stage sanity checks for an in-progress corpus build (all_papers.stageNN.json).\n+\n+Prints counts, date ranges, category coverage, and the invariants that should already hold at that stage.\n+\"\"\"\n+import re\n+import argparse\n+import statistics\n+from collections import Counter\n+\n+import utils\n+\n+\n+def main():\n+    parser = argparse.ArgumentParser(\"Validate an intermediate corpus stage file.\")\n+    parser.add_argument(\"--input_path\", type=str, required=True, help=\"Path to all_papers.stageNN.json\")\n+    parser.add_argument(\"--start_date\", type=str, required=True, help=\"Target window start (inclusive)\")\n+    parser.add_argument(\"--end_date\", type=str, required=True, help=\"Target window end (exclusive)\")\n+    parser.add_argument(\"--category_regex\", type=str, required=True, help=\"Regex a target's categories must match\")\n+    args = parser.parse_args()\n+\n+    stage = int(re.search(r\"stage(\\d+)\", args.input_path).group(1))\n+    papers, metadata = utils.load_json(args.input_path)\n+    by_id = {p[\"corpus_id\"]: p for p in papers}\n+    targets = [p for p in papers if \"target\" in p.get(\"roles\", [])]\n+    problems = Counter()\n+    print(f\"stage {stage}: {len(papers)} papers ({len(by_id)} unique ids), {len(targets)} targets; last script: {metadata[-1]['script'].split('/')[-1] if metadata else None}\")\n+    print(\"roles:\", dict(Counter(r for p in papers for r in p.get(\"roles\", []))))\n+\n+    dates = sorted(p[\"date\"] for p in targets)\n+    print(f\"target dates {dates[0]} .. {dates[-1]}; per month: {dict(sorted(Counter(d[:7] for d in dates).items()))}\")\n+    cat_re = re.compile(args.category_regex)\n+    for p in targets:\n+        if not (args.start_date <= p[\"date\"] < args.end_date):\n+            problems[\"target outside date window\"] += 1\n+        if not any(cat_re.search(c) for c in p.get(\"categories\", [])):\n+            problems[\"target without a matching category\"] += 1\n+        if not (p.get(\"title\") or \"\").strip() or not (p.get(\"abstract\") or \"\").strip():\n+            problems[\"target missing title/abstract\"] += 1\n+    print(\"top categories:\", Counter(c for p in targets for c in p.get(\"categories\", [])).most_common(10))\n+    if len(by_id) != len(papers):\n+        problems[\"duplicate corpus ids\"] += len(papers) - len(by_id)\n+\n+    if stage >= 2:\n+        nk = [len(p.get(\"key_references\") or []) for p in targets]\n+        print(f\"key refs/target: avg {statistics.mean(nk):.2f}, median {statistics.median(nk)}, min {min(nk)}, max {max(nk)}\")\n+        for p in targets:\n+            refs = p.get(\"key_references\") or []\n+            if not 1 <= len(refs) <= 10:\n+                problems[\"target key_refs outside [1,10]\"] += 1\n+            for r in refs:\n+                q = by_id.get(r[\"corpus_id\"])\n+                if q is None:\n+                    problems[\"key ref missing from corpus\"] += 1\n+                elif q[\"date\"] >= p[\"date\"]:\n+                    problems[\"key ref dated on/after target\"] += 1\n+\n+    if stage >= 3:\n+        na = [len(p.get(\"authors\") or []) for p in targets]\n+        hist = [len(a.get(\"publication_history\", [])) for p in targets for a in p.get(\"authors\") or []]\n+        print(f\"authors/target: avg {statistics.mean(na):.2f}, max {max(na)}; history/author avg {statistics.mean(hist):.1f}, median {statistics.median(hist)}, zero-history frac {sum(h == 0 for h in hist) / len(hist):.3f}\")\n+        for p in targets:\n+            if not p.get(\"authors\"):\n+                problems[\"target without authors\"] += 1\n+            for a in p.get(\"authors\") or []:\n+                for pid in a.get(\"publication_history\", []):\n+                    q = by_id.get(pid)\n+                    if q is None:\n+                        problems[\"pub history paper missing\"] += 1\n+                    elif q[\"date\"] >= p[\"date\"]:\n+                        problems[\"pub history dated on/after target\"] += 1\n+\n+    print(\"PROBLEMS:\", dict(problems) if problems else \"none\")\n+\n+\n+if __name__ == \"__main__\":\n+    main()\n@@ -0,0 +1,46 @@\n+\"\"\"Submit one Beaker CPU job per S2AND signature partition (Rust backend, production_model_v1.1).\n+\n+Mirrors the ICLR-refresh setup: s2and[rust]==0.51.1, S2AND repo at cb99b97 (for scripts/convert_to_arrow.py),\n+the production model + name counts dataset, and the Rust runner dataset (rust_partition.py + prebuilt\n+name_counts_index). The inputs dataset must hold papers.json, specter_unwrapped.pickle and\n+signatures_partition_*.json; it is mounted at both /s2and and /s2and_pypi (the runner reads both paths).\n+\n+Usage: python dataset_internal/s2and_prep/submit_s2and_jobs.py <inputs_dataset_id> <num_partitions> <name_prefix> [partition ...]\n+\"\"\"\n+import sys\n+import subprocess\n+import tempfile\n+\n+import yaml\n+\n+MODEL_DATASET = \"01M38XVR7R3VAJ6GWXSK3JFFXP\"   # prescience-iclr-s2and-model-v1: production_model_v1.1.pickle + name_counts.pickle\n+RUST_DATASET = \"01M398FX9SRWFW9M7WWCHC7QQW\"    # prescience-iclr-s2and-rust-v5: rust_partition.py + name_counts_index\n+CPUS = 28\n+\n+inputs, num_partitions, prefix = sys.argv[1], int(sys.argv[2]), sys.argv[3]\n+partitions = [int(p) for p in sys.argv[4:]] or list(range(num_partitions))\n+for p in partitions:\n+    cmd = (\"pip install -q 's2and[rust]==0.51.1' && git clone -q https://github.com/allenai/S2AND.git /S2AND \"\n+           f\"&& git -C /S2AND checkout -q cb99b97 && S2AND_BACKEND=rust python /rust/rust_partition.py {p} {CPUS}\")\n+    spec = {\n+        \"version\": \"v2\",\n+        \"description\": f\"PreScience Quantum S2AND partition {p} (s2and 0.51.1 Rust backend, production_model_v1.1)\",\n+        \"tasks\": [{\n+            \"name\": \"main\",\n+            \"image\": {\"docker\": \"python:3.11\"},\n+            \"command\": [\"bash\", \"-c\", cmd],\n+            \"datasets\": [\n+                {\"mountPath\": \"/s2and\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_pypi\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_model\", \"source\": {\"beaker\": MODEL_DATASET}},\n+                {\"mountPath\": \"/rust\", \"source\": {\"beaker\": RUST_DATASET}},\n+            ],\n+            \"result\": {\"path\": \"/results\"},\n+            \"resources\": {\"cpuCount\": CPUS, \"memory\": \"100GiB\"},\n+            \"context\": {\"priority\": \"normal\", \"minRuntime\": \"8h\", \"autoResume\": False},\n+            \"constraints\": {\"cluster\": [\"ai2/prometheus\", \"ai2/saturn\", \"ai2/neptune\", \"ai2/rhea\", \"ai2/phobos\"]},\n+        }],\n+    }\n+    with tempfile.NamedTemporaryFile(\"w\", suffix=\".yaml\", delete=False) as f:\n+        yaml.safe_dump(spec, f, sort_keys=False)\n+    subprocess.run([\"beaker\", \"experiment\", \"create\", f.name, \"--name\", f\"{prefix}-p{p}\", \"--workspace\", \"ai2/anirudha\"], check=True)\n@@ -190,6 +190,8 @@ def main():\n     parser.add_argument(\"--num_workers\", type=int, default=128)\n     parser.add_argument(\"--max_records\", type=int, default=None, help=\"Optional cap on number of generations to score\")\n     parser.add_argument(\"--overwrite\", action=\"store_true\", help=\"Allow overwriting the output file if it exists\")\n+    parser.add_argument(\"--resume\", action=\"store_true\", help=\"Reuse successful scores from an existing output file and rescore only missing/errored records\")\n+    parser.add_argument(\"--max_retries\", type=int, default=2, help=\"API client retries per request (raise to ride out rate limits)\")\n     args = parser.parse_args()\n \n     # Load generated title/abstract pairs and reference corpus\n@@ -211,19 +213,28 @@ def main():\n         if args.modal_auth:\n             client = openai.OpenAI(base_url=args.base_url, api_key=\"unused\", default_headers={\"Modal-Key\": os.environ[\"MODAL_KEY\"], \"Modal-Secret\": os.environ[\"MODAL_SECRET\"]})\n         else:\n-            client = openai.OpenAI(base_url=args.base_url)\n+            client = openai.OpenAI(base_url=args.base_url, max_retries=args.max_retries)\n         score_fn = score_generation_openai\n     elif args.judge == \"gemini\":\n         client = genai.Client()\n         score_fn = score_generation_gemini\n     else:\n-        client = anthropic.Anthropic()\n+        client = anthropic.Anthropic(max_retries=args.max_retries)\n         score_fn = score_generation_anthropic\n \n+    input_filename = os.path.basename(args.input_path)\n+    output_path = os.path.join(args.output_dir, os.path.splitext(input_filename)[0] + \".lacer_scored.json\")\n+    done = {}\n+    if args.resume and os.path.exists(output_path):\n+        previous, _ = utils.load_json(output_path)\n+        done = {r[\"corpus_id\"]: r for r in previous if r.get(\"lacer_score\") is not None and \"lacer_error\" not in r}\n+        utils.log(f\"Resuming: reusing {len(done)} successful scores from {output_path}\")\n+    pending = [r for r in generations if r[\"corpus_id\"] not in done]\n+\n     # Prepare jobs with all required context for parallel scoring\n-    utils.log(f\"Scoring {len(generations)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n+    utils.log(f\"Scoring {len(pending)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n     jobs = []\n-    for record in generations:\n+    for record in pending:\n         record[\"client\"] = client\n         record[\"prompt_template\"] = prompt_template\n         record[\"all_papers_dict\"] = all_papers_dict\n@@ -233,7 +244,8 @@ def main():\n     # Score all generations in parallel using thread pool\n     with cf.ThreadPoolExecutor(max_workers=args.num_workers) as executor:\n         results_iter = executor.map(score_fn, jobs)\n-        scored_records = list(tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\"))\n+        newly_scored = {r[\"corpus_id\"]: r for r in tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\")}\n+    scored_records = [done.get(r[\"corpus_id\"]) or newly_scored[r[\"corpus_id\"]] for r in generations]\n \n     error_count = sum(1 for record in scored_records if \"lacer_error\" in record)\n     utils.log(f\"Finished scoring {len(scored_records)} records; errors encountered on {error_count} records\")\n@@ -242,10 +254,6 @@ def main():\n     utils.log(f\"Mean LACER score: {sum(scores) / len(scores):.2f} (n={len(scores)})\")\n \n     # Save scored records to output file\n-    input_filename = os.path.basename(args.input_path)\n-    output_filename = os.path.splitext(input_filename)[0] + \".lacer_scored.json\"\n-    output_path = os.path.join(args.output_dir, output_filename)\n-\n     utils.save_json(scored_records, output_path, metadata=utils.update_metadata(metadata, args), overwrite=args.overwrite)\n     utils.log(f\"Saved scored records to {output_path}\")\n \n@@ -25,10 +25,13 @@ def query_claude(record):\n         response = client.messages.create(\n             model=model,\n             max_tokens=max_tokens,\n-            system=system_prompt,\n+            # Cache the shared system prompt; the per-paper user message varies. Prefixes below a model's\n+            # minimum cacheable length (e.g. 4096 tokens on Opus 4.6) silently aren't cached.\n+            system=[{\"type\": \"text\", \"text\": system_prompt, \"cache_control\": {\"type\": \"ephemeral\"}}],\n             messages=messages\n         )\n-        utils.log(f\"usage model={model} in={response.usage.input_tokens} out={response.usage.output_tokens}\")\n+        u = response.usage\n+        utils.log(f\"usage model={model} in={u.input_tokens} cache_read={u.cache_read_input_tokens} cache_write={u.cache_creation_input_tokens} out={u.output_tokens}\")\n         if response.stop_reason == \"refusal\":\n             utils.log(f\"Refusal on corpus_id {record['corpus_id']}\")\n             record.update({\"title\": \"\", \"abstract\": \"\", \"reasoning\": \"\", \"refusal\": True})",
+      "files": [
+        {
+          "filename": "dataset_internal/corpus/validate_stage.py",
+          "patch": "@@ -0,0 +1,76 @@\n+\"\"\"Stage-by-stage sanity checks for an in-progress corpus build (all_papers.stageNN.json).\n+\n+Prints counts, date ranges, category coverage, and the invariants that should already hold at that stage.\n+\"\"\"\n+import re\n+import argparse\n+import statistics\n+from collections import Counter\n+\n+import utils\n+\n+\n+def main():\n+    parser = argparse.ArgumentParser(\"Validate an intermediate corpus stage file.\")\n+    parser.add_argument(\"--input_path\", type=str, required=True, help=\"Path to all_papers.stageNN.json\")\n+    parser.add_argument(\"--start_date\", type=str, required=True, help=\"Target window start (inclusive)\")\n+    parser.add_argument(\"--end_date\", type=str, required=True, help=\"Target window end (exclusive)\")\n+    parser.add_argument(\"--category_regex\", type=str, required=True, help=\"Regex a target's categories must match\")\n+    args = parser.parse_args()\n+\n+    stage = int(re.search(r\"stage(\\d+)\", args.input_path).group(1))\n+    papers, metadata = utils.load_json(args.input_path)\n+    by_id = {p[\"corpus_id\"]: p for p in papers}\n+    targets = [p for p in papers if \"target\" in p.get(\"roles\", [])]\n+    problems = Counter()\n+    print(f\"stage {stage}: {len(papers)} papers ({len(by_id)} unique ids), {len(targets)} targets; last script: {metadata[-1]['script'].split('/')[-1] if metadata else None}\")\n+    print(\"roles:\", dict(Counter(r for p in papers for r in p.get(\"roles\", []))))\n+\n+    dates = sorted(p[\"date\"] for p in targets)\n+    print(f\"target dates {dates[0]} .. {dates[-1]}; per month: {dict(sorted(Counter(d[:7] for d in dates).items()))}\")\n+    cat_re = re.compile(args.category_regex)\n+    for p in targets:\n+        if not (args.start_date <= p[\"date\"] < args.end_date):\n+            problems[\"target outside date window\"] += 1\n+        if not any(cat_re.search(c) for c in p.get(\"categories\", [])):\n+            problems[\"target without a matching category\"] += 1\n+        if not (p.get(\"title\") or \"\").strip() or not (p.get(\"abstract\") or \"\").strip():\n+            problems[\"target missing title/abstract\"] += 1\n+    print(\"top categories:\", Counter(c for p in targets for c in p.get(\"categories\", [])).most_common(10))\n+    if len(by_id) != len(papers):\n+        problems[\"duplicate corpus ids\"] += len(papers) - len(by_id)\n+\n+    if stage >= 2:\n+        nk = [len(p.get(\"key_references\") or []) for p in targets]\n+        print(f\"key refs/target: avg {statistics.mean(nk):.2f}, median {statistics.median(nk)}, min {min(nk)}, max {max(nk)}\")\n+        for p in targets:\n+            refs = p.get(\"key_references\") or []\n+            if not 1 <= len(refs) <= 10:\n+                problems[\"target key_refs outside [1,10]\"] += 1\n+            for r in refs:\n+                q = by_id.get(r[\"corpus_id\"])\n+                if q is None:\n+                    problems[\"key ref missing from corpus\"] += 1\n+                elif q[\"date\"] >= p[\"date\"]:\n+                    problems[\"key ref dated on/after target\"] += 1\n+\n+    if stage >= 3:\n+        na = [len(p.get(\"authors\") or []) for p in targets]\n+        hist = [len(a.get(\"publication_history\", [])) for p in targets for a in p.get(\"authors\") or []]\n+        print(f\"authors/target: avg {statistics.mean(na):.2f}, max {max(na)}; history/author avg {statistics.mean(hist):.1f}, median {statistics.median(hist)}, zero-history frac {sum(h == 0 for h in hist) / len(hist):.3f}\")\n+        for p in targets:\n+            if not p.get(\"authors\"):\n+                problems[\"target without authors\"] += 1\n+            for a in p.get(\"authors\") or []:\n+                for pid in a.get(\"publication_history\", []):\n+                    q = by_id.get(pid)\n+                    if q is None:\n+                        problems[\"pub history paper missing\"] += 1\n+                    elif q[\"date\"] >= p[\"date\"]:\n+                        problems[\"pub history dated on/after target\"] += 1\n+\n+    print(\"PROBLEMS:\", dict(problems) if problems else \"none\")\n+\n+\n+if __name__ == \"__main__\":\n+    main()"
+        },
+        {
+          "filename": "dataset_internal/s2and_prep/submit_s2and_jobs.py",
+          "patch": "@@ -0,0 +1,46 @@\n+\"\"\"Submit one Beaker CPU job per S2AND signature partition (Rust backend, production_model_v1.1).\n+\n+Mirrors the ICLR-refresh setup: s2and[rust]==0.51.1, S2AND repo at cb99b97 (for scripts/convert_to_arrow.py),\n+the production model + name counts dataset, and the Rust runner dataset (rust_partition.py + prebuilt\n+name_counts_index). The inputs dataset must hold papers.json, specter_unwrapped.pickle and\n+signatures_partition_*.json; it is mounted at both /s2and and /s2and_pypi (the runner reads both paths).\n+\n+Usage: python dataset_internal/s2and_prep/submit_s2and_jobs.py <inputs_dataset_id> <num_partitions> <name_prefix> [partition ...]\n+\"\"\"\n+import sys\n+import subprocess\n+import tempfile\n+\n+import yaml\n+\n+MODEL_DATASET = \"01M38XVR7R3VAJ6GWXSK3JFFXP\"   # prescience-iclr-s2and-model-v1: production_model_v1.1.pickle + name_counts.pickle\n+RUST_DATASET = \"01M398FX9SRWFW9M7WWCHC7QQW\"    # prescience-iclr-s2and-rust-v5: rust_partition.py + name_counts_index\n+CPUS = 28\n+\n+inputs, num_partitions, prefix = sys.argv[1], int(sys.argv[2]), sys.argv[3]\n+partitions = [int(p) for p in sys.argv[4:]] or list(range(num_partitions))\n+for p in partitions:\n+    cmd = (\"pip install -q 's2and[rust]==0.51.1' && git clone -q https://github.com/allenai/S2AND.git /S2AND \"\n+           f\"&& git -C /S2AND checkout -q cb99b97 && S2AND_BACKEND=rust python /rust/rust_partition.py {p} {CPUS}\")\n+    spec = {\n+        \"version\": \"v2\",\n+        \"description\": f\"PreScience Quantum S2AND partition {p} (s2and 0.51.1 Rust backend, production_model_v1.1)\",\n+        \"tasks\": [{\n+            \"name\": \"main\",\n+            \"image\": {\"docker\": \"python:3.11\"},\n+            \"command\": [\"bash\", \"-c\", cmd],\n+            \"datasets\": [\n+                {\"mountPath\": \"/s2and\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_pypi\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_model\", \"source\": {\"beaker\": MODEL_DATASET}},\n+                {\"mountPath\": \"/rust\", \"source\": {\"beaker\": RUST_DATASET}},\n+            ],\n+            \"result\": {\"path\": \"/results\"},\n+            \"resources\": {\"cpuCount\": CPUS, \"memory\": \"100GiB\"},\n+            \"context\": {\"priority\": \"normal\", \"minRuntime\": \"8h\", \"autoResume\": False},\n+            \"constraints\": {\"cluster\": [\"ai2/prometheus\", \"ai2/saturn\", \"ai2/neptune\", \"ai2/rhea\", \"ai2/phobos\"]},\n+        }],\n+    }\n+    with tempfile.NamedTemporaryFile(\"w\", suffix=\".yaml\", delete=False) as f:\n+        yaml.safe_dump(spec, f, sort_keys=False)\n+    subprocess.run([\"beaker\", \"experiment\", \"create\", f.name, \"--name\", f\"{prefix}-p{p}\", \"--workspace\", \"ai2/anirudha\"], check=True)"
+        },
+        {
+          "filename": "task_followup_prediction/evaluate/lacer_score.py",
+          "patch": "@@ -190,6 +190,8 @@ def main():\n     parser.add_argument(\"--num_workers\", type=int, default=128)\n     parser.add_argument(\"--max_records\", type=int, default=None, help=\"Optional cap on number of generations to score\")\n     parser.add_argument(\"--overwrite\", action=\"store_true\", help=\"Allow overwriting the output file if it exists\")\n+    parser.add_argument(\"--resume\", action=\"store_true\", help=\"Reuse successful scores from an existing output file and rescore only missing/errored records\")\n+    parser.add_argument(\"--max_retries\", type=int, default=2, help=\"API client retries per request (raise to ride out rate limits)\")\n     args = parser.parse_args()\n \n     # Load generated title/abstract pairs and reference corpus\n@@ -211,19 +213,28 @@ def main():\n         if args.modal_auth:\n             client = openai.OpenAI(base_url=args.base_url, api_key=\"unused\", default_headers={\"Modal-Key\": os.environ[\"MODAL_KEY\"], \"Modal-Secret\": os.environ[\"MODAL_SECRET\"]})\n         else:\n-            client = openai.OpenAI(base_url=args.base_url)\n+            client = openai.OpenAI(base_url=args.base_url, max_retries=args.max_retries)\n         score_fn = score_generation_openai\n     elif args.judge == \"gemini\":\n         client = genai.Client()\n         score_fn = score_generation_gemini\n     else:\n-        client = anthropic.Anthropic()\n+        client = anthropic.Anthropic(max_retries=args.max_retries)\n         score_fn = score_generation_anthropic\n \n+    input_filename = os.path.basename(args.input_path)\n+    output_path = os.path.join(args.output_dir, os.path.splitext(input_filename)[0] + \".lacer_scored.json\")\n+    done = {}\n+    if args.resume and os.path.exists(output_path):\n+        previous, _ = utils.load_json(output_path)\n+        done = {r[\"corpus_id\"]: r for r in previous if r.get(\"lacer_score\") is not None and \"lacer_error\" not in r}\n+        utils.log(f\"Resuming: reusing {len(done)} successful scores from {output_path}\")\n+    pending = [r for r in generations if r[\"corpus_id\"] not in done]\n+\n     # Prepare jobs with all required context for parallel scoring\n-    utils.log(f\"Scoring {len(generations)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n+    utils.log(f\"Scoring {len(pending)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n     jobs = []\n-    for record in generations:\n+    for record in pending:\n         record[\"client\"] = client\n         record[\"prompt_template\"] = prompt_template\n         record[\"all_papers_dict\"] = all_papers_dict\n@@ -233,7 +244,8 @@ def main():\n     # Score all generations in parallel using thread pool\n     with cf.ThreadPoolExecutor(max_workers=args.num_workers) as executor:\n         results_iter = executor.map(score_fn, jobs)\n-        scored_records = list(tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\"))\n+        newly_scored = {r[\"corpus_id\"]: r for r in tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\")}\n+    scored_records = [done.get(r[\"corpus_id\"]) or newly_scored[r[\"corpus_id\"]] for r in generations]\n \n     error_count = sum(1 for record in scored_records if \"lacer_error\" in record)\n     utils.log(f\"Finished scoring {len(scored_records)} records; errors encountered on {error_count} records\")\n@@ -242,10 +254,6 @@ def main():\n     utils.log(f\"Mean LACER score: {sum(scores) / len(scores):.2f} (n={len(scores)})\")\n \n     # Save scored records to output file\n-    input_filename = os.path.basename(args.input_path)\n-    output_filename = os.path.splitext(input_filename)[0] + \".lacer_scored.json\"\n-    output_path = os.path.join(args.output_dir, output_filename)\n-\n     utils.save_json(scored_records, output_path, metadata=utils.update_metadata(metadata, args), overwrite=args.overwrite)\n     utils.log(f\"Saved scored records to {output_path}\")\n "
+        },
+        {
+          "filename": "task_followup_prediction/generate/baseline_claude_parallel.py",
+          "patch": "@@ -25,10 +25,13 @@ def query_claude(record):\n         response = client.messages.create(\n             model=model,\n             max_tokens=max_tokens,\n-            system=system_prompt,\n+            # Cache the shared system prompt; the per-paper user message varies. Prefixes below a model's\n+            # minimum cacheable length (e.g. 4096 tokens on Opus 4.6) silently aren't cached.\n+            system=[{\"type\": \"text\", \"text\": system_prompt, \"cache_control\": {\"type\": \"ephemeral\"}}],\n             messages=messages\n         )\n-        utils.log(f\"usage model={model} in={response.usage.input_tokens} out={response.usage.output_tokens}\")\n+        u = response.usage\n+        utils.log(f\"usage model={model} in={u.input_tokens} cache_read={u.cache_read_input_tokens} cache_write={u.cache_creation_input_tokens} out={u.output_tokens}\")\n         if response.stop_reason == \"refusal\":\n             utils.log(f\"Refusal on corpus_id {record['corpus_id']}\")\n             record.update({\"title\": \"\", \"abstract\": \"\", \"reasoning\": \"\", \"refusal\": True})"
+        }
+      ],
+      "repository_full_name": "allenai/prescience",
+      "comments": null,
+      "author": {
+        "login": "Anirudh Ajith",
+        "name": "Anirudh Ajith",
+        "email": null,
+        "avatar_url": null,
+        "id": null
+      },
+      "committer": {
+        "login": "Anirudh Ajith",
+        "name": "Anirudh Ajith",
+        "email": null,
+        "avatar_url": null,
+        "id": null
+      },
+      "created_at": "2026-09-25T08:40:21Z",
+      "git_author_email": null,
+      "display_url": "https://github.com/allenai/prescience/commit/e54f6a5441aa389c18acfc11080facea6a95c1d5",
+      "display_title": "iclr"
+    },
+    "url": "https://github.com/allenai/prescience/commit/e54f6a5441aa389c18acfc11080facea6a95c1d5",
+    "title": "iclr",
+    "diff": "@@ -0,0 +1,76 @@\n+\"\"\"Stage-by-stage sanity checks for an in-progress corpus build (all_papers.stageNN.json).\n+\n+Prints counts, date ranges, category coverage, and the invariants that should already hold at that stage.\n+\"\"\"\n+import re\n+import argparse\n+import statistics\n+from collections import Counter\n+\n+import utils\n+\n+\n+def main():\n+    parser = argparse.ArgumentParser(\"Validate an intermediate corpus stage file.\")\n+    parser.add_argument(\"--input_path\", type=str, required=True, help=\"Path to all_papers.stageNN.json\")\n+    parser.add_argument(\"--start_date\", type=str, required=True, help=\"Target window start (inclusive)\")\n+    parser.add_argument(\"--end_date\", type=str, required=True, help=\"Target window end (exclusive)\")\n+    parser.add_argument(\"--category_regex\", type=str, required=True, help=\"Regex a target's categories must match\")\n+    args = parser.parse_args()\n+\n+    stage = int(re.search(r\"stage(\\d+)\", args.input_path).group(1))\n+    papers, metadata = utils.load_json(args.input_path)\n+    by_id = {p[\"corpus_id\"]: p for p in papers}\n+    targets = [p for p in papers if \"target\" in p.get(\"roles\", [])]\n+    problems = Counter()\n+    print(f\"stage {stage}: {len(papers)} papers ({len(by_id)} unique ids), {len(targets)} targets; last script: {metadata[-1]['script'].split('/')[-1] if metadata else None}\")\n+    print(\"roles:\", dict(Counter(r for p in papers for r in p.get(\"roles\", []))))\n+\n+    dates = sorted(p[\"date\"] for p in targets)\n+    print(f\"target dates {dates[0]} .. {dates[-1]}; per month: {dict(sorted(Counter(d[:7] for d in dates).items()))}\")\n+    cat_re = re.compile(args.category_regex)\n+    for p in targets:\n+        if not (args.start_date <= p[\"date\"] < args.end_date):\n+            problems[\"target outside date window\"] += 1\n+        if not any(cat_re.search(c) for c in p.get(\"categories\", [])):\n+            problems[\"target without a matching category\"] += 1\n+        if not (p.get(\"title\") or \"\").strip() or not (p.get(\"abstract\") or \"\").strip():\n+            problems[\"target missing title/abstract\"] += 1\n+    print(\"top categories:\", Counter(c for p in targets for c in p.get(\"categories\", [])).most_common(10))\n+    if len(by_id) != len(papers):\n+        problems[\"duplicate corpus ids\"] += len(papers) - len(by_id)\n+\n+    if stage >= 2:\n+        nk = [len(p.get(\"key_references\") or []) for p in targets]\n+        print(f\"key refs/target: avg {statistics.mean(nk):.2f}, median {statistics.median(nk)}, min {min(nk)}, max {max(nk)}\")\n+        for p in targets:\n+            refs = p.get(\"key_references\") or []\n+            if not 1 <= len(refs) <= 10:\n+                problems[\"target key_refs outside [1,10]\"] += 1\n+            for r in refs:\n+                q = by_id.get(r[\"corpus_id\"])\n+                if q is None:\n+                    problems[\"key ref missing from corpus\"] += 1\n+                elif q[\"date\"] >= p[\"date\"]:\n+                    problems[\"key ref dated on/after target\"] += 1\n+\n+    if stage >= 3:\n+        na = [len(p.get(\"authors\") or []) for p in targets]\n+        hist = [len(a.get(\"publication_history\", [])) for p in targets for a in p.get(\"authors\") or []]\n+        print(f\"authors/target: avg {statistics.mean(na):.2f}, max {max(na)}; history/author avg {statistics.mean(hist):.1f}, median {statistics.median(hist)}, zero-history frac {sum(h == 0 for h in hist) / len(hist):.3f}\")\n+        for p in targets:\n+            if not p.get(\"authors\"):\n+                problems[\"target without authors\"] += 1\n+            for a in p.get(\"authors\") or []:\n+                for pid in a.get(\"publication_history\", []):\n+                    q = by_id.get(pid)\n+                    if q is None:\n+                        problems[\"pub history paper missing\"] += 1\n+                    elif q[\"date\"] >= p[\"date\"]:\n+                        problems[\"pub history dated on/after target\"] += 1\n+\n+    print(\"PROBLEMS:\", dict(problems) if problems else \"none\")\n+\n+\n+if __name__ == \"__main__\":\n+    main()\n@@ -0,0 +1,46 @@\n+\"\"\"Submit one Beaker CPU job per S2AND signature partition (Rust backend, production_model_v1.1).\n+\n+Mirrors the ICLR-refresh setup: s2and[rust]==0.51.1, S2AND repo at cb99b97 (for scripts/convert_to_arrow.py),\n+the production model + name counts dataset, and the Rust runner dataset (rust_partition.py + prebuilt\n+name_counts_index). The inputs dataset must hold papers.json, specter_unwrapped.pickle and\n+signatures_partition_*.json; it is mounted at both /s2and and /s2and_pypi (the runner reads both paths).\n+\n+Usage: python dataset_internal/s2and_prep/submit_s2and_jobs.py <inputs_dataset_id> <num_partitions> <name_prefix> [partition ...]\n+\"\"\"\n+import sys\n+import subprocess\n+import tempfile\n+\n+import yaml\n+\n+MODEL_DATASET = \"01M38XVR7R3VAJ6GWXSK3JFFXP\"   # prescience-iclr-s2and-model-v1: production_model_v1.1.pickle + name_counts.pickle\n+RUST_DATASET = \"01M398FX9SRWFW9M7WWCHC7QQW\"    # prescience-iclr-s2and-rust-v5: rust_partition.py + name_counts_index\n+CPUS = 28\n+\n+inputs, num_partitions, prefix = sys.argv[1], int(sys.argv[2]), sys.argv[3]\n+partitions = [int(p) for p in sys.argv[4:]] or list(range(num_partitions))\n+for p in partitions:\n+    cmd = (\"pip install -q 's2and[rust]==0.51.1' && git clone -q https://github.com/allenai/S2AND.git /S2AND \"\n+           f\"&& git -C /S2AND checkout -q cb99b97 && S2AND_BACKEND=rust python /rust/rust_partition.py {p} {CPUS}\")\n+    spec = {\n+        \"version\": \"v2\",\n+        \"description\": f\"PreScience Quantum S2AND partition {p} (s2and 0.51.1 Rust backend, production_model_v1.1)\",\n+        \"tasks\": [{\n+            \"name\": \"main\",\n+            \"image\": {\"docker\": \"python:3.11\"},\n+            \"command\": [\"bash\", \"-c\", cmd],\n+            \"datasets\": [\n+                {\"mountPath\": \"/s2and\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_pypi\", \"source\": {\"beaker\": inputs}},\n+                {\"mountPath\": \"/s2and_model\", \"source\": {\"beaker\": MODEL_DATASET}},\n+                {\"mountPath\": \"/rust\", \"source\": {\"beaker\": RUST_DATASET}},\n+            ],\n+            \"result\": {\"path\": \"/results\"},\n+            \"resources\": {\"cpuCount\": CPUS, \"memory\": \"100GiB\"},\n+            \"context\": {\"priority\": \"normal\", \"minRuntime\": \"8h\", \"autoResume\": False},\n+            \"constraints\": {\"cluster\": [\"ai2/prometheus\", \"ai2/saturn\", \"ai2/neptune\", \"ai2/rhea\", \"ai2/phobos\"]},\n+        }],\n+    }\n+    with tempfile.NamedTemporaryFile(\"w\", suffix=\".yaml\", delete=False) as f:\n+        yaml.safe_dump(spec, f, sort_keys=False)\n+    subprocess.run([\"beaker\", \"experiment\", \"create\", f.name, \"--name\", f\"{prefix}-p{p}\", \"--workspace\", \"ai2/anirudha\"], check=True)\n@@ -190,6 +190,8 @@ def main():\n     parser.add_argument(\"--num_workers\", type=int, default=128)\n     parser.add_argument(\"--max_records\", type=int, default=None, help=\"Optional cap on number of generations to score\")\n     parser.add_argument(\"--overwrite\", action=\"store_true\", help=\"Allow overwriting the output file if it exists\")\n+    parser.add_argument(\"--resume\", action=\"store_true\", help=\"Reuse successful scores from an existing output file and rescore only missing/errored records\")\n+    parser.add_argument(\"--max_retries\", type=int, default=2, help=\"API client retries per request (raise to ride out rate limits)\")\n     args = parser.parse_args()\n \n     # Load generated title/abstract pairs and reference corpus\n@@ -211,19 +213,28 @@ def main():\n         if args.modal_auth:\n             client = openai.OpenAI(base_url=args.base_url, api_key=\"unused\", default_headers={\"Modal-Key\": os.environ[\"MODAL_KEY\"], \"Modal-Secret\": os.environ[\"MODAL_SECRET\"]})\n         else:\n-            client = openai.OpenAI(base_url=args.base_url)\n+            client = openai.OpenAI(base_url=args.base_url, max_retries=args.max_retries)\n         score_fn = score_generation_openai\n     elif args.judge == \"gemini\":\n         client = genai.Client()\n         score_fn = score_generation_gemini\n     else:\n-        client = anthropic.Anthropic()\n+        client = anthropic.Anthropic(max_retries=args.max_retries)\n         score_fn = score_generation_anthropic\n \n+    input_filename = os.path.basename(args.input_path)\n+    output_path = os.path.join(args.output_dir, os.path.splitext(input_filename)[0] + \".lacer_scored.json\")\n+    done = {}\n+    if args.resume and os.path.exists(output_path):\n+        previous, _ = utils.load_json(output_path)\n+        done = {r[\"corpus_id\"]: r for r in previous if r.get(\"lacer_score\") is not None and \"lacer_error\" not in r}\n+        utils.log(f\"Resuming: reusing {len(done)} successful scores from {output_path}\")\n+    pending = [r for r in generations if r[\"corpus_id\"] not in done]\n+\n     # Prepare jobs with all required context for parallel scoring\n-    utils.log(f\"Scoring {len(generations)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n+    utils.log(f\"Scoring {len(pending)} generations with {args.num_workers} workers using {args.judge} ({args.model})\")\n     jobs = []\n-    for record in generations:\n+    for record in pending:\n         record[\"client\"] = client\n         record[\"prompt_template\"] = prompt_template\n         record[\"all_papers_dict\"] = all_papers_dict\n@@ -233,7 +244,8 @@ def main():\n     # Score all generations in parallel using thread pool\n     with cf.ThreadPoolExecutor(max_workers=args.num_workers) as executor:\n         results_iter = executor.map(score_fn, jobs)\n-        scored_records = list(tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\"))\n+        newly_scored = {r[\"corpus_id\"]: r for r in tqdm(results_iter, total=len(jobs), desc=\"Scoring generations\")}\n+    scored_records = [done.get(r[\"corpus_id\"]) or newly_scored[r[\"corpus_id\"]] for r in generations]\n \n     error_count = sum(1 for record in scored_records if \"lacer_error\" in record)\n     utils.log(f\"Finished scoring {len(scored_records)} records; errors encountered on {error_count} records\")\n@@ -242,10 +254,6 @@ def main():\n     utils.log(f\"Mean LACER score: {sum(scores) / len(scores):.2f} (n={len(scores)})\")\n \n     # Save scored records to output file\n-    input_filename = os.path.basename(args.input_path)\n-    output_filename = os.path.splitext(input_filename)[0] + \".lacer_scored.json\"\n-    output_path = os.path.join(args.output_dir, output_filename)\n-\n     utils.save_json(scored_records, output_path, metadata=utils.update_metadata(metadata, args), overwrite=args.overwrite)\n     utils.log(f\"Saved scored records to {output_path}\")\n \n@@ -25,10 +25,13 @@ def query_claude(record):\n         response = client.messages.create(\n             model=model,\n             max_tokens=max_tokens,\n-            system=system_prompt,\n+            # Cache the shared system prompt; the per-paper user message varies. Prefixes below a model's\n+            # minimum cacheable length (e.g. 4096 tokens on Opus 4.6) silently aren't cached.\n+            system=[{\"type\": \"text\", \"text\": system_prompt, \"cache_control\": {\"type\": \"ephemeral\"}}],\n             messages=messages\n         )\n-        utils.log(f\"usage model={model} in={response.usage.input_tokens} out={response.usage.output_tokens}\")\n+        u = response.usage\n+        utils.log(f\"usage model={model} in={u.input_tokens} cache_read={u.cache_read_input_tokens} cache_write={u.cache_creation_input_tokens} out={u.output_tokens}\")\n         if response.stop_reason == \"refusal\":\n             utils.log(f\"Refusal on corpus_id {record['corpus_id']}\")\n             record.update({\"title\": \"\", \"abstract\": \"\", \"reasoning\": \"\", \"refusal\": True})",
+    "display_url": "https://github.com/allenai/prescience/commit/e54f6a5441aa389c18acfc11080facea6a95c1d5",
+    "display_title": "iclr"
+  },
+  "task_trees": {
+    "agent": [
+      {
+        "name": "__init__.py",
+        "path": "task_coauthor_prediction/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/__init__.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/__init__.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/__init__.py"
+        }
+      },
+      {
+        "name": "agent_tools.py",
+        "path": "task_coauthor_prediction/agent_tools.py",
+        "sha": "8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "size": 12900,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/agent_tools.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/agent_tools.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/agent_tools.py"
+        }
+      },
+      {
+        "name": "analysis",
+        "path": "task_coauthor_prediction/analysis",
+        "sha": "28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/analysis",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+          "html": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/analysis"
+        }
+      },
+      {
+        "name": "baseline_agent_gpt.py",
+        "path": "task_coauthor_prediction/baseline_agent_gpt.py",
+        "sha": "d143a283bcf714128ca695d0cecccfaa7db98171",
+        "size": 12737,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_agent_gpt.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_agent_gpt.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_agent_gpt.py"
+        }
+      },
+      {
+        "name": "baseline_autoresearch.py",
+        "path": "task_coauthor_prediction/baseline_autoresearch.py",
+        "sha": "1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "size": 10771,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_autoresearch.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_autoresearch.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_autoresearch.py"
+        }
+      },
+      {
+        "name": "baseline_embedding_fusion.py",
+        "path": "task_coauthor_prediction/baseline_embedding_fusion.py",
+        "sha": "c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "size": 13434,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_embedding_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_frequency.py",
+        "path": "task_coauthor_prediction/baseline_frequency.py",
+        "sha": "68071b92b427d14419df45e0e1dbd92676f220bc",
+        "size": 9017,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_frequency.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_frequency.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_frequency.py"
+        }
+      },
+      {
+        "name": "baseline_hierarchical.py",
+        "path": "task_coauthor_prediction/baseline_hierarchical.py",
+        "sha": "15559b710f9fe2ba018689f89616f8079bb102be",
+        "size": 12841,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_hierarchical.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_hierarchical.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_hierarchical.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling.py",
+        "sha": "5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "size": 9691,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_mean_pooling.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_mean_pooling.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_mean_pooling.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling_projected.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "sha": "e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "size": 9601,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_mean_pooling_projected.py"
+        }
+      },
+      {
+        "name": "baseline_rank_fusion.py",
+        "path": "task_coauthor_prediction/baseline_rank_fusion.py",
+        "sha": "fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "size": 14634,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_rank_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/baseline_rank_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/baseline_rank_fusion.py"
+        }
+      },
+      {
+        "name": "dataset.py",
+        "path": "task_coauthor_prediction/dataset.py",
+        "sha": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "size": 2990,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/dataset.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/dataset.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/dataset.py"
+        }
+      },
+      {
+        "name": "evaluate.py",
+        "path": "task_coauthor_prediction/evaluate.py",
+        "sha": "dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "size": 3004,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/evaluate.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/evaluate.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/evaluate.py"
+        }
+      },
+      {
+        "name": "model",
+        "path": "task_coauthor_prediction/model",
+        "sha": "acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/model",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+          "html": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/model"
+        }
+      },
+      {
+        "name": "projection_model.py",
+        "path": "task_coauthor_prediction/projection_model.py",
+        "sha": "46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "size": 8319,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/projection_model.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/projection_model.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/projection_model.py"
+        }
+      },
+      {
+        "name": "templates",
+        "path": "task_coauthor_prediction/templates",
+        "sha": "edb64b4c75a4b7d705c725015944a21db7dcbde5",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/templates",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/edb64b4c75a4b7d705c725015944a21db7dcbde5",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/edb64b4c75a4b7d705c725015944a21db7dcbde5",
+          "html": "https://github.com/allenai/prescience/tree/agent/task_coauthor_prediction/templates"
+        }
+      },
+      {
+        "name": "train_projection.py",
+        "path": "task_coauthor_prediction/train_projection.py",
+        "sha": "27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "size": 21526,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=agent",
+        "html_url": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/train_projection.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/agent/task_coauthor_prediction/train_projection.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=agent",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+          "html": "https://github.com/allenai/prescience/blob/agent/task_coauthor_prediction/train_projection.py"
+        }
+      }
+    ],
+    "iclr-refresh": [
+      {
+        "name": "__init__.py",
+        "path": "task_coauthor_prediction/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/__init__.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/__init__.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/__init__.py"
+        }
+      },
+      {
+        "name": "agent_tools.py",
+        "path": "task_coauthor_prediction/agent_tools.py",
+        "sha": "8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "size": 12900,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/agent_tools.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/agent_tools.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/agent_tools.py"
+        }
+      },
+      {
+        "name": "analysis",
+        "path": "task_coauthor_prediction/analysis",
+        "sha": "28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/analysis",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+          "html": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/analysis"
+        }
+      },
+      {
+        "name": "baseline_agent_gpt.py",
+        "path": "task_coauthor_prediction/baseline_agent_gpt.py",
+        "sha": "d143a283bcf714128ca695d0cecccfaa7db98171",
+        "size": 12737,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_agent_gpt.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_agent_gpt.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_agent_gpt.py"
+        }
+      },
+      {
+        "name": "baseline_autoresearch.py",
+        "path": "task_coauthor_prediction/baseline_autoresearch.py",
+        "sha": "1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "size": 10771,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_autoresearch.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_autoresearch.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_autoresearch.py"
+        }
+      },
+      {
+        "name": "baseline_embedding_fusion.py",
+        "path": "task_coauthor_prediction/baseline_embedding_fusion.py",
+        "sha": "c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "size": 13434,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_embedding_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_frequency.py",
+        "path": "task_coauthor_prediction/baseline_frequency.py",
+        "sha": "68071b92b427d14419df45e0e1dbd92676f220bc",
+        "size": 9017,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_frequency.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_frequency.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_frequency.py"
+        }
+      },
+      {
+        "name": "baseline_hierarchical.py",
+        "path": "task_coauthor_prediction/baseline_hierarchical.py",
+        "sha": "15559b710f9fe2ba018689f89616f8079bb102be",
+        "size": 12841,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_hierarchical.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_hierarchical.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_hierarchical.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling.py",
+        "sha": "5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "size": 9691,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling_projected.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "sha": "e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "size": 9601,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_mean_pooling_projected.py"
+        }
+      },
+      {
+        "name": "baseline_rank_fusion.py",
+        "path": "task_coauthor_prediction/baseline_rank_fusion.py",
+        "sha": "fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "size": 14634,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_rank_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_rank_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_rank_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_rlm.py",
+        "path": "task_coauthor_prediction/baseline_rlm.py",
+        "sha": "6259c899181aac35ea0712d0299921efe22c0c5e",
+        "size": 14044,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rlm.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_rlm.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/6259c899181aac35ea0712d0299921efe22c0c5e",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/baseline_rlm.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rlm.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/6259c899181aac35ea0712d0299921efe22c0c5e",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/baseline_rlm.py"
+        }
+      },
+      {
+        "name": "dataset.py",
+        "path": "task_coauthor_prediction/dataset.py",
+        "sha": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "size": 2990,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/dataset.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/dataset.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/dataset.py"
+        }
+      },
+      {
+        "name": "evaluate.py",
+        "path": "task_coauthor_prediction/evaluate.py",
+        "sha": "dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "size": 3004,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/evaluate.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/evaluate.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/evaluate.py"
+        }
+      },
+      {
+        "name": "model",
+        "path": "task_coauthor_prediction/model",
+        "sha": "acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/model",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+          "html": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/model"
+        }
+      },
+      {
+        "name": "projection_model.py",
+        "path": "task_coauthor_prediction/projection_model.py",
+        "sha": "22e87d1ae5ee76003adee3ded6e5551301b584a5",
+        "size": 8643,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/projection_model.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/22e87d1ae5ee76003adee3ded6e5551301b584a5",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/projection_model.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/22e87d1ae5ee76003adee3ded6e5551301b584a5",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/projection_model.py"
+        }
+      },
+      {
+        "name": "templates",
+        "path": "task_coauthor_prediction/templates",
+        "sha": "748fdf46cae38d96765b73f07760c5053d3f4216",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/templates",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/748fdf46cae38d96765b73f07760c5053d3f4216",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/748fdf46cae38d96765b73f07760c5053d3f4216",
+          "html": "https://github.com/allenai/prescience/tree/iclr-refresh/task_coauthor_prediction/templates"
+        }
+      },
+      {
+        "name": "train_projection.py",
+        "path": "task_coauthor_prediction/train_projection.py",
+        "sha": "27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "size": 21526,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=iclr-refresh",
+        "html_url": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/train_projection.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/iclr-refresh/task_coauthor_prediction/train_projection.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=iclr-refresh",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+          "html": "https://github.com/allenai/prescience/blob/iclr-refresh/task_coauthor_prediction/train_projection.py"
+        }
+      }
+    ],
+    "rebuttal-F-bio-physics": [
+      {
+        "name": "__init__.py",
+        "path": "task_coauthor_prediction/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/__init__.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/__init__.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/__init__.py"
+        }
+      },
+      {
+        "name": "agent_tools.py",
+        "path": "task_coauthor_prediction/agent_tools.py",
+        "sha": "8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "size": 12900,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/agent_tools.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/agent_tools.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/agent_tools.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/8a0f83f74d9bd958412db2c5f12cb3a846c10152",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/agent_tools.py"
+        }
+      },
+      {
+        "name": "analysis",
+        "path": "task_coauthor_prediction/analysis",
+        "sha": "28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/analysis",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+          "html": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/analysis"
+        }
+      },
+      {
+        "name": "baseline_agent_gpt.py",
+        "path": "task_coauthor_prediction/baseline_agent_gpt.py",
+        "sha": "d143a283bcf714128ca695d0cecccfaa7db98171",
+        "size": 12737,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_agent_gpt.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_agent_gpt.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_agent_gpt.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/d143a283bcf714128ca695d0cecccfaa7db98171",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_agent_gpt.py"
+        }
+      },
+      {
+        "name": "baseline_autoresearch.py",
+        "path": "task_coauthor_prediction/baseline_autoresearch.py",
+        "sha": "1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "size": 10771,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_autoresearch.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_autoresearch.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_autoresearch.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_autoresearch.py"
+        }
+      },
+      {
+        "name": "baseline_embedding_fusion.py",
+        "path": "task_coauthor_prediction/baseline_embedding_fusion.py",
+        "sha": "c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "size": 13434,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_embedding_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_frequency.py",
+        "path": "task_coauthor_prediction/baseline_frequency.py",
+        "sha": "68071b92b427d14419df45e0e1dbd92676f220bc",
+        "size": 9017,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_frequency.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_frequency.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_frequency.py"
+        }
+      },
+      {
+        "name": "baseline_hierarchical.py",
+        "path": "task_coauthor_prediction/baseline_hierarchical.py",
+        "sha": "15559b710f9fe2ba018689f89616f8079bb102be",
+        "size": 12841,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_hierarchical.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_hierarchical.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_hierarchical.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling.py",
+        "sha": "5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "size": 9691,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling_projected.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "sha": "e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "size": 9601,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_mean_pooling_projected.py"
+        }
+      },
+      {
+        "name": "baseline_rank_fusion.py",
+        "path": "task_coauthor_prediction/baseline_rank_fusion.py",
+        "sha": "fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "size": 14634,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_rank_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_rank_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/baseline_rank_fusion.py"
+        }
+      },
+      {
+        "name": "dataset.py",
+        "path": "task_coauthor_prediction/dataset.py",
+        "sha": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "size": 2990,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/dataset.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/dataset.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/dataset.py"
+        }
+      },
+      {
+        "name": "evaluate.py",
+        "path": "task_coauthor_prediction/evaluate.py",
+        "sha": "dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "size": 3004,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/evaluate.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/evaluate.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/evaluate.py"
+        }
+      },
+      {
+        "name": "model",
+        "path": "task_coauthor_prediction/model",
+        "sha": "acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/model",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+          "html": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/model"
+        }
+      },
+      {
+        "name": "projection_model.py",
+        "path": "task_coauthor_prediction/projection_model.py",
+        "sha": "46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "size": 8319,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/projection_model.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/projection_model.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/projection_model.py"
+        }
+      },
+      {
+        "name": "templates",
+        "path": "task_coauthor_prediction/templates",
+        "sha": "edb64b4c75a4b7d705c725015944a21db7dcbde5",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/templates",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/edb64b4c75a4b7d705c725015944a21db7dcbde5",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/templates?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/edb64b4c75a4b7d705c725015944a21db7dcbde5",
+          "html": "https://github.com/allenai/prescience/tree/rebuttal-F-bio-physics/task_coauthor_prediction/templates"
+        }
+      },
+      {
+        "name": "train_projection.py",
+        "path": "task_coauthor_prediction/train_projection.py",
+        "sha": "27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "size": 21526,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=rebuttal-F-bio-physics",
+        "html_url": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/train_projection.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/rebuttal-F-bio-physics/task_coauthor_prediction/train_projection.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=rebuttal-F-bio-physics",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+          "html": "https://github.com/allenai/prescience/blob/rebuttal-F-bio-physics/task_coauthor_prediction/train_projection.py"
+        }
+      }
+    ],
+    "cocitation": [
+      {
+        "name": "__init__.py",
+        "path": "task_coauthor_prediction/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/__init__.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/__init__.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/__init__.py"
+        }
+      },
+      {
+        "name": "analysis",
+        "path": "task_coauthor_prediction/analysis",
+        "sha": "28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/tree/cocitation/task_coauthor_prediction/analysis",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+          "html": "https://github.com/allenai/prescience/tree/cocitation/task_coauthor_prediction/analysis"
+        }
+      },
+      {
+        "name": "baseline_embedding_fusion.py",
+        "path": "task_coauthor_prediction/baseline_embedding_fusion.py",
+        "sha": "c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "size": 13434,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_embedding_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_frequency.py",
+        "path": "task_coauthor_prediction/baseline_frequency.py",
+        "sha": "68071b92b427d14419df45e0e1dbd92676f220bc",
+        "size": 9017,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_frequency.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_frequency.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_frequency.py"
+        }
+      },
+      {
+        "name": "baseline_hierarchical.py",
+        "path": "task_coauthor_prediction/baseline_hierarchical.py",
+        "sha": "15559b710f9fe2ba018689f89616f8079bb102be",
+        "size": 12841,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_hierarchical.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_hierarchical.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_hierarchical.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling.py",
+        "sha": "5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "size": 9691,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_mean_pooling.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_mean_pooling.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_mean_pooling.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling_projected.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "sha": "e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "size": 9601,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_mean_pooling_projected.py"
+        }
+      },
+      {
+        "name": "baseline_rank_fusion.py",
+        "path": "task_coauthor_prediction/baseline_rank_fusion.py",
+        "sha": "fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "size": 14634,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_rank_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/baseline_rank_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/baseline_rank_fusion.py"
+        }
+      },
+      {
+        "name": "dataset.py",
+        "path": "task_coauthor_prediction/dataset.py",
+        "sha": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "size": 2990,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/dataset.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/dataset.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/dataset.py"
+        }
+      },
+      {
+        "name": "evaluate.py",
+        "path": "task_coauthor_prediction/evaluate.py",
+        "sha": "dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "size": 3004,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/evaluate.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/evaluate.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/evaluate.py"
+        }
+      },
+      {
+        "name": "model",
+        "path": "task_coauthor_prediction/model",
+        "sha": "acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/tree/cocitation/task_coauthor_prediction/model",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+          "html": "https://github.com/allenai/prescience/tree/cocitation/task_coauthor_prediction/model"
+        }
+      },
+      {
+        "name": "projection_model.py",
+        "path": "task_coauthor_prediction/projection_model.py",
+        "sha": "46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "size": 8319,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/projection_model.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/projection_model.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/projection_model.py"
+        }
+      },
+      {
+        "name": "train_projection.py",
+        "path": "task_coauthor_prediction/train_projection.py",
+        "sha": "27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "size": 21526,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=cocitation",
+        "html_url": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/train_projection.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/cocitation/task_coauthor_prediction/train_projection.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=cocitation",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+          "html": "https://github.com/allenai/prescience/blob/cocitation/task_coauthor_prediction/train_projection.py"
+        }
+      }
+    ],
+    "sft": [
+      {
+        "name": "__init__.py",
+        "path": "task_coauthor_prediction/__init__.py",
+        "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/__init__.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/__init__.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/__init__.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/__init__.py"
+        }
+      },
+      {
+        "name": "analysis",
+        "path": "task_coauthor_prediction/analysis",
+        "sha": "28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/tree/sft/task_coauthor_prediction/analysis",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/analysis?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/28086d1517dcb758831ffbd4dfc31a46ebeaa3bd",
+          "html": "https://github.com/allenai/prescience/tree/sft/task_coauthor_prediction/analysis"
+        }
+      },
+      {
+        "name": "baseline_embedding_fusion.py",
+        "path": "task_coauthor_prediction/baseline_embedding_fusion.py",
+        "sha": "c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "size": 13434,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_embedding_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_embedding_fusion.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/c3dafe2a0aa4ced270477649b40f49cc63998642",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_embedding_fusion.py"
+        }
+      },
+      {
+        "name": "baseline_frequency.py",
+        "path": "task_coauthor_prediction/baseline_frequency.py",
+        "sha": "68071b92b427d14419df45e0e1dbd92676f220bc",
+        "size": 9017,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_frequency.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_frequency.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_frequency.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/68071b92b427d14419df45e0e1dbd92676f220bc",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_frequency.py"
+        }
+      },
+      {
+        "name": "baseline_hierarchical.py",
+        "path": "task_coauthor_prediction/baseline_hierarchical.py",
+        "sha": "15559b710f9fe2ba018689f89616f8079bb102be",
+        "size": 12841,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_hierarchical.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_hierarchical.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_hierarchical.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/15559b710f9fe2ba018689f89616f8079bb102be",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_hierarchical.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling.py",
+        "sha": "5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "size": 9691,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_mean_pooling.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_mean_pooling.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/5e3dc5299782b667d5c18a32df3bbcd77e251420",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_mean_pooling.py"
+        }
+      },
+      {
+        "name": "baseline_mean_pooling_projected.py",
+        "path": "task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "sha": "e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "size": 9601,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_mean_pooling_projected.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_mean_pooling_projected.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/e92fd82508764cecf2217e8039c566eb7a4acb2f",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_mean_pooling_projected.py"
+        }
+      },
+      {
+        "name": "baseline_rank_fusion.py",
+        "path": "task_coauthor_prediction/baseline_rank_fusion.py",
+        "sha": "fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "size": 14634,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_rank_fusion.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/baseline_rank_fusion.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/baseline_rank_fusion.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/fbd28751f8323282f02ef18e4c89e806d8224e37",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/baseline_rank_fusion.py"
+        }
+      },
+      {
+        "name": "dataset.py",
+        "path": "task_coauthor_prediction/dataset.py",
+        "sha": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "size": 2990,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/dataset.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/dataset.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/dataset.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/12170e5e67dd22f7ed68d5482eadff58373452e9",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/dataset.py"
+        }
+      },
+      {
+        "name": "evaluate.py",
+        "path": "task_coauthor_prediction/evaluate.py",
+        "sha": "dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "size": 3004,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/evaluate.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/evaluate.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/evaluate.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/dabc62ea2de4174f19bc3709143a371749cb8f04",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/evaluate.py"
+        }
+      },
+      {
+        "name": "model",
+        "path": "task_coauthor_prediction/model",
+        "sha": "acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "size": 0,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/tree/sft/task_coauthor_prediction/model",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+        "download_url": null,
+        "type": "dir",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/model?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/trees/acfdde7f4dfcc47791e068f6fcb958af384ef184",
+          "html": "https://github.com/allenai/prescience/tree/sft/task_coauthor_prediction/model"
+        }
+      },
+      {
+        "name": "projection_model.py",
+        "path": "task_coauthor_prediction/projection_model.py",
+        "sha": "46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "size": 8319,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/projection_model.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/projection_model.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/projection_model.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/46ef78a6b692c9dadefc330dae301dd5cfe7331c",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/projection_model.py"
+        }
+      },
+      {
+        "name": "train_projection.py",
+        "path": "task_coauthor_prediction/train_projection.py",
+        "sha": "27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "size": 21526,
+        "url": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=sft",
+        "html_url": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/train_projection.py",
+        "git_url": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+        "download_url": "https://raw.githubusercontent.com/allenai/prescience/sft/task_coauthor_prediction/train_projection.py",
+        "type": "file",
+        "_links": {
+          "self": "https://api.github.com/repos/allenai/prescience/contents/task_coauthor_prediction/train_projection.py?ref=sft",
+          "git": "https://api.github.com/repos/allenai/prescience/git/blobs/27aa0ce70306d7b1a37c3027ee42c01f14d704a7",
+          "html": "https://github.com/allenai/prescience/blob/sft/task_coauthor_prediction/train_projection.py"
+        }
+      }
+    ]
+  }
+}

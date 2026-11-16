@@ -1,0 +1,47 @@
+{
+  "status": "Complete checkpointed TRAIN encoding elapsed-time accounting",
+  "sessions": [
+    {
+      "log": "minilm-full.log",
+      "pid": 18252,
+      "start_row": 0,
+      "end_row": 13824,
+      "rows": 13824,
+      "recorded_elapsed_seconds": 5284.578432500013
+    },
+    {
+      "log": "minilm-resume-1809.log",
+      "pid": 1816,
+      "start_row": 13824,
+      "end_row": 324608,
+      "rows": 310784,
+      "recorded_elapsed_seconds": 94431.9203293
+    },
+    {
+      "log": "minilm-resume-20261027.log",
+      "pid": 14788,
+      "start_row": 324608,
+      "end_row": 373716,
+      "rows": 49108,
+      "recorded_elapsed_seconds": 6927.308191000018
+    }
+  ],
+  "rows": 373716,
+  "recorded_elapsed_seconds": 106643.80695280003,
+  "recorded_elapsed_hours": 29.62327970911112,
+  "rows_per_recorded_second": 3.504338514147424,
+  "interpretation": "Elapsed time inside encoding sessions through last committed checkpoints; not active CPU time or isolated throughput.",
+  "exclusions": [
+    "Model download/load and post-loop final hashing are excluded from this timer.",
+    "Uncommitted work after the last checkpoint is not included.",
+    "OS suspension, contention and waiting inside a live session may be included.",
+    "The gaps between separate sessions are excluded; no end-to-end calendar duration is claimed."
+  ],
+  "log_sha256": {
+    "minilm-full.log": "559de5566bf51459545bd8468a9bfff1a96b0a99b936c9a4a9525f66ad21bfb7",
+    "minilm-resume-1809.log": "83047fd303366faa696b23945a658a0713f7bda9f41164e8fdca70eb9872d0b5",
+    "minilm-resume-20261027.log": "4cc0f32b4dfabc77af63ffb5be82e70ecc13811ed27e2b8947738b33b65d8531"
+  },
+  "embedding_bytes": 287013888,
+  "embedding_sha256": "2b787f15fc1acbcf36ccb7b5429ee073c9310b8e11ce71e16f7e38a83f34df5d"
+}

@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "sympy": "1.13.1",
+    "torch": "2.5.1",
+    "torch-geometric": "2.6.1",
+    "torch_scatter": "2.1.2+pt25cpu",
+    "torch_sparse": "0.6.18+pt25cpu"
+  },
+  "setup": "Isolated sys.path overlay on primary environment; .lib source-build libraries omitted; NTFS/LZX compression",
+  "torch_manifest": "work/ncn-runtime/torch-extraction-manifest.json",
+  "base_requirements": "requirements.lock.txt",
+  "sandbox_note": "Installed dependency files require escalated local read/execution in this session"
+}

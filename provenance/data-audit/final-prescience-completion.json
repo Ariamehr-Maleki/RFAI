@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "report_sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+  "output_files_verified": 4091,
+  "queries": 1000,
+  "metric_runs": 87,
+  "max_metric_error": 4.440892098500626e-16,
+  "lock_sha256": "0f2240d82c5013a39099cadd15b67bb2a1a1298e96fce33888dde463fd5ad091"
+}

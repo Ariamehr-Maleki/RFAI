@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/allenai/prescience",
+  "commit": "47384ed79c48cfef610f30af12ba883f2a0093cb",
+  "purpose": "Original upstream metric fixture; distinct from supplementary scorer revision",
+  "files": {
+    "utils.py": "4de47f02b32834ed4555dc9b96d6554f7b33bbf0e83097a5f08d3715bb7bacd3",
+    "LICENSE": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  }
+}

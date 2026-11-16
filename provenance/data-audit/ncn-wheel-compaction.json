@@ -1,0 +1,7 @@
+{
+  "action": "Remove verified redundant downloaded wheel after successful isolated NCN forward/backward and real-data pilot",
+  "sha256": "73e58e78f7d220917c5dbfad1a40e09df9929d3b95d25e57d9f8558f84c9a11c",
+  "bytes_freed": 203046841,
+  "retained": "Installed runtime, extraction hash manifest, official download metadata and downloader script",
+  "verification": "All extracted file sizes; full SHA of downloaded wheel and three principal runtime files"
+}

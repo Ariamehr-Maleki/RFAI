@@ -1,0 +1,59 @@
+{
+  "status": "Development partitions only; no test qrels parsed",
+  "results": {
+    "train": {
+      "authors": {
+        "queries": 4766,
+        "positive_pairs": 20829,
+        "missing_author_ids": 5094,
+        "pairs_with_author_emptied_by_title_filter": 56,
+        "macro_recall_ceiling": 0.7731163844264809,
+        "queries_with_zero_attainable_relevance": 4
+      },
+      "cite": {
+        "queries": 3294,
+        "positive_pairs": 366726,
+        "missing_author_ids": 0,
+        "pairs_with_author_emptied_by_title_filter": 22,
+        "macro_recall_ceiling": 0.999851591827973,
+        "queries_with_zero_attainable_relevance": 0
+      },
+      "simcite": {
+        "queries": 3291,
+        "positive_pairs": 108490,
+        "missing_author_ids": 0,
+        "pairs_with_author_emptied_by_title_filter": 11,
+        "macro_recall_ceiling": 0.9998601325479619,
+        "queries_with_zero_attainable_relevance": 0
+      }
+    },
+    "validation": {
+      "authors": {
+        "queries": 1589,
+        "positive_pairs": 5948,
+        "missing_author_ids": 1911,
+        "pairs_with_author_emptied_by_title_filter": 12,
+        "macro_recall_ceiling": 0.7138104606898688,
+        "queries_with_zero_attainable_relevance": 2
+      },
+      "cite": {
+        "queries": 976,
+        "positive_pairs": 95807,
+        "missing_author_ids": 0,
+        "pairs_with_author_emptied_by_title_filter": 7,
+        "macro_recall_ceiling": 0.9997601302372872,
+        "queries_with_zero_attainable_relevance": 0
+      },
+      "simcite": {
+        "queries": 975,
+        "positive_pairs": 29441,
+        "missing_author_ids": 0,
+        "pairs_with_author_emptied_by_title_filter": 6,
+        "macro_recall_ceiling": 0.9995529257067718,
+        "queries_with_zero_attainable_relevance": 0
+      }
+    }
+  },
+  "policy": "Keep original qrels/denominators; do not silently drop unreachable relevant authors.",
+  "note": "An author absent from the released candidate mapping cannot be retrieved even by a perfect ranker."
+}

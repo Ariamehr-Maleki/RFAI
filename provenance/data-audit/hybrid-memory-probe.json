@@ -1,0 +1,43 @@
+{
+  "status": "PASS: full historical data and one query loaded under resource watchdog",
+  "pid": 11288,
+  "initial_available_bytes": 2397175808,
+  "sampled_peak_rss_bytes": 1895866368,
+  "minimum_available_bytes": 938405888,
+  "seconds": 63.94423520000419,
+  "sample_interval_seconds": 0.2,
+  "snapshots": [
+    {
+      "stage": "imports",
+      "rss_bytes": 162115584,
+      "available_bytes": 2208837632,
+      "seconds": 6.382996600004844
+    },
+    {
+      "stage": "loaded paper and author histories",
+      "rss_bytes": 1254084608,
+      "available_bytes": 1755598848,
+      "seconds": 48.705341599998064
+    },
+    {
+      "stage": "references",
+      "rss_bytes": 1192366080,
+      "available_bytes": 1720565760,
+      "seconds": 53.090228199987905
+    },
+    {
+      "stage": "all indices and engine",
+      "rss_bytes": 1308291072,
+      "available_bytes": 1625141248,
+      "seconds": 54.83510510000633
+    },
+    {
+      "stage": "one historical query",
+      "rss_bytes": 1853452288,
+      "available_bytes": 969072640,
+      "seconds": 63.94200060001458
+    }
+  ],
+  "source_sha256": "ca0220b1b9680a0f676d90f5d1662a6b3d94f9eea6a1c2be36c22cc5d8a7c4e0",
+  "limitation": "One historical query probes resource use, not benchmark quality or worst-case memory."
+}

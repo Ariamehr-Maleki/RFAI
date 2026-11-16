@@ -1,0 +1,10 @@
+{
+  "status": "PASS full TRAIN vector source/hash/finite/norm/row inventory",
+  "rows": 373716,
+  "sha256": "2b787f15fc1acbcf36ccb7b5429ee073c9310b8e11ce71e16f7e38a83f34df5d",
+  "bytes": 287013888,
+  "max_l2_norm_error": 8.434057235717773e-05,
+  "source_sha256": "bbd51d5048eb6683f111b2d5c28cd36d23d37470a693ab2090c1592cce96a884",
+  "manifest_sha256": "6cc5c827a34e54d57108deda4fee7bf1ad8d6752fd43e3ee08ce78824b217528",
+  "ids_sha256": "5523395c3b21680fcf14d4d4fd177473454ea7295928d13a0a80517994f97a25"
+}

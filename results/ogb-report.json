@@ -1,0 +1,575 @@
+{
+  "status": "Completed frozen ogbl-collab evaluation",
+  "run_id": "researchforge-final-v1",
+  "lock_sha256": "0f2240d82c5013a39099cadd15b67bb2a1a1298e96fce33888dde463fd5ad091",
+  "config_sha256": "cd07ced06a2516971c54a3d6a158d85e501ea6db9cadcc3395f055d76b72281b",
+  "config": {
+    "primary_metric": "hits50",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "multiplicity": "Holm",
+    "candidate_policy": "Official positive edges and shared100000 negatives; training graph through2017; no2018 edges.",
+    "training_policy": "Frozen saved development-selected models; no training or tuning on final labels.",
+    "uncertainty_policy": "Average model-seed effects before paired cluster inference; marginal95% intervals and separate per-task Holm families.",
+    "test_split": "Explicit locked held-out inputs; see dataset-specific fields.",
+    "runner_schema": 1,
+    "inference": {
+      "repetitions": 10000,
+      "seed": 314159
+    },
+    "output_directory": "outputs/researchforge-study/results/final/ogbl-collab",
+    "methods": {
+      "graph__lambdamart": {
+        "kind": "tree",
+        "track": "graph",
+        "models": {
+          "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt",
+          "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt",
+          "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt"
+        }
+      },
+      "graph__binary_lightgbm": {
+        "kind": "tree",
+        "track": "graph",
+        "models": {
+          "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt",
+          "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt",
+          "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt"
+        }
+      },
+      "graph_plus_released_nodes__lambdamart": {
+        "kind": "tree",
+        "track": "graph_plus_released_nodes",
+        "models": {
+          "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt",
+          "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt",
+          "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt"
+        }
+      },
+      "graph_plus_released_nodes__binary_lightgbm": {
+        "kind": "tree",
+        "track": "graph_plus_released_nodes",
+        "models": {
+          "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt",
+          "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt",
+          "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt"
+        }
+      },
+      "common_neighbors": {
+        "kind": "feature",
+        "feature": "common_neighbors"
+      },
+      "adamic_adar": {
+        "kind": "feature",
+        "feature": "adamic_adar"
+      },
+      "resource_allocation": {
+        "kind": "feature",
+        "feature": "resource_allocation"
+      },
+      "jaccard": {
+        "kind": "feature",
+        "feature": "jaccard"
+      },
+      "log_degree_product": {
+        "kind": "feature",
+        "feature": "log_degree_product"
+      },
+      "log_degree_min": {
+        "kind": "feature",
+        "feature": "log_degree_min"
+      },
+      "log_degree_max": {
+        "kind": "feature",
+        "feature": "log_degree_max"
+      },
+      "prior_weight": {
+        "kind": "feature",
+        "feature": "prior_weight"
+      },
+      "released_node_cosine": {
+        "kind": "feature",
+        "feature": "released_node_cosine"
+      },
+      "ncn": {
+        "kind": "ncn",
+        "models": {
+          "42": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt",
+          "43": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt",
+          "44": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt"
+        }
+      }
+    },
+    "artifacts": [
+      {
+        "path": "outputs/researchforge-study/scripts/ogb_final_run.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/ogb_validation.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/ogb_multiseed.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/final_evaluation_gate.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/final_statistics.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/supervisor_state.py",
+        "role": "code"
+      },
+      {
+        "path": "outputs/researchforge-study/PROTOCOL.md",
+        "role": "protocol"
+      },
+      {
+        "path": "outputs/researchforge-study/SCIENTIFIC_REPORTS_PLAN.md",
+        "role": "protocol"
+      },
+      {
+        "path": "outputs/researchforge-study/environment-current.json",
+        "role": "environment"
+      },
+      {
+        "path": "outputs/researchforge-study/ncn-runtime.json",
+        "role": "environment"
+      },
+      {
+        "path": "work/data/ogbl-collab/extracted/collab/raw/edge.csv.gz",
+        "role": "data"
+      },
+      {
+        "path": "work/data/ogbl-collab/extracted/collab/raw/edge_year.csv.gz",
+        "role": "data"
+      },
+      {
+        "path": "work/data/ogbl-collab/extracted/collab/raw/edge_weight.csv.gz",
+        "role": "data"
+      },
+      {
+        "path": "work/data/ogbl-collab/extracted/collab/raw/node-feat.csv.gz",
+        "role": "data"
+      },
+      {
+        "path": "work/data/ogbl-collab/extracted/collab/split/time/test.pt",
+        "role": "data"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/config.json",
+        "role": "split"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/report.json",
+        "role": "development_report"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000/report.json",
+        "role": "development_report"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/report.json",
+        "role": "development_report"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/report.json",
+        "role": "development_report"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt",
+        "role": "model"
+      },
+      {
+        "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/report.json",
+        "role": "development_report"
+      },
+      {
+        "path": "outputs/researchforge-study/scripts/ncn_temporal.py",
+        "role": "code"
+      },
+      {
+        "path": "work/NeuralCommonNeighbor/model.py",
+        "role": "code"
+      },
+      {
+        "path": "work/NeuralCommonNeighbor/utils.py",
+        "role": "code"
+      }
+    ],
+    "graph_cutoff_year": 2017,
+    "negative_count": 100000,
+    "batch_size": 4096,
+    "inputs": {
+      "edges": "work/data/ogbl-collab/extracted/collab/raw/edge.csv.gz",
+      "years": "work/data/ogbl-collab/extracted/collab/raw/edge_year.csv.gz",
+      "weights": "work/data/ogbl-collab/extracted/collab/raw/edge_weight.csv.gz",
+      "nodes": "work/data/ogbl-collab/extracted/collab/raw/node-feat.csv.gz",
+      "split": "work/data/ogbl-collab/extracted/collab/split/time/test.pt"
+    },
+    "primary_comparisons": [
+      [
+        "graph__lambdamart",
+        "graph__binary_lightgbm"
+      ],
+      [
+        "graph__lambdamart",
+        "adamic_adar"
+      ],
+      [
+        "graph__lambdamart",
+        "ncn"
+      ]
+    ]
+  },
+  "positive_count": 46329,
+  "negative_count": 100000,
+  "independent_metric_verification": "All saved files agree with official Evaluator strict Hits50",
+  "per_seed": {
+    "graph__lambdamart": {
+      "42": 0.5222215027304712,
+      "43": 0.5236676811500356,
+      "44": 0.5262362667012023
+    },
+    "graph__binary_lightgbm": {
+      "42": 0.5191996373761575,
+      "43": 0.5286321742321224,
+      "44": 0.529258132055516
+    },
+    "graph_plus_released_nodes__lambdamart": {
+      "42": 0.5182499082648018,
+      "43": 0.5046730989229209,
+      "44": 0.5105009821062402
+    },
+    "graph_plus_released_nodes__binary_lightgbm": {
+      "42": 0.5188974508407261,
+      "43": 0.49742062207256793,
+      "44": 0.5003129789116968
+    },
+    "common_neighbors": {
+      "42": 0.41699583414276153,
+      "43": 0.41699583414276153,
+      "44": 0.41699583414276153
+    },
+    "adamic_adar": {
+      "42": 0.5240130371905286,
+      "43": 0.5240130371905286,
+      "44": 0.5240130371905286
+    },
+    "resource_allocation": {
+      "42": 0.5234518336247275,
+      "43": 0.5234518336247275,
+      "44": 0.5234518336247275
+    },
+    "jaccard": {
+      "42": 0.48686567808500075,
+      "43": 0.48686567808500075,
+      "44": 0.48686567808500075
+    },
+    "log_degree_product": {
+      "42": 0.08036003367221395,
+      "43": 0.08036003367221395,
+      "44": 0.08036003367221395
+    },
+    "log_degree_min": {
+      "42": 0.07043104750804031,
+      "43": 0.07043104750804031,
+      "44": 0.07043104750804031
+    },
+    "log_degree_max": {
+      "42": 0.04073042802564269,
+      "43": 0.04073042802564269,
+      "44": 0.04073042802564269
+    },
+    "prior_weight": {
+      "42": 0.3661853266852296,
+      "43": 0.3661853266852296,
+      "44": 0.3661853266852296
+    },
+    "released_node_cosine": {
+      "42": 0.2627080230525157,
+      "43": 0.2627080230525157,
+      "44": 0.2627080230525157
+    },
+    "ncn": {
+      "42": 0.5338125148395174,
+      "43": 0.5379136178203717,
+      "44": 0.5371581514817932
+    }
+  },
+  "seed_summary": {
+    "graph__lambdamart": {
+      "mean": 0.5240418168605697,
+      "sample_sd": 0.002033363121184394
+    },
+    "graph__binary_lightgbm": {
+      "mean": 0.525696647887932,
+      "sample_sd": 0.005635274171834748
+    },
+    "graph_plus_released_nodes__lambdamart": {
+      "mean": 0.5111413297646542,
+      "sample_sd": 0.006811018412775971
+    },
+    "graph_plus_released_nodes__binary_lightgbm": {
+      "mean": 0.5055436839416636,
+      "sample_sd": 0.0116547736922296
+    },
+    "common_neighbors": {
+      "mean": 0.41699583414276153,
+      "sample_sd": 0.0
+    },
+    "adamic_adar": {
+      "mean": 0.5240130371905286,
+      "sample_sd": 0.0
+    },
+    "resource_allocation": {
+      "mean": 0.5234518336247275,
+      "sample_sd": 0.0
+    },
+    "jaccard": {
+      "mean": 0.48686567808500075,
+      "sample_sd": 0.0
+    },
+    "log_degree_product": {
+      "mean": 0.08036003367221395,
+      "sample_sd": 0.0
+    },
+    "log_degree_min": {
+      "mean": 0.07043104750804031,
+      "sample_sd": 0.0
+    },
+    "log_degree_max": {
+      "mean": 0.04073042802564269,
+      "sample_sd": 0.0
+    },
+    "prior_weight": {
+      "mean": 0.3661853266852296,
+      "sample_sd": 0.0
+    },
+    "released_node_cosine": {
+      "mean": 0.2627080230525157,
+      "sample_sd": 0.0
+    },
+    "ncn": {
+      "mean": 0.5362947613805608,
+      "sample_sd": 0.0021826230240407207
+    }
+  },
+  "primary_comparisons": {
+    "graph__lambdamart__minus__graph__binary_lightgbm": {
+      "delta": -0.0016548310273622711,
+      "ci95": [
+        -0.0026537816808454217,
+        -0.0006189433604253593
+      ],
+      "p_two_sided_cluster_signflip": 0.0014998500149985001,
+      "queries": 46329,
+      "clusters": 14170,
+      "repetitions": 10000,
+      "random_seed": 314159,
+      "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+      "per_seed_deltas": {
+        "42": 0.003021865354313713,
+        "43": -0.004964493082086814,
+        "44": -0.003021865354313713
+      },
+      "holm_p": 0.0029997000299970002
+    },
+    "graph__lambdamart__minus__adamic_adar": {
+      "delta": 2.877967004108303e-05,
+      "ci95": [
+        -0.001799430745442947,
+        0.0018154865675277289
+      ],
+      "p_two_sided_cluster_signflip": 0.9804019598040196,
+      "queries": 46329,
+      "clusters": 14170,
+      "repetitions": 10000,
+      "random_seed": 314159,
+      "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+      "per_seed_deltas": {
+        "42": -0.0017915344600574153,
+        "43": -0.00034535604049299573,
+        "44": 0.0022232295106736602
+      },
+      "holm_p": 0.9804019598040196
+    },
+    "graph__lambdamart__minus__ncn": {
+      "delta": -0.012252944519991078,
+      "ci95": [
+        -0.015410286995024636,
+        -0.00932537033549556
+      ],
+      "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+      "queries": 46329,
+      "clusters": 14170,
+      "repetitions": 10000,
+      "random_seed": 314159,
+      "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+      "per_seed_deltas": {
+        "42": -0.01159101210904617,
+        "43": -0.014245936670336074,
+        "44": -0.010921884780590991
+      },
+      "holm_p": 0.00029997000299970003
+    }
+  },
+  "output_sha256": {
+    "identity.json": "d68bfabf63b1b2f30919a9faab7c6e8fdf206f85b0a8f94a988d42785798a4fc",
+    "graph__lambdamart.s42.predictions.npz": "fc635bd0723742f149e66f9d1e7de372e43405772b5aceabc2a5b5c17e2b0e27",
+    "graph__lambdamart.s42.predictions.receipt": "18deafab71ce20de26dfeae8e663ae8985b5122a66c803d901926cebb8090828",
+    "graph__lambdamart.s43.predictions.npz": "9101fe690b4f63a141e8cabfefb98ca5a898e0954785e6ecb3d91f35f950cf34",
+    "graph__lambdamart.s43.predictions.receipt": "5e4c210e1b7dabcf3cf6c82ad5b0d1c5ec08630ccf8282689a5e18e74405782c",
+    "graph__lambdamart.s44.predictions.npz": "98db59ba9ed8556aebc074459cf0487420a7fc77570ad73ec2a82eee9b2a68d4",
+    "graph__lambdamart.s44.predictions.receipt": "45a0b4361fc44b5a0aa7f0eec103950abe132e4fa6e52e4790d1f4d23cf97ab0",
+    "graph__binary_lightgbm.s42.predictions.npz": "71aeaa6efcc9215101af74527a07962009542253d4864732e87de048f7840488",
+    "graph__binary_lightgbm.s42.predictions.receipt": "59609e8b9d66cdeb6115056e656c7ec38d5b21affc05e0a9e708daa17a90977e",
+    "graph__binary_lightgbm.s43.predictions.npz": "c25ac2cabe258381a8a725ec7e82c83dddf630dffd00aff24ff399ecf0bd26f9",
+    "graph__binary_lightgbm.s43.predictions.receipt": "dce4b48335e1d478c3e068c172fcffab6e3959eb68bb34859041540398dd6e76",
+    "graph__binary_lightgbm.s44.predictions.npz": "4826946f27791419824a93077f2ccbc2e2e8216b15b6db1e374e5e5921929516",
+    "graph__binary_lightgbm.s44.predictions.receipt": "591a11fb80deb9c3d53efa0a6502ca77296af11b829e6a2be5d12d83c3a47b99",
+    "graph_plus_released_nodes__lambdamart.s42.predictions.npz": "3ef0c87f2e4cc9958a681e821755aedf95a9663c8d95c9b86ffa08b4a6f7c3f7",
+    "graph_plus_released_nodes__lambdamart.s42.predictions.receipt": "e75311e43bad955e5b274d09be572a673ec354d47115e389a1ed258acbe1dfa1",
+    "graph_plus_released_nodes__lambdamart.s43.predictions.npz": "b83195200f88ccc1ddc37f528ae93945b54da202f55fa855ce683448d93661a2",
+    "graph_plus_released_nodes__lambdamart.s43.predictions.receipt": "1fca808b50f7bae1f4a3c3819360a71a5fcc77da07a3645f7ab7667836fece80",
+    "graph_plus_released_nodes__lambdamart.s44.predictions.npz": "4e557da69c72e2e2789b1702a81a286b12fe3dc2cd543ab25474f12fc71a2636",
+    "graph_plus_released_nodes__lambdamart.s44.predictions.receipt": "87d0c2c8d48da653aa55b5c4ac262e22f6c1cebe51706282a3c8f2ade08518d1",
+    "graph_plus_released_nodes__binary_lightgbm.s42.predictions.npz": "052d0024573c1a8613a088faeb967f172c8813925876f3164c304c4557989f36",
+    "graph_plus_released_nodes__binary_lightgbm.s42.predictions.receipt": "5bbbb5c714873986e87ddad0fd3e301d0f8107687836a7ebbf8dcb25268f00bc",
+    "graph_plus_released_nodes__binary_lightgbm.s43.predictions.npz": "8c18cd334b08f5c1e4a0c073ad916bf8f4dc17c5d8a5e0ff622ec017978eb4b8",
+    "graph_plus_released_nodes__binary_lightgbm.s43.predictions.receipt": "3c69fbd9f6d8e15ea18ed950917641531ef51e15c2feea96949d371bb70adaef",
+    "graph_plus_released_nodes__binary_lightgbm.s44.predictions.npz": "32117fd7a1230f459319ee6549893d8ffd3c909bb41d5e777eace6e5c2956015",
+    "graph_plus_released_nodes__binary_lightgbm.s44.predictions.receipt": "a13f6928cee009376564c657f213a114bf4f29472d472e37ab9685c173f700d3",
+    "common_neighbors.s42.predictions.npz": "c5cbfe2790eff3056dd983a36237ce74d7ab56575ab648f7a4f1cbb62ecb9c65",
+    "common_neighbors.s42.predictions.receipt": "ab1223218b13e21866bdcf41d3b95eb6d97a5902eed6e378a689c38eef6054bb",
+    "common_neighbors.s43.predictions.npz": "c5cbfe2790eff3056dd983a36237ce74d7ab56575ab648f7a4f1cbb62ecb9c65",
+    "common_neighbors.s43.predictions.receipt": "ab1223218b13e21866bdcf41d3b95eb6d97a5902eed6e378a689c38eef6054bb",
+    "common_neighbors.s44.predictions.npz": "c5cbfe2790eff3056dd983a36237ce74d7ab56575ab648f7a4f1cbb62ecb9c65",
+    "common_neighbors.s44.predictions.receipt": "ab1223218b13e21866bdcf41d3b95eb6d97a5902eed6e378a689c38eef6054bb",
+    "adamic_adar.s42.predictions.npz": "b94831bd8e8c2c56867a9b534b3d91e59baeb3d09df3f679999549950417c0bd",
+    "adamic_adar.s42.predictions.receipt": "5d95d5f4756e8e3d72a575207750471651eeec00b8fb221ad03cd04074ce76d3",
+    "adamic_adar.s43.predictions.npz": "b94831bd8e8c2c56867a9b534b3d91e59baeb3d09df3f679999549950417c0bd",
+    "adamic_adar.s43.predictions.receipt": "5d95d5f4756e8e3d72a575207750471651eeec00b8fb221ad03cd04074ce76d3",
+    "adamic_adar.s44.predictions.npz": "b94831bd8e8c2c56867a9b534b3d91e59baeb3d09df3f679999549950417c0bd",
+    "adamic_adar.s44.predictions.receipt": "5d95d5f4756e8e3d72a575207750471651eeec00b8fb221ad03cd04074ce76d3",
+    "resource_allocation.s42.predictions.npz": "1c2184827c4e7ce3e3e9aac58faa93e8edb5422550212b625be14004fc8994f9",
+    "resource_allocation.s42.predictions.receipt": "25195c75fe0eaab8b0da27e11e98c1712c37e0d187e9dc80be0e25103aeda4de",
+    "resource_allocation.s43.predictions.npz": "1c2184827c4e7ce3e3e9aac58faa93e8edb5422550212b625be14004fc8994f9",
+    "resource_allocation.s43.predictions.receipt": "25195c75fe0eaab8b0da27e11e98c1712c37e0d187e9dc80be0e25103aeda4de",
+    "resource_allocation.s44.predictions.npz": "1c2184827c4e7ce3e3e9aac58faa93e8edb5422550212b625be14004fc8994f9",
+    "resource_allocation.s44.predictions.receipt": "25195c75fe0eaab8b0da27e11e98c1712c37e0d187e9dc80be0e25103aeda4de",
+    "jaccard.s42.predictions.npz": "0d0b794956b70e0ea8b3b4acf862273a6e75ab21604aaac34b3d48bca58aca17",
+    "jaccard.s42.predictions.receipt": "8ec1d1a20c8cfec312feab837fcec8f375ea955d8ba064a4908e79d5fd142bd1",
+    "jaccard.s43.predictions.npz": "0d0b794956b70e0ea8b3b4acf862273a6e75ab21604aaac34b3d48bca58aca17",
+    "jaccard.s43.predictions.receipt": "8ec1d1a20c8cfec312feab837fcec8f375ea955d8ba064a4908e79d5fd142bd1",
+    "jaccard.s44.predictions.npz": "0d0b794956b70e0ea8b3b4acf862273a6e75ab21604aaac34b3d48bca58aca17",
+    "jaccard.s44.predictions.receipt": "8ec1d1a20c8cfec312feab837fcec8f375ea955d8ba064a4908e79d5fd142bd1",
+    "log_degree_product.s42.predictions.npz": "7bf932931cb68304b124f69d47ef9f972a297bbb86c5d777df279d41859dd800",
+    "log_degree_product.s42.predictions.receipt": "fe6ad60ee9cd333207e0e5475867b80b753dabe7f1469f8fe528551d20fecea2",
+    "log_degree_product.s43.predictions.npz": "7bf932931cb68304b124f69d47ef9f972a297bbb86c5d777df279d41859dd800",
+    "log_degree_product.s43.predictions.receipt": "fe6ad60ee9cd333207e0e5475867b80b753dabe7f1469f8fe528551d20fecea2",
+    "log_degree_product.s44.predictions.npz": "7bf932931cb68304b124f69d47ef9f972a297bbb86c5d777df279d41859dd800",
+    "log_degree_product.s44.predictions.receipt": "fe6ad60ee9cd333207e0e5475867b80b753dabe7f1469f8fe528551d20fecea2",
+    "log_degree_min.s42.predictions.npz": "3f492b6435c4877d0ac2aecc7d8f261a7bcfbd4d61c95397a9dd6b6a6498d2ce",
+    "log_degree_min.s42.predictions.receipt": "c3634b3aded7949a5f299ecc8dbcbe2af16a0a3a12631cd2840dec2d17bfaac5",
+    "log_degree_min.s43.predictions.npz": "3f492b6435c4877d0ac2aecc7d8f261a7bcfbd4d61c95397a9dd6b6a6498d2ce",
+    "log_degree_min.s43.predictions.receipt": "c3634b3aded7949a5f299ecc8dbcbe2af16a0a3a12631cd2840dec2d17bfaac5",
+    "log_degree_min.s44.predictions.npz": "3f492b6435c4877d0ac2aecc7d8f261a7bcfbd4d61c95397a9dd6b6a6498d2ce",
+    "log_degree_min.s44.predictions.receipt": "c3634b3aded7949a5f299ecc8dbcbe2af16a0a3a12631cd2840dec2d17bfaac5",
+    "log_degree_max.s42.predictions.npz": "0eb34e79b2b5d4251e1bb64fbf276aeb848a23989c4430a4726207ca2aa64fc0",
+    "log_degree_max.s42.predictions.receipt": "e37000835f6033663324d19c3704c0bfbec63188fcba1ea345e94b3a60799ae8",
+    "log_degree_max.s43.predictions.npz": "0eb34e79b2b5d4251e1bb64fbf276aeb848a23989c4430a4726207ca2aa64fc0",
+    "log_degree_max.s43.predictions.receipt": "e37000835f6033663324d19c3704c0bfbec63188fcba1ea345e94b3a60799ae8",
+    "log_degree_max.s44.predictions.npz": "0eb34e79b2b5d4251e1bb64fbf276aeb848a23989c4430a4726207ca2aa64fc0",
+    "log_degree_max.s44.predictions.receipt": "e37000835f6033663324d19c3704c0bfbec63188fcba1ea345e94b3a60799ae8",
+    "prior_weight.s42.predictions.npz": "dbe1b79fbad89ca0f527509637b9998ec910f6cadd3c7f89d89e4d506aecb9d4",
+    "prior_weight.s42.predictions.receipt": "6b70547ce2567bfbbafc770776d0a096f2032ba293b2e022add27b2c9328c3ee",
+    "prior_weight.s43.predictions.npz": "dbe1b79fbad89ca0f527509637b9998ec910f6cadd3c7f89d89e4d506aecb9d4",
+    "prior_weight.s43.predictions.receipt": "6b70547ce2567bfbbafc770776d0a096f2032ba293b2e022add27b2c9328c3ee",
+    "prior_weight.s44.predictions.npz": "dbe1b79fbad89ca0f527509637b9998ec910f6cadd3c7f89d89e4d506aecb9d4",
+    "prior_weight.s44.predictions.receipt": "6b70547ce2567bfbbafc770776d0a096f2032ba293b2e022add27b2c9328c3ee",
+    "released_node_cosine.s42.predictions.npz": "52d3164c703a5d808eef3d4c8cb11610115a8c6f9d9b194a6c2667ec056475b6",
+    "released_node_cosine.s42.predictions.receipt": "15962c2d437352caa08f2d3aa263dacba43eca688f0a69e3ab95246b5dd839e9",
+    "released_node_cosine.s43.predictions.npz": "52d3164c703a5d808eef3d4c8cb11610115a8c6f9d9b194a6c2667ec056475b6",
+    "released_node_cosine.s43.predictions.receipt": "15962c2d437352caa08f2d3aa263dacba43eca688f0a69e3ab95246b5dd839e9",
+    "released_node_cosine.s44.predictions.npz": "52d3164c703a5d808eef3d4c8cb11610115a8c6f9d9b194a6c2667ec056475b6",
+    "released_node_cosine.s44.predictions.receipt": "15962c2d437352caa08f2d3aa263dacba43eca688f0a69e3ab95246b5dd839e9",
+    "ncn.s42.predictions.npz": "3fd112354715673d38db0e2b5422fafb20d5d3734fd6fc2212bcb40a23e519f2",
+    "ncn.s42.predictions.receipt": "20c3cc4a9b6bb17de3299d2cd137aa49a9619ea9b2ac27e16cd2c992d76635e9",
+    "ncn.s43.predictions.npz": "4f55225b695d07632f6d15bb053e3f605c24fe0123d5bafd4086c026e77ea9b1",
+    "ncn.s43.predictions.receipt": "2f3aad49be6eb6dd2878e7f45b2b5a81fed4f02d10ac625d1a15f64a1906ee86",
+    "ncn.s44.predictions.npz": "d88460b27e2b747459e6c2d8d66e1f7c0fb99ffc0a3749a9b075ccf751a241ec",
+    "ncn.s44.predictions.receipt": "e8ab3e9bede9b5fade1fcc916ecf3571e2e80bf74166129061577ca468fed02c"
+  },
+  "limitations": [
+    "Fixed training graph through2017; no2018 validation edges added.",
+    "NCN best of100validation checkpoints versus3tree configs; unequal selection budgets.",
+    "Released node vectors have unverified temporal provenance.",
+    "Source-cluster inference conditions on the fixed negative pool and omits crossed dependence.",
+    "Repeated fixed-baseline scores over seeds do not add independent observations."
+  ]
+}

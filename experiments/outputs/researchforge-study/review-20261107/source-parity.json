@@ -1,0 +1,20 @@
+{
+  "task_coauthor_prediction/baseline_autoresearch.py": {
+    "same_ast": true,
+    "retrieved_git_blob": "1dac60a8a1f88dc55fc6d5a57111cd255b04a579",
+    "snapshot_bytes": 10772,
+    "retrieved_bytes": 10771
+  },
+  "task_coauthor_prediction/dataset.py": {
+    "same_ast": true,
+    "retrieved_git_blob": "12170e5e67dd22f7ed68d5482eadff58373452e9",
+    "snapshot_bytes": 2991,
+    "retrieved_bytes": 2990
+  },
+  "dataset/corpus/add_citation_metadata.py": {
+    "same_ast": true,
+    "retrieved_git_blob": "e34af3996edc79f784624a37458316e3594fb684",
+    "snapshot_bytes": 8133,
+    "retrieved_bytes": 8132
+  }
+}

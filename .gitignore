@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.env
+.env.*
+experiments/work/*
+!experiments/work/.gitkeep
+!experiments/work/prescience/
+*.partial

@@ -1,0 +1,21 @@
+{
+  "status": "Complete TRAIN loader fingerprint",
+  "source": "work\\source-archive\\prescience_pilot.before-intern-20261027.py",
+  "source_sha256": "43c725e5ac879ba225580188aea4f80addaf368d18b513e2950741fec941e7d2",
+  "fingerprints": {
+    "papers": {
+      "rows": 373716,
+      "sha256": "595b94feb52d447912baf98acd6a1a3aa025ec782654519affbdda348a574102"
+    },
+    "histories": {
+      "rows": 359949,
+      "sha256": "a51bfcd97656d9b481b019b67ceb2984e2f0b28feff35cf68ef26bdf91ca1bc7"
+    },
+    "dates": {
+      "rows": 359949,
+      "sha256": "1b47301a1c569025f808ae3803c67cdd21e65042c2bf6ffb087bc91f8da164a3"
+    }
+  },
+  "rss_bytes": 1245290496,
+  "seconds": 47.36580359999789
+}

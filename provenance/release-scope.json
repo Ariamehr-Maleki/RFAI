@@ -1,0 +1,8 @@
+{
+  "original_archive_sha256": "94dc644363e1a62ae619664af5359c56135ab76e4b9156a389cef2180845dedb",
+  "original_lock_sha256": "0f2240d82c5013a39099cadd15b67bb2a1a1298e96fce33888dde463fd5ad091",
+  "supplementary_lock_sha256": "e8ac71a57177a7cef04e82bddeb354886d5b44826484fa4dacb9db6e0185ea39",
+  "scope": "Compact review release: source, fixture tests, aggregate numerical evidence; excludes raw corpora, full predictions and fitted models.",
+  "fitting_or_new_test_selection": false,
+  "zenodo_doi": null
+}

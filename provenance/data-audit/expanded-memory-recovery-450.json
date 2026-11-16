@@ -1,0 +1,11 @@
+{
+  "status": "PASS committed cache receipts after confirmed dead collector",
+  "verified_receipts": 450,
+  "dead_owned_pids": [
+    12688,
+    16864
+  ],
+  "created_utc": "2026-10-27T14:06:51.964033+00:00",
+  "recovery_source_sha256": "59e1745ff0b40bcec84e09d46eb711a56ea595e9d1c492b7693927c95ece118b",
+  "scientific_configuration": "unchanged; existing full collection resumes"
+}

@@ -1,0 +1,304 @@
+{
+  "figure1": {
+    "original": {
+      "full_lambdamart__minus__full_binary_lightgbm": {
+        "delta": 0.01007005675221985,
+        "ci95": [
+          0.005509069636848965,
+          0.014700606352640184
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "per_seed_deltas": {
+          "42": 0.010395486558200811,
+          "43": 0.014062448209290174,
+          "44": 0.005752235489168568
+        },
+        "holm_p": 0.0007999200079992001
+      },
+      "full_lambdamart__minus__fixed_selected": {
+        "delta": 0.014494002815503594,
+        "ci95": [
+          0.0069119741842019475,
+          0.022294023320915794
+        ],
+        "p_two_sided_cluster_signflip": 0.00039996000399960006,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "per_seed_deltas": {
+          "42": 0.012903225573424016,
+          "43": 0.017472212120763376,
+          "44": 0.013106570752323392
+        },
+        "holm_p": 0.0007999200079992001
+      },
+      "full_lambdamart__minus__frequency45": {
+        "delta": 0.04383198094126911,
+        "ci95": [
+          0.035313649047113746,
+          0.05226310814579414
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "per_seed_deltas": {
+          "42": 0.04224120369918952,
+          "43": 0.04681019024652889,
+          "44": 0.04244454887808889
+        },
+        "holm_p": 0.0007999200079992001
+      },
+      "full_lambdamart__minus__rrf": {
+        "delta": 0.05052629331800121,
+        "ci95": [
+          0.042487335357080214,
+          0.05893094615521204
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "per_seed_deltas": {
+          "42": 0.04893551607592163,
+          "43": 0.05350450262326098,
+          "44": 0.04913886125482101
+        },
+        "holm_p": 0.0007999200079992001
+      }
+    },
+    "supplementary": {
+      "published_input": {
+        "delta": -0.020276435273497706,
+        "ci95": [
+          -0.028184963293839998,
+          -0.012602404742064461
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "holm_p_three_supplementary_contrasts": 0.00029997000299970003
+      },
+      "historical_input": {
+        "delta": -0.019323174456450484,
+        "ci95": [
+          -0.027225958178909982,
+          -0.011549480488335014
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "holm_p_three_supplementary_contrasts": 0.00029997000299970003
+      },
+      "harmonized_historical_input": {
+        "delta": -0.01908815230857847,
+        "ci95": [
+          -0.027010370508045375,
+          -0.011301504051079336
+        ],
+        "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "repetitions": 10000,
+        "random_seed": 314159,
+        "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+        "holm_p_three_supplementary_contrasts": 0.00029997000299970003
+      }
+    }
+  },
+  "figure2": {
+    "controls_only": {
+      "mean": 0.12476816002230107,
+      "sample_sd": 0.0020440555153333605
+    },
+    "text": {
+      "mean": 0.4072621066545461,
+      "sample_sd": 0.0012895353279601676
+    },
+    "network": {
+      "mean": 0.4756704105547491,
+      "sample_sd": 0.0003292061673215754
+    },
+    "explicit_time": {
+      "mean": 0.43519222754616044,
+      "sample_sd": 0.002362033871737893
+    },
+    "text+network": {
+      "mean": 0.4685845022581903,
+      "sample_sd": 0.0007353889673972737
+    },
+    "text+explicit_time": {
+      "mean": 0.4661054243730341,
+      "sample_sd": 0.0030106132853800053
+    },
+    "network+explicit_time": {
+      "mean": 0.4859543463073239,
+      "sample_sd": 0.0014072052422457937
+    },
+    "text+network+explicit_time": {
+      "mean": 0.47680779334210865,
+      "sample_sd": 0.000755618959686929
+    }
+  },
+  "figureS1": {
+    "ndcg1000:all": {
+      "delta": 0.010070056752219858,
+      "queries": 1000,
+      "author_clusters": 989,
+      "sparse_group": false,
+      "ci95": [
+        0.0055373348273851306,
+        0.014684580364398347
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "ndcg1000:1-3": {
+      "delta": 0.0046088416314921075,
+      "queries": 388,
+      "author_clusters": 388,
+      "sparse_group": false,
+      "ci95": [
+        -0.001897737772168458,
+        0.010842586321181923
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "ndcg1000:4-10": {
+      "delta": 0.005797232516321011,
+      "queries": 299,
+      "author_clusters": 295,
+      "sparse_group": false,
+      "ci95": [
+        -0.0015275900744475483,
+        0.013076121930076378
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "ndcg1000:11+": {
+      "delta": 0.02092157724223941,
+      "queries": 313,
+      "author_clusters": 309,
+      "sparse_group": false,
+      "ci95": [
+        0.01097991626575272,
+        0.031194375768159036
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "new_recall10:all": {
+      "delta": -0.0017978620019436346,
+      "queries": 686,
+      "author_clusters": 678,
+      "sparse_group": false,
+      "ci95": [
+        -0.005450689344316529,
+        0.0020218414663219788
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "new_recall10:1-3": {
+      "delta": -0.0043274853801169594,
+      "queries": 285,
+      "author_clusters": 285,
+      "sparse_group": false,
+      "ci95": [
+        -0.013137185432034345,
+        0.004859206677929761
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "new_recall10:4-10": {
+      "delta": 0.0,
+      "queries": 193,
+      "author_clusters": 191,
+      "sparse_group": false,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "new_recall10:11+": {
+      "delta": 0.0,
+      "queries": 208,
+      "author_clusters": 204,
+      "sparse_group": false,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "repeat_recall10:all": {
+      "delta": 0.03201089548971447,
+      "queries": 779,
+      "author_clusters": 775,
+      "sparse_group": false,
+      "ci95": [
+        0.020755039429549177,
+        0.04364274832644652
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "repeat_recall10:1-3": {
+      "delta": 0.010042735042735045,
+      "queries": 286,
+      "author_clusters": 286,
+      "sparse_group": false,
+      "ci95": [
+        -0.0008890681003584222,
+        0.021111203396087116
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "repeat_recall10:4-10": {
+      "delta": 0.025094170337085324,
+      "queries": 247,
+      "author_clusters": 245,
+      "sparse_group": false,
+      "ci95": [
+        0.007953408406137334,
+        0.04411697725158794
+      ],
+      "valid_bootstrap_draws": 10000
+    },
+    "repeat_recall10:11+": {
+      "delta": 0.06449595646750121,
+      "queries": 246,
+      "author_clusters": 246,
+      "sparse_group": false,
+      "ci95": [
+        0.0366038699561427,
+        0.09322762088212358
+      ],
+      "valid_bootstrap_draws": 10000
+    }
+  },
+  "figureS2": {
+    "full": {
+      "median_seconds": 1.8306856999988668,
+      "p95_seconds": 2.633562155005347
+    },
+    "no_content": {
+      "median_seconds": 1.1455956500140019,
+      "p95_seconds": 3.5237456800023192
+    }
+  }
+}

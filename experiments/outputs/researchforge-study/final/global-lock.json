@@ -1,0 +1,2944 @@
+{
+  "payload": {
+    "schema_version": 1,
+    "created_utc": "2026-10-28T07:04:24.624754+00:00",
+    "plan": {
+      "schema_version": 1,
+      "stage": "ready_for_final_test",
+      "datasets": {
+        "prescience": {
+          "primary_metric": "ndcg1000",
+          "seeds": [
+            42,
+            43,
+            44
+          ],
+          "multiplicity": "Holm",
+          "candidate_policy": "1000 candidates; full RRF and separately retrained graph-only pipeline; no held-out positive injection; padding42.",
+          "training_policy": "Frozen saved development-selected models; no training or tuning on final labels.",
+          "uncertainty_policy": "Average model-seed effects before paired cluster inference; marginal95% intervals and separate per-task Holm families.",
+          "test_split": "Explicit locked held-out inputs; see dataset-specific fields.",
+          "runner_schema": 1,
+          "inference": {
+            "repetitions": 10000,
+            "seed": 314159
+          },
+          "output_directory": "outputs/researchforge-study/results/final/prescience",
+          "methods": {
+            "full_lambdamart": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/lambdamart.txt",
+                  "sha256": "8ec660019c56e29fbfb4d57f0eb630636492b5ad6a7dffb5680becdb6d601472",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/report.json",
+                  "source_report_sha256": "9c6ca0dea0a67535761d20a7c08c692fe661383b4db5f215ece09e747ca6bacc"
+                },
+                "43": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/lambdamart.txt",
+                  "sha256": "a55afa48b4911962fc014fa176b450057f62694ca234bdcd17d59d35092e3257",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/report.json",
+                  "source_report_sha256": "e9400f42b505a89ae7c6657ff44be1a32075063f568850f6b4b766729d5b19a5"
+                },
+                "44": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/lambdamart.txt",
+                  "sha256": "cd86057c74b2fababc40dc8ce70796d12eb4d130dfb68a86883016163b8e909c",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/report.json",
+                  "source_report_sha256": "012625fb4f92b808f388afc5a7339456a0de48d0a36cde1df54cacff32f921fa"
+                }
+              }
+            },
+            "full_binary_lightgbm": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/binary_lightgbm.txt",
+                  "sha256": "8ea3203c4edac2ca2224267eb09519a3b6da4653bde302cbe01f113a59d44d2c",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/report.json",
+                  "source_report_sha256": "9c6ca0dea0a67535761d20a7c08c692fe661383b4db5f215ece09e747ca6bacc"
+                },
+                "43": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/binary_lightgbm.txt",
+                  "sha256": "a9286fa76dc0c3715a0245a5f2b9dd0c56fad1e0d08d2ce4d89b2dcbc64deb06",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/report.json",
+                  "source_report_sha256": "e9400f42b505a89ae7c6657ff44be1a32075063f568850f6b4b766729d5b19a5"
+                },
+                "44": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/binary_lightgbm.txt",
+                  "sha256": "2a535cb280ac59f2dfeb322a8f12880f85520b1a1d6e949b2aaf145244e3bfd2",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/report.json",
+                  "source_report_sha256": "012625fb4f92b808f388afc5a7339456a0de48d0a36cde1df54cacff32f921fa"
+                }
+              }
+            },
+            "full_logistic": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/logistic.joblib",
+                  "sha256": "b29558a346de545156607f1c9ae1a9f2319fb348c11a920be17ce430ad5f79d2",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/report.json",
+                  "source_report_sha256": "9c6ca0dea0a67535761d20a7c08c692fe661383b4db5f215ece09e747ca6bacc"
+                },
+                "43": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/logistic.joblib",
+                  "sha256": "3bef1ccec119a6943cb7943ac0b4475ab2d9a7fcabc1a79722c4aaec71fc209e",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/report.json",
+                  "source_report_sha256": "e9400f42b505a89ae7c6657ff44be1a32075063f568850f6b4b766729d5b19a5"
+                },
+                "44": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/logistic.joblib",
+                  "sha256": "2de2c354812a5f36a58ea7c8cbab1f85d29081604caf0ca922d752a310e4ef7f",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/report.json",
+                  "source_report_sha256": "012625fb4f92b808f388afc5a7339456a0de48d0a36cde1df54cacff32f921fa"
+                }
+              }
+            },
+            "no_content_lambdamart": {
+              "kind": "learned",
+              "candidate_mode": "no_content",
+              "models": {
+                "42": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/lambdamart.txt",
+                  "sha256": "efe7b0f0a53635a1fd250a2fab7dc3295209ecff876e6c5a323cac725688052e",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/report.json",
+                  "source_report_sha256": "d15e898e642b7f475178aed493676adaed45225bc63039d41d0e7dbba1eb44be"
+                },
+                "43": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/lambdamart.txt",
+                  "sha256": "48de47e99bf3f8a628f1a77804314b781e27ca90119cd19747cf1a64c0a56c41",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/report.json",
+                  "source_report_sha256": "7cc7ec71e9c1d740d646102d5082000006bba15bbd02036a435df760246bd0d4"
+                },
+                "44": {
+                  "name": "lambdamart",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/lambdamart.txt",
+                  "sha256": "3fcf871d89c26f25e645634a75a5e34dbe8e87f59c43ec0409429742de1bcc93",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/report.json",
+                  "source_report_sha256": "b7a1ebcd8c550c7191fcb601a78ebbbc708507c804bed7446491813328b5b1a1"
+                }
+              }
+            },
+            "no_content_binary_lightgbm": {
+              "kind": "learned",
+              "candidate_mode": "no_content",
+              "models": {
+                "42": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/binary_lightgbm.txt",
+                  "sha256": "222798f413155221ec826464c9a2f51825321e1ba76fb291215fb517317960f2",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/report.json",
+                  "source_report_sha256": "d15e898e642b7f475178aed493676adaed45225bc63039d41d0e7dbba1eb44be"
+                },
+                "43": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/binary_lightgbm.txt",
+                  "sha256": "526aae3eee286b979001621e4fa48c47a9ab3c357963c2d8e722479e35ad79c9",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/report.json",
+                  "source_report_sha256": "7cc7ec71e9c1d740d646102d5082000006bba15bbd02036a435df760246bd0d4"
+                },
+                "44": {
+                  "name": "binary_lightgbm",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/binary_lightgbm.txt",
+                  "sha256": "d8df3b023762e82cb289bdfd13ac5b6202dbf9f32d18f2bec6a02d9cac950073",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/report.json",
+                  "source_report_sha256": "b7a1ebcd8c550c7191fcb601a78ebbbc708507c804bed7446491813328b5b1a1"
+                }
+              }
+            },
+            "no_content_logistic": {
+              "kind": "learned",
+              "candidate_mode": "no_content",
+              "models": {
+                "42": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/logistic.joblib",
+                  "sha256": "20b834eac78866a5a0f961c1f0eeeda6f35cb16c4898048f47c2f07abb6169d3",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/report.json",
+                  "source_report_sha256": "d15e898e642b7f475178aed493676adaed45225bc63039d41d0e7dbba1eb44be"
+                },
+                "43": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/logistic.joblib",
+                  "sha256": "d3798867cdb6759351391a9e98783a9b33e34a60447306a6997c1adc98d24706",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/report.json",
+                  "source_report_sha256": "7cc7ec71e9c1d740d646102d5082000006bba15bbd02036a435df760246bd0d4"
+                },
+                "44": {
+                  "name": "logistic",
+                  "kind": "logistic_pipeline",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/logistic.joblib",
+                  "sha256": "c6ac00b50908e2202b0312456e2bf0461b53c2b4efdf1c48d4a0d119d166f06f",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "autoresearch_description",
+                    "citation_pull",
+                    "rrf"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/report.json",
+                  "source_report_sha256": "b7a1ebcd8c550c7191fcb601a78ebbbc708507c804bed7446491813328b5b1a1"
+                }
+              }
+            },
+            "frequency10": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "frequency10"
+            },
+            "frequency45": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "frequency45"
+            },
+            "frequency_all": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "frequency_all"
+            },
+            "common_neighbors10": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "common_neighbors10"
+            },
+            "autoresearch_description": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "autoresearch_description"
+            },
+            "rrf": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "rrf"
+            },
+            "lexical_mean10": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "lexical_mean10"
+            },
+            "semantic_mean10": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "semantic_mean10"
+            },
+            "category_cosine": {
+              "kind": "feature",
+              "candidate_mode": "full",
+              "feature": "category_cosine"
+            },
+            "frequency10_standalone": {
+              "kind": "standalone",
+              "candidate_mode": "full",
+              "ranking": "frequency10_standalone"
+            },
+            "autoresearch_description_standalone": {
+              "kind": "standalone",
+              "candidate_mode": "full",
+              "ranking": "autoresearch_description_standalone"
+            },
+            "lexical_standalone": {
+              "kind": "standalone",
+              "candidate_mode": "full",
+              "ranking": "lexical_standalone"
+            },
+            "semantic_standalone": {
+              "kind": "standalone",
+              "candidate_mode": "full",
+              "ranking": "semantic_standalone"
+            },
+            "rrf_standalone": {
+              "kind": "standalone",
+              "candidate_mode": "full",
+              "ranking": "rrf_standalone"
+            },
+            "factorial_controls_only": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "controls_only",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/controls_only.txt",
+                  "sha256": "248e547d3288712d86ee39207ab96532b2c2eb4d27bac70523bc0aa9a286df6a",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "controls_only",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/controls_only.txt",
+                  "sha256": "cbc608ab801b559e109ae89c5d454b58814501efa535d862bb721c8738e40243",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "controls_only",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/controls_only.txt",
+                  "sha256": "9356eefd9ed154b50b7a5639f98889b246221b644afae4cf507f5da94a9a8168",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_text": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "text",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text.txt",
+                  "sha256": "8342b2a14e9c40221bcf397b5b9acc4fff3b60a047f81f956091162ef07b70b3",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "text",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text.txt",
+                  "sha256": "116a463075868d9db9f52377e24405a1a0232fa3249638fb69bfd89259c5ae9b",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "text",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text.txt",
+                  "sha256": "7742004b050ebb0dfe23e61aed06d96c0907dbaa811597c7ef26fd4c383479b9",
+                  "features": [
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_network": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network.txt",
+                  "sha256": "42c64b374b711f200a27673b43c9f370f431e9f33a154474dd1dd26d1850011f",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network.txt",
+                  "sha256": "ccc496a295a3a005c5de641088416d34517de31d5e2546652a330d39e6fa8bed",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network.txt",
+                  "sha256": "e8a3c1703fb8a00ee3cefb8a927c67a9b4c935dabb547a5ab68d37081a62bb96",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_explicit_time": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/explicit_time.txt",
+                  "sha256": "2af61099418a2632521813d6f0283e62063fed3f0db447ab34099293a001e678",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "activity_decay",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/explicit_time.txt",
+                  "sha256": "fab4d86b4a66692b08c8d4aa0d6aa358acdf7e279f224cd05909dd35264d1cc5",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "activity_decay",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/explicit_time.txt",
+                  "sha256": "4a10eae68d1b49b65b4541f67a9ed7d33398b0dcbe81d22d5dccaae7eddb43ec",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "activity_decay",
+                    "history_balance"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_text+network": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "text+network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network.txt",
+                  "sha256": "e4b318856fd326612dde06d2ff61db1179424c96d3f09ab7be957e0b1e4b3013",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "text+network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network.txt",
+                  "sha256": "7b47343a26113ace39cac9cad395b1f6f6f39a65d87cee7a2a7b4b469359db9c",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "text+network",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network.txt",
+                  "sha256": "e8b214468cbeb6613dc6be7597315271018f2b77699f4edb476a2b8aacd72cda",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_text+explicit_time": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "text+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+explicit_time.txt",
+                  "sha256": "36cab74f7d6057151ce0256b330af44998c024a74aafebfbdea0d8ad89c6e61b",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "text+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+explicit_time.txt",
+                  "sha256": "118612616964fa4ff33eecf9d4ff7205af5f6664fdd44b974aad363d9f13346b",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "text+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+explicit_time.txt",
+                  "sha256": "21e10bfbb714b64de94b8c49314f1cc3eae84022cf766990a92fc1535d854db0",
+                  "features": [
+                    "recency_collaboration",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_network+explicit_time": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network+explicit_time.txt",
+                  "sha256": "0217b05b7a9cfe9c5d9871b5d5cc3b05b5d6eaac1bb6ce778dafbd16995f5fe0",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network+explicit_time.txt",
+                  "sha256": "0d6588d3cdf09bdddb081d37023bfa5af39ea8d724aa759e9029bdfe08dd31a6",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network+explicit_time.txt",
+                  "sha256": "a1242cb250ce83474080a3417f2cfa4463193cd8f1c99ed5426a04de998c1015",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "citation_pull"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "factorial_text+network+explicit_time": {
+              "kind": "learned",
+              "candidate_mode": "full",
+              "models": {
+                "42": {
+                  "name": "text+network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network+explicit_time.txt",
+                  "sha256": "e626fa41f425d3ed0dca3b726f1101d1f79505125e6301ff614eae47412c4822",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+                  "source_report_sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+                },
+                "43": {
+                  "name": "text+network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network+explicit_time.txt",
+                  "sha256": "4a1bd03cf749a97b4bfdff4902c5fa71ec843517298ef4e3b3008124ac61536c",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+                  "source_report_sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+                },
+                "44": {
+                  "name": "text+network+explicit_time",
+                  "kind": "lightgbm",
+                  "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network+explicit_time.txt",
+                  "sha256": "3a2e8538f84137ac984c8a2e8da22daeeac7a962984ba8f3cd2aab5de2d871b0",
+                  "features": [
+                    "frequency10",
+                    "frequency45",
+                    "frequency_all",
+                    "recency_collaboration",
+                    "common_neighbors10",
+                    "jaccard10",
+                    "log_degree_product",
+                    "log_seed_history",
+                    "log_candidate_history",
+                    "log_candidate_degree",
+                    "category_cosine",
+                    "activity_decay",
+                    "history_balance",
+                    "reverse_frequency10",
+                    "lexical_mean10",
+                    "lexical_max10",
+                    "lexical_retrieval",
+                    "citation_pull",
+                    "semantic_mean10",
+                    "semantic_max10",
+                    "semantic_retrieval"
+                  ],
+                  "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+                  "source_report_sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+                }
+              }
+            },
+            "fixed_selected": {
+              "kind": "fixed",
+              "candidate_mode": "full",
+              "variant": "citation_off"
+            }
+          },
+          "artifacts": [
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_final_run.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_final_data.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_evaluation_gate.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_hybrid_graph.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_retrieval_ablation.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_pilot.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/prescience_fixed_scorer.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/semantic_index.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/text_index.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/frozen_ranker.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_statistics.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/verify_rank_predictions.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/supervisor_state.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/publication_ablation_design.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_subgroups.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/subgroup_analysis.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/PROTOCOL.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/SCIENTIFIC_REPORTS_PLAN.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/environment-current.json",
+              "role": "environment"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/query_manifest.json",
+              "role": "split"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/isolated_pipeline_cost.json",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/final_semantic_index.json",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/final_lexical_index.json",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/train_semantic_index.json",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/train_encoding_cost.json",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/loader-equivalence.json",
+              "role": "data"
+            },
+            {
+              "path": "work/data/prescience/test.parquet",
+              "role": "data"
+            },
+            {
+              "path": "work/data/prescience/author_publications.jsonl",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/logistic.joblib",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/controls_only.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/controls_only.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/controls_only.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network+explicit_time.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/fixed-scorer-sensitivity/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/manifest.json",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/data.bin",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/indices.bin",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/dates.npy",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/indptr.npy",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-hash18/ids.json",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-minilm/manifest.json",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/prescience-test-minilm/embeddings.f16",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/final/DEVELOPMENT_REVIEW.md",
+              "role": "protocol"
+            }
+          ],
+          "feature_names": [
+            "frequency10",
+            "frequency45",
+            "frequency_all",
+            "recency_collaboration",
+            "common_neighbors10",
+            "jaccard10",
+            "log_degree_product",
+            "log_seed_history",
+            "log_candidate_history",
+            "log_candidate_degree",
+            "category_cosine",
+            "activity_decay",
+            "history_balance",
+            "reverse_frequency10",
+            "lexical_mean10",
+            "lexical_max10",
+            "lexical_retrieval",
+            "autoresearch_description",
+            "citation_pull",
+            "rrf",
+            "semantic_mean10",
+            "semantic_max10",
+            "semantic_retrieval"
+          ],
+          "candidates": 1000,
+          "padding_seed": 42,
+          "query_sampling": {
+            "count": 1000,
+            "seed": 20261027
+          },
+          "sampling_rationale": "Before held-out evaluation select 1000 random eligible targets with seed 20261027, twice the common development cohort. Development cluster-SE projections suggest marginal 95% halfwidth 0.0046 against classifier and 0.0082 against frequency. Warm full/no-content pipeline medians are 1.83/1.15 seconds per query, excluding additional variants and verification. Avoid a census or doubling retained rankings and duplicated JSON on this 12.77GB RAM desktop with about 7GB free disk. Keep this sample unchanged regardless of test scores; projections assume comparable variance and clustering, not guaranteed power or significance.",
+          "corpus_inputs": {
+            "corpus": "work/data/prescience/test.parquet",
+            "author_history": "work/data/prescience/author_publications.jsonl"
+          },
+          "index_inputs": {
+            "lexical": "work/indices/prescience-test-hash18",
+            "semantic": "work/indices/prescience-test-minilm"
+          },
+          "fixed_selection": {
+            "criterion": "Expanded seed42 shared validation nDCG1000; first report variant wins exact ties.",
+            "variant": "citation_off",
+            "source_report": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/fixed-scorer-sensitivity/report.json"
+          },
+          "primary_comparisons": [
+            [
+              "full_lambdamart",
+              "full_binary_lightgbm"
+            ],
+            [
+              "full_lambdamart",
+              "frequency45"
+            ],
+            [
+              "full_lambdamart",
+              "semantic_standalone"
+            ],
+            [
+              "full_lambdamart",
+              "rrf"
+            ],
+            [
+              "full_lambdamart",
+              "fixed_selected"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_network+explicit_time"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_text+explicit_time"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_text+network"
+            ]
+          ],
+          "subgroup_comparisons": [
+            [
+              "full_lambdamart",
+              "full_binary_lightgbm"
+            ],
+            [
+              "full_lambdamart",
+              "no_content_lambdamart"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_network+explicit_time"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_text+explicit_time"
+            ],
+            [
+              "factorial_text+network+explicit_time",
+              "factorial_text+network"
+            ]
+          ]
+        },
+        "ogbl-collab": {
+          "primary_metric": "hits50",
+          "seeds": [
+            42,
+            43,
+            44
+          ],
+          "multiplicity": "Holm",
+          "candidate_policy": "Official positive edges and shared100000 negatives; training graph through2017; no2018 edges.",
+          "training_policy": "Frozen saved development-selected models; no training or tuning on final labels.",
+          "uncertainty_policy": "Average model-seed effects before paired cluster inference; marginal95% intervals and separate per-task Holm families.",
+          "test_split": "Explicit locked held-out inputs; see dataset-specific fields.",
+          "runner_schema": 1,
+          "inference": {
+            "repetitions": 10000,
+            "seed": 314159
+          },
+          "output_directory": "outputs/researchforge-study/results/final/ogbl-collab",
+          "methods": {
+            "graph__lambdamart": {
+              "kind": "tree",
+              "track": "graph",
+              "models": {
+                "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt",
+                "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt",
+                "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt"
+              }
+            },
+            "graph__binary_lightgbm": {
+              "kind": "tree",
+              "track": "graph",
+              "models": {
+                "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt",
+                "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt",
+                "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt"
+              }
+            },
+            "graph_plus_released_nodes__lambdamart": {
+              "kind": "tree",
+              "track": "graph_plus_released_nodes",
+              "models": {
+                "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt",
+                "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt",
+                "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt"
+              }
+            },
+            "graph_plus_released_nodes__binary_lightgbm": {
+              "kind": "tree",
+              "track": "graph_plus_released_nodes",
+              "models": {
+                "42": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt",
+                "43": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt",
+                "44": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt"
+              }
+            },
+            "common_neighbors": {
+              "kind": "feature",
+              "feature": "common_neighbors"
+            },
+            "adamic_adar": {
+              "kind": "feature",
+              "feature": "adamic_adar"
+            },
+            "resource_allocation": {
+              "kind": "feature",
+              "feature": "resource_allocation"
+            },
+            "jaccard": {
+              "kind": "feature",
+              "feature": "jaccard"
+            },
+            "log_degree_product": {
+              "kind": "feature",
+              "feature": "log_degree_product"
+            },
+            "log_degree_min": {
+              "kind": "feature",
+              "feature": "log_degree_min"
+            },
+            "log_degree_max": {
+              "kind": "feature",
+              "feature": "log_degree_max"
+            },
+            "prior_weight": {
+              "kind": "feature",
+              "feature": "prior_weight"
+            },
+            "released_node_cosine": {
+              "kind": "feature",
+              "feature": "released_node_cosine"
+            },
+            "ncn": {
+              "kind": "ncn",
+              "models": {
+                "42": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt",
+                "43": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt",
+                "44": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt"
+              }
+            }
+          },
+          "artifacts": [
+            {
+              "path": "outputs/researchforge-study/scripts/ogb_final_run.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/ogb_validation.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/ogb_multiseed.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_evaluation_gate.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_statistics.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/supervisor_state.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/PROTOCOL.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/SCIENTIFIC_REPORTS_PLAN.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/environment-current.json",
+              "role": "environment"
+            },
+            {
+              "path": "outputs/researchforge-study/ncn-runtime.json",
+              "role": "environment"
+            },
+            {
+              "path": "work/data/ogbl-collab/extracted/collab/raw/edge.csv.gz",
+              "role": "data"
+            },
+            {
+              "path": "work/data/ogbl-collab/extracted/collab/raw/edge_year.csv.gz",
+              "role": "data"
+            },
+            {
+              "path": "work/data/ogbl-collab/extracted/collab/raw/edge_weight.csv.gz",
+              "role": "data"
+            },
+            {
+              "path": "work/data/ogbl-collab/extracted/collab/raw/node-feat.csv.gz",
+              "role": "data"
+            },
+            {
+              "path": "work/data/ogbl-collab/extracted/collab/split/time/test.pt",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/config.json",
+              "role": "split"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/ncn_temporal.py",
+              "role": "code"
+            },
+            {
+              "path": "work/NeuralCommonNeighbor/model.py",
+              "role": "code"
+            },
+            {
+              "path": "work/NeuralCommonNeighbor/utils.py",
+              "role": "code"
+            }
+          ],
+          "graph_cutoff_year": 2017,
+          "negative_count": 100000,
+          "batch_size": 4096,
+          "inputs": {
+            "edges": "work/data/ogbl-collab/extracted/collab/raw/edge.csv.gz",
+            "years": "work/data/ogbl-collab/extracted/collab/raw/edge_year.csv.gz",
+            "weights": "work/data/ogbl-collab/extracted/collab/raw/edge_weight.csv.gz",
+            "nodes": "work/data/ogbl-collab/extracted/collab/raw/node-feat.csv.gz",
+            "split": "work/data/ogbl-collab/extracted/collab/split/time/test.pt"
+          },
+          "primary_comparisons": [
+            [
+              "graph__lambdamart",
+              "graph__binary_lightgbm"
+            ],
+            [
+              "graph__lambdamart",
+              "adamic_adar"
+            ],
+            [
+              "graph__lambdamart",
+              "ncn"
+            ]
+          ]
+        },
+        "exHarmony": {
+          "primary_metric": "ndcg10",
+          "seeds": [
+            42,
+            43,
+            44
+          ],
+          "multiplicity": "Holm",
+          "candidate_policy": "Shared1000-candidate hashed BM25 author pool; no positive injection; all1589 adapted held-out query IDs.",
+          "training_policy": "Frozen saved development-selected models; no training or tuning on final labels.",
+          "uncertainty_policy": "Average model-seed effects before paired cluster inference; marginal95% intervals and separate per-task Holm families.",
+          "test_split": "Explicit locked held-out inputs; see dataset-specific fields.",
+          "runner_schema": 1,
+          "inference": {
+            "repetitions": 10000,
+            "seed": 314159
+          },
+          "output_directory": "outputs/researchforge-study/results/final/exHarmony",
+          "methods": {
+            "lambdamart": {
+              "kind": "learned",
+              "models": {
+                "42": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/lambdamart.txt",
+                  "sha256": "cd182e7581874eecaf123e50a27a6601fdc3bf8a0a5c7c9973ccc3b5e93ee969",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/report.json",
+                  "source_report_sha256": "3249ae9340b08116438d6ec774fe1d07c4013ea51e391e4fb8a9cb14197641f3"
+                },
+                "43": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/lambdamart.txt",
+                  "sha256": "55ae22db469f91a5aed236809b7ea16e66f54f78b7daabdc2e9bf848d56ac01c",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/report.json",
+                  "source_report_sha256": "20676ceec5f06ea1a5d9890b04bbb40470a7589d0a5d881823e92da2885b6869"
+                },
+                "44": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/lambdamart.txt",
+                  "sha256": "135ed17784003c5f3d56c31f419f899cea03b4412306c070c643805b520ff00b",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/report.json",
+                  "source_report_sha256": "726fa0af3a8ab002b56a15886946eb258d8b3d5710471ca6c1df2c07fba6eed0"
+                }
+              }
+            },
+            "binary_lightgbm": {
+              "kind": "learned",
+              "models": {
+                "42": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/binary_lightgbm.txt",
+                  "sha256": "0ae648681664504e3340a03ea7f3b736b80f80e5a40137f37f9cfb996b2ed5ea",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/report.json",
+                  "source_report_sha256": "3249ae9340b08116438d6ec774fe1d07c4013ea51e391e4fb8a9cb14197641f3"
+                },
+                "43": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/binary_lightgbm.txt",
+                  "sha256": "c2e34ffc19afdb20dde8672c27b9dd8389fb3a2755576de95f5224850b88c04a",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/report.json",
+                  "source_report_sha256": "20676ceec5f06ea1a5d9890b04bbb40470a7589d0a5d881823e92da2885b6869"
+                },
+                "44": {
+                  "kind": "lightgbm",
+                  "features": [
+                    "max_paper_bm25",
+                    "sum_retrieved_bm25",
+                    "mean_retrieved_bm25",
+                    "retrieved_paper_count",
+                    "reciprocal_paper_rank_sum",
+                    "mean_all_profile_bm25",
+                    "log_profile_papers"
+                  ],
+                  "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/binary_lightgbm.txt",
+                  "sha256": "b18ab5201e5a7914ebb925f4a9d7859e5715b7d152897be214ebf2a9d61790f9",
+                  "source_report": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/report.json",
+                  "source_report_sha256": "726fa0af3a8ab002b56a15886946eb258d8b3d5710471ca6c1df2c07fba6eed0"
+                }
+              }
+            },
+            "max_paper_bm25": {
+              "kind": "feature",
+              "feature": "max_paper_bm25"
+            },
+            "sum_retrieved_bm25": {
+              "kind": "feature",
+              "feature": "sum_retrieved_bm25"
+            },
+            "mean_retrieved_bm25": {
+              "kind": "feature",
+              "feature": "mean_retrieved_bm25"
+            },
+            "retrieved_paper_count": {
+              "kind": "feature",
+              "feature": "retrieved_paper_count"
+            },
+            "reciprocal_paper_rank_sum": {
+              "kind": "feature",
+              "feature": "reciprocal_paper_rank_sum"
+            },
+            "mean_all_profile_bm25": {
+              "kind": "feature",
+              "feature": "mean_all_profile_bm25"
+            },
+            "log_profile_papers": {
+              "kind": "feature",
+              "feature": "log_profile_papers"
+            }
+          },
+          "artifacts": [
+            {
+              "path": "outputs/researchforge-study/scripts/exharmony_final_run.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/exharmony_bm25_pilot.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/exharmony_index.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/exharmony_prepare.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/hashed_bm25.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_evaluation_gate.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/final_statistics.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/frozen_ranker.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/scripts/supervisor_state.py",
+              "role": "code"
+            },
+            {
+              "path": "outputs/researchforge-study/PROTOCOL.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/SCIENTIFIC_REPORTS_PLAN.md",
+              "role": "protocol"
+            },
+            {
+              "path": "outputs/researchforge-study/environment-current.json",
+              "role": "environment"
+            },
+            {
+              "path": "work/data/exHarmony/papers_test.jsonl",
+              "role": "data"
+            },
+            {
+              "path": "work/data/exHarmony/papers_test_judgeable.jsonl",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/data-audit/exharmony_split.json",
+              "role": "split"
+            },
+            {
+              "path": "work/data/exHarmony/qrels/qrels.test.authors.tsv",
+              "role": "data"
+            },
+            {
+              "path": "work/data/exHarmony/qrels/qrels.test.cite.tsv",
+              "role": "data"
+            },
+            {
+              "path": "work/data/exHarmony/qrels/qrels.test.simcite.tsv",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/manifest.json",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/data.bin",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/indices.bin",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/indptr.npy",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/paper_authors.npz",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/author_papers.npz",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/author_ids.npy",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/bm25_stats.json",
+              "role": "data"
+            },
+            {
+              "path": "work/indices/exharmony-hash18/bm25_stats.npz",
+              "role": "data"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/lambdamart.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/report.json",
+              "role": "development_report"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/binary_lightgbm.txt",
+              "role": "model"
+            },
+            {
+              "path": "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/binary_lightgbm.txt",
+              "role": "model"
+            }
+          ],
+          "feature_names": [
+            "max_paper_bm25",
+            "sum_retrieved_bm25",
+            "mean_retrieved_bm25",
+            "retrieved_paper_count",
+            "reciprocal_paper_rank_sum",
+            "mean_all_profile_bm25",
+            "log_profile_papers"
+          ],
+          "candidates": 1000,
+          "primary_judgment": "authors",
+          "query_sampling": {
+            "count": 0,
+            "seed": 42
+          },
+          "index_directory": "work/indices/exharmony-hash18",
+          "inputs": {
+            "queries": "work/data/exHarmony/papers_test.jsonl",
+            "judgeable": "work/data/exHarmony/papers_test_judgeable.jsonl",
+            "split": "outputs/researchforge-study/data-audit/exharmony_split.json",
+            "authors": "work/data/exHarmony/qrels/qrels.test.authors.tsv",
+            "cite": "work/data/exHarmony/qrels/qrels.test.cite.tsv",
+            "simcite": "work/data/exHarmony/qrels/qrels.test.simcite.tsv"
+          },
+          "primary_comparisons": [
+            [
+              "lambdamart",
+              "binary_lightgbm"
+            ],
+            [
+              "lambdamart",
+              "max_paper_bm25"
+            ]
+          ]
+        }
+      },
+      "review_record": "outputs/researchforge-study/final/DEVELOPMENT_REVIEW.md"
+    },
+    "artifacts": {
+      "outputs/researchforge-study/scripts/prescience_final_run.py": {
+        "bytes": 15902,
+        "sha256": "43eefb18de8d2424d822089359f3eb577ec8d4b73ee6253e6fc442fe1a6c4664"
+      },
+      "outputs/researchforge-study/scripts/prescience_final_data.py": {
+        "bytes": 3447,
+        "sha256": "871ab020f3925b75c7f886fbaa56e15f9e162b0f7600d27116d8105b4909d701"
+      },
+      "outputs/researchforge-study/scripts/final_evaluation_gate.py": {
+        "bytes": 7740,
+        "sha256": "1c7addadae5dfb3933ecb8dc8d2c16805c2f331c51862a992129759e51da40b0"
+      },
+      "outputs/researchforge-study/scripts/prescience_hybrid_graph.py": {
+        "bytes": 17759,
+        "sha256": "f2d50b2422306ec06540a7605e81ea4b3abe6ea9062d473696ccf88a0d9e222e"
+      },
+      "outputs/researchforge-study/scripts/prescience_retrieval_ablation.py": {
+        "bytes": 1364,
+        "sha256": "c0526e6820a79362b4d742c1d8511b2fdb6e45f877a5eed2b8ad428dfc5827e5"
+      },
+      "outputs/researchforge-study/scripts/prescience_pilot.py": {
+        "bytes": 14217,
+        "sha256": "04c916708efac1854d22428b7e5bb36a7c4853dae859dde942442648f27bb8e4"
+      },
+      "outputs/researchforge-study/scripts/prescience_fixed_scorer.py": {
+        "bytes": 2989,
+        "sha256": "48ad717c72062d6ec02cd1bd585d657ddbf2b6baa5a24add67972be25475b547"
+      },
+      "outputs/researchforge-study/scripts/semantic_index.py": {
+        "bytes": 2491,
+        "sha256": "202fca76d020fc70458a88196b8fd11ca6bcd4ab43e6a45767c21e2b05ab444c"
+      },
+      "outputs/researchforge-study/scripts/text_index.py": {
+        "bytes": 3555,
+        "sha256": "a34ee2d9fba36cd90ee4f49c6b5c358ea7ada5141945da52841f7a00ca058d3e"
+      },
+      "outputs/researchforge-study/scripts/frozen_ranker.py": {
+        "bytes": 3342,
+        "sha256": "5133ee583e5d9e707929e1278c5fb4bb26d4a68f28737a8a58d49566b3b02f11"
+      },
+      "outputs/researchforge-study/scripts/final_statistics.py": {
+        "bytes": 4991,
+        "sha256": "178780df7841e2888c81d114233899bb03a14f7e8f7317df8658f9b322dce617"
+      },
+      "outputs/researchforge-study/scripts/verify_rank_predictions.py": {
+        "bytes": 3576,
+        "sha256": "bd8e07642c19d30cbed0087df95d643886e1aba030dceeedefcdfaf1af272b77"
+      },
+      "outputs/researchforge-study/scripts/supervisor_state.py": {
+        "bytes": 783,
+        "sha256": "83c3ff03e46a5e3dd6d8a1ee2cd6f11feedf4f87700c725fba9ec5fece710dfa"
+      },
+      "outputs/researchforge-study/scripts/publication_ablation_design.py": {
+        "bytes": 1689,
+        "sha256": "8a6ec2a07600c388cb0f000daff7c1d7df52789afeb58ff94eec8e0f7170d4da"
+      },
+      "outputs/researchforge-study/scripts/final_subgroups.py": {
+        "bytes": 4678,
+        "sha256": "b6f043f8fd392058ca46b8c1e1decca583002a389b3028557eef0d9324385f8b"
+      },
+      "outputs/researchforge-study/scripts/subgroup_analysis.py": {
+        "bytes": 5456,
+        "sha256": "e91cedc30a1f032dc4b733246eedc9b0a994628b7944272929002a76646feb05"
+      },
+      "outputs/researchforge-study/PROTOCOL.md": {
+        "bytes": 26241,
+        "sha256": "830b5bd92c816dce7e0801a24ba0ac4b7d39ef5ce5b3530a87fb4dff293e6bc5"
+      },
+      "outputs/researchforge-study/SCIENTIFIC_REPORTS_PLAN.md": {
+        "bytes": 8499,
+        "sha256": "2be1befad75faf40cb173a27e8579793787adc629c9b1e1e3bd191e4aeb2d509"
+      },
+      "outputs/researchforge-study/environment-current.json": {
+        "bytes": 3217,
+        "sha256": "30bec7060f6431a7eb7f15487fc19b1a7c22782b666b91c49021cb5d1263537c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/report.json": {
+        "bytes": 56285,
+        "sha256": "4cd977bae4801c567541def78f4c00398a8aced9600720faee17edd9e3fdc571"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/query_manifest.json": {
+        "bytes": 398860,
+        "sha256": "423ea590ed58e6cce06833edc4ae0f437537bd130da6f5ccf0220d51ca3958b5"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/isolated_pipeline_cost.json": {
+        "bytes": 126499,
+        "sha256": "cf0b78a16f7c9f6bd400f08bc02b89328515e43f314b1173af249c6b16a40b8e"
+      },
+      "outputs/researchforge-study/data-audit/final_semantic_index.json": {
+        "bytes": 340,
+        "sha256": "c4315d1263a5e3e4d8b629c70f8a111b7100f3d1b9654795c1bcd2c9f2575954"
+      },
+      "outputs/researchforge-study/data-audit/final_lexical_index.json": {
+        "bytes": 379,
+        "sha256": "032dd176ee41bdd370d53a1b7e6d8ba34af5cf46ba64a706301204beebf612e4"
+      },
+      "outputs/researchforge-study/data-audit/train_semantic_index.json": {
+        "bytes": 513,
+        "sha256": "dd08f25fbe086429263b918cc322658e39b1b5490cb0bc77633aba1399c92cc0"
+      },
+      "outputs/researchforge-study/data-audit/train_encoding_cost.json": {
+        "bytes": 1819,
+        "sha256": "a1a8700219304072b992a37be73e7e03dbd1433a7e8321948bf08a29d0afbe18"
+      },
+      "outputs/researchforge-study/data-audit/loader-equivalence.json": {
+        "bytes": 1750,
+        "sha256": "2b05b8f66c090e21b4e1035fd196087e89675c402395928e52a18ef49d2ffe31"
+      },
+      "work/data/prescience/test.parquet": {
+        "bytes": 480847490,
+        "sha256": "5e5e8ebf47b7a47d62faf5b747895b13e4e48a27081d55293e92d2aab8f89d14"
+      },
+      "work/data/prescience/author_publications.jsonl": {
+        "bytes": 76169598,
+        "sha256": "87e6bb0d8a68a61fadf71d7a2cdd6456e83c70a719c64037756e017c8f1faaf5"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/lambdamart.txt": {
+        "bytes": 356014,
+        "sha256": "8ec660019c56e29fbfb4d57f0eb630636492b5ad6a7dffb5680becdb6d601472"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/report.json": {
+        "bytes": 22124,
+        "sha256": "9c6ca0dea0a67535761d20a7c08c692fe661383b4db5f215ece09e747ca6bacc"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/lambdamart.txt": {
+        "bytes": 182906,
+        "sha256": "a55afa48b4911962fc014fa176b450057f62694ca234bdcd17d59d35092e3257"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/report.json": {
+        "bytes": 22086,
+        "sha256": "e9400f42b505a89ae7c6657ff44be1a32075063f568850f6b4b766729d5b19a5"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/lambdamart.txt": {
+        "bytes": 355777,
+        "sha256": "cd86057c74b2fababc40dc8ce70796d12eb4d130dfb68a86883016163b8e909c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/report.json": {
+        "bytes": 22108,
+        "sha256": "012625fb4f92b808f388afc5a7339456a0de48d0a36cde1df54cacff32f921fa"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/binary_lightgbm.txt": {
+        "bytes": 354683,
+        "sha256": "8ea3203c4edac2ca2224267eb09519a3b6da4653bde302cbe01f113a59d44d2c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/binary_lightgbm.txt": {
+        "bytes": 182506,
+        "sha256": "a9286fa76dc0c3715a0245a5f2b9dd0c56fad1e0d08d2ce4d89b2dcbc64deb06"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/binary_lightgbm.txt": {
+        "bytes": 354741,
+        "sha256": "2a535cb280ac59f2dfeb322a8f12880f85520b1a1d6e949b2aaf145244e3bfd2"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/logistic.joblib": {
+        "bytes": 1997,
+        "sha256": "b29558a346de545156607f1c9ae1a9f2319fb348c11a920be17ce430ad5f79d2"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/logistic.joblib": {
+        "bytes": 1997,
+        "sha256": "3bef1ccec119a6943cb7943ac0b4475ab2d9a7fcabc1a79722c4aaec71fc209e"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/logistic.joblib": {
+        "bytes": 1997,
+        "sha256": "2de2c354812a5f36a58ea7c8cbab1f85d29081604caf0ca922d752a310e4ef7f"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/lambdamart.txt": {
+        "bytes": 355209,
+        "sha256": "efe7b0f0a53635a1fd250a2fab7dc3295209ecff876e6c5a323cac725688052e"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/report.json": {
+        "bytes": 19698,
+        "sha256": "d15e898e642b7f475178aed493676adaed45225bc63039d41d0e7dbba1eb44be"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/lambdamart.txt": {
+        "bytes": 354477,
+        "sha256": "48de47e99bf3f8a628f1a77804314b781e27ca90119cd19747cf1a64c0a56c41"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/report.json": {
+        "bytes": 19728,
+        "sha256": "7cc7ec71e9c1d740d646102d5082000006bba15bbd02036a435df760246bd0d4"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/lambdamart.txt": {
+        "bytes": 354265,
+        "sha256": "3fcf871d89c26f25e645634a75a5e34dbe8e87f59c43ec0409429742de1bcc93"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/report.json": {
+        "bytes": 19679,
+        "sha256": "b7a1ebcd8c550c7191fcb601a78ebbbc708507c804bed7446491813328b5b1a1"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/binary_lightgbm.txt": {
+        "bytes": 353863,
+        "sha256": "222798f413155221ec826464c9a2f51825321e1ba76fb291215fb517317960f2"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/binary_lightgbm.txt": {
+        "bytes": 58417,
+        "sha256": "526aae3eee286b979001621e4fa48c47a9ab3c357963c2d8e722479e35ad79c9"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/binary_lightgbm.txt": {
+        "bytes": 58459,
+        "sha256": "d8df3b023762e82cb289bdfd13ac5b6202dbf9f32d18f2bec6a02d9cac950073"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-42/logistic.joblib": {
+        "bytes": 1805,
+        "sha256": "20b834eac78866a5a0f961c1f0eeeda6f35cb16c4898048f47c2f07abb6169d3"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-43/logistic.joblib": {
+        "bytes": 1805,
+        "sha256": "d3798867cdb6759351391a9e98783a9b33e34a60447306a6997c1adc98d24706"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/no_content/seed-44/logistic.joblib": {
+        "bytes": 1805,
+        "sha256": "c6ac00b50908e2202b0312456e2bf0461b53c2b4efdf1c48d4a0d119d166f06f"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/controls_only.txt": {
+        "bytes": 58027,
+        "sha256": "248e547d3288712d86ee39207ab96532b2c2eb4d27bac70523bc0aa9a286df6a"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/report.json": {
+        "bytes": 389353,
+        "sha256": "46178119125a6c927b53ac4a34800905a752c5a735f1ee4dc2d1bfcf4dfc5d56"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/controls_only.txt": {
+        "bytes": 181941,
+        "sha256": "cbc608ab801b559e109ae89c5d454b58814501efa535d862bb721c8738e40243"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/report.json": {
+        "bytes": 389256,
+        "sha256": "6f52b7f8602d5896939e480949d0437861268950e7355fcd8ef94bfc50dab24c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/controls_only.txt": {
+        "bytes": 58052,
+        "sha256": "9356eefd9ed154b50b7a5639f98889b246221b644afae4cf507f5da94a9a8168"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/report.json": {
+        "bytes": 388932,
+        "sha256": "1be1d213568fa4981888ba760c42173b0dfb6f727c9e3f4182e8e91c76eae1b1"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text.txt": {
+        "bytes": 181331,
+        "sha256": "8342b2a14e9c40221bcf397b5b9acc4fff3b60a047f81f956091162ef07b70b3"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text.txt": {
+        "bytes": 181225,
+        "sha256": "116a463075868d9db9f52377e24405a1a0232fa3249638fb69bfd89259c5ae9b"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text.txt": {
+        "bytes": 181325,
+        "sha256": "7742004b050ebb0dfe23e61aed06d96c0907dbaa811597c7ef26fd4c383479b9"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network.txt": {
+        "bytes": 353161,
+        "sha256": "42c64b374b711f200a27673b43c9f370f431e9f33a154474dd1dd26d1850011f"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network.txt": {
+        "bytes": 181038,
+        "sha256": "ccc496a295a3a005c5de641088416d34517de31d5e2546652a330d39e6fa8bed"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network.txt": {
+        "bytes": 181029,
+        "sha256": "e8a3c1703fb8a00ee3cefb8a927c67a9b4c935dabb547a5ab68d37081a62bb96"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/explicit_time.txt": {
+        "bytes": 58022,
+        "sha256": "2af61099418a2632521813d6f0283e62063fed3f0db447ab34099293a001e678"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/explicit_time.txt": {
+        "bytes": 58036,
+        "sha256": "fab4d86b4a66692b08c8d4aa0d6aa358acdf7e279f224cd05909dd35264d1cc5"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/explicit_time.txt": {
+        "bytes": 180766,
+        "sha256": "4a10eae68d1b49b65b4541f67a9ed7d33398b0dcbe81d22d5dccaae7eddb43ec"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network.txt": {
+        "bytes": 356001,
+        "sha256": "e4b318856fd326612dde06d2ff61db1179424c96d3f09ab7be957e0b1e4b3013"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network.txt": {
+        "bytes": 182584,
+        "sha256": "7b47343a26113ace39cac9cad395b1f6f6f39a65d87cee7a2a7b4b469359db9c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network.txt": {
+        "bytes": 182669,
+        "sha256": "e8b214468cbeb6613dc6be7597315271018f2b77699f4edb476a2b8aacd72cda"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+explicit_time.txt": {
+        "bytes": 355148,
+        "sha256": "36cab74f7d6057151ce0256b330af44998c024a74aafebfbdea0d8ad89c6e61b"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+explicit_time.txt": {
+        "bytes": 181908,
+        "sha256": "118612616964fa4ff33eecf9d4ff7205af5f6664fdd44b974aad363d9f13346b"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+explicit_time.txt": {
+        "bytes": 182000,
+        "sha256": "21e10bfbb714b64de94b8c49314f1cc3eae84022cf766990a92fc1535d854db0"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/network+explicit_time.txt": {
+        "bytes": 353914,
+        "sha256": "0217b05b7a9cfe9c5d9871b5d5cc3b05b5d6eaac1bb6ce778dafbd16995f5fe0"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/network+explicit_time.txt": {
+        "bytes": 181545,
+        "sha256": "0d6588d3cdf09bdddb081d37023bfa5af39ea8d724aa759e9029bdfe08dd31a6"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/network+explicit_time.txt": {
+        "bytes": 181494,
+        "sha256": "a1242cb250ce83474080a3417f2cfa4463193cd8f1c99ed5426a04de998c1015"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/factorial-s42/text+network+explicit_time.txt": {
+        "bytes": 183097,
+        "sha256": "e626fa41f425d3ed0dca3b726f1101d1f79505125e6301ff614eae47412c4822"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-43/factorial-s43/text+network+explicit_time.txt": {
+        "bytes": 58985,
+        "sha256": "4a1bd03cf749a97b4bfdff4902c5fa71ec843517298ef4e3b3008124ac61536c"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-44/factorial-s44/text+network+explicit_time.txt": {
+        "bytes": 182991,
+        "sha256": "3a2e8538f84137ac984c8a2e8da22daeeac7a962984ba8f3cd2aab5de2d871b0"
+      },
+      "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/full/seed-42/fixed-scorer-sensitivity/report.json": {
+        "bytes": 5726,
+        "sha256": "99c8f5ca116b38e26b8e393f7bc064b2a40b1e53dafffa8a8283b740cf8dca17"
+      },
+      "work/indices/prescience-test-hash18/manifest.json": {
+        "bytes": 1422,
+        "sha256": "7bbf446ff1584f622f1b4dcd1522c57a6ce9a5f682293b0898c9c22af3de169e"
+      },
+      "work/indices/prescience-test-hash18/data.bin": {
+        "bytes": 154004320,
+        "sha256": "014cc40f2671de2c4252e4bde42311daa9aa1e33a0ce05ea4d2f0246d48336aa"
+      },
+      "work/indices/prescience-test-hash18/indices.bin": {
+        "bytes": 154004320,
+        "sha256": "8b9a7c14408937606c647ba89da800b18a4ad4659638c1afa78ddeaa8f3b4c7b"
+      },
+      "work/indices/prescience-test-hash18/dates.npy": {
+        "bytes": 1859896,
+        "sha256": "d19df33958162dc7be9f0dea9a5b6ba956c3050e0fc56e026d2a3f37dde9288c"
+      },
+      "work/indices/prescience-test-hash18/indptr.npy": {
+        "bytes": 3719672,
+        "sha256": "7920a355343fdee099dee6b1b9c2e2c9d8419c18390d9adcc4a19aa4784d4988"
+      },
+      "work/indices/prescience-test-hash18/ids.json": {
+        "bytes": 7301832,
+        "sha256": "a7d13d6d1fe8a86c455eb0e6bf6b35b34a25eafe5853ed2473927d40d8e6fd8f"
+      },
+      "work/indices/prescience-test-minilm/manifest.json": {
+        "bytes": 1932,
+        "sha256": "de253302e7088331a0070eb859e9a797100767ecd337eca15dfe3aa256655518"
+      },
+      "work/indices/prescience-test-minilm/embeddings.f16": {
+        "bytes": 357075456,
+        "sha256": "96a93db8c516037e7ee4684544257205fcb4f736c698b57bfa9b99fd69b2637e"
+      },
+      "outputs/researchforge-study/final/DEVELOPMENT_REVIEW.md": {
+        "bytes": 5329,
+        "sha256": "1e2693d121bb15a3757271b5e96426b90d12cdaccd46c3340df18beb2d364fe3"
+      },
+      "outputs/researchforge-study/scripts/ogb_final_run.py": {
+        "bytes": 13315,
+        "sha256": "91cd043fca1c17d2455f5e43dabda181a2aedcc5c5640ed5b5826742e912af10"
+      },
+      "outputs/researchforge-study/scripts/ogb_validation.py": {
+        "bytes": 7147,
+        "sha256": "fb6791fe9e8a500aa4c0d72d87bb2f176b2c9b6ea1c6319254a68467193c9f63"
+      },
+      "outputs/researchforge-study/scripts/ogb_multiseed.py": {
+        "bytes": 7944,
+        "sha256": "9f0adc10d72787b3a31aa50650e5a42d973e97387a5d91f688f8fa912121bc3d"
+      },
+      "outputs/researchforge-study/ncn-runtime.json": {
+        "bytes": 531,
+        "sha256": "bd21fbc12135a02ca228fd3dd28d9b755a06371cf916db327f50acdc764afa01"
+      },
+      "work/data/ogbl-collab/extracted/collab/raw/edge.csv.gz": {
+        "bytes": 4933748,
+        "sha256": "20d2281149aa0503453d5a13a99e22fc129964155f30b1caf2057c7886e7b82e"
+      },
+      "work/data/ogbl-collab/extracted/collab/raw/edge_year.csv.gz": {
+        "bytes": 782248,
+        "sha256": "74d88167f2e93ac7525c65eebfee5e58574e7d5827a283e5c1f9690a5f58c4de"
+      },
+      "work/data/ogbl-collab/extracted/collab/raw/edge_weight.csv.gz": {
+        "bytes": 106862,
+        "sha256": "dd9c8a2c6b49f2e7b155570b1b5fc49f35f435b691171c436d7dd244b1925cab"
+      },
+      "work/data/ogbl-collab/extracted/collab/raw/node-feat.csv.gz": {
+        "bytes": 105975881,
+        "sha256": "1e8e52b4ef3558bd823f64db48de0803fcc5d449eccd24ddd8a0187ab799acf8"
+      },
+      "work/data/ogbl-collab/extracted/collab/split/time/test.pt": {
+        "bytes": 3404768,
+        "sha256": "75315d4e3f3d73fe5cc1079758adecf1a87d17bd4dc4466701b5cbdfcbcac006"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/config.json": {
+        "bytes": 396,
+        "sha256": "aef7ae309a8b0bdb9ad440fb69b86cd0d73ef2c0ac5b8f2a83ca0f0a1112c29e"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/report.json": {
+        "bytes": 14470,
+        "sha256": "539c8866b14d6b102129a30eb6044cd657d2816d69b02f48d30f6388b27c6102"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000/report.json": {
+        "bytes": 769,
+        "sha256": "f3bebf6cf0c8d522113fbb1029081e22a700e63ee205e3545cfe464615d90813"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__lambdamart.txt": {
+        "bytes": 180419,
+        "sha256": "7c39c18a02efdc43c20368e93196195cb36e32ce0b323336b390705fa7c4d9b7"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__lambdamart.txt": {
+        "bytes": 350811,
+        "sha256": "eab6851ce5701721a9452061c490b94935ce89c0183ac2bf866a926703982dae"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__lambdamart.txt": {
+        "bytes": 350729,
+        "sha256": "cf05134c1db9737d2aca5fec43c25fb849e766bef696a6d51d755479fe800bfb"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph__binary_lightgbm.txt": {
+        "bytes": 57883,
+        "sha256": "5401dc99ee2847f71cb66a640eeb9f53ca6d51e65c18087adeffb1a33ac29169"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph__binary_lightgbm.txt": {
+        "bytes": 179955,
+        "sha256": "bae6cf0da1775df47b229bde0f305f88065cb63174a3da55e518a10ddab1c198"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph__binary_lightgbm.txt": {
+        "bytes": 179913,
+        "sha256": "fff44df4cf684498c8fbf7d0e8f2d1826cfb550ea952c3ad2fd2710bfe8dbf13"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__lambdamart.txt": {
+        "bytes": 371698,
+        "sha256": "d6f709c0cfcd2c5e001a7301db37c886404e86eb41b3cff7daacf5d082e802c4"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__lambdamart.txt": {
+        "bytes": 371729,
+        "sha256": "80cfa64668bb01e00c6c28aa708c57f58d315f0e7d941c74d69e416e0b260fa0"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__lambdamart.txt": {
+        "bytes": 371744,
+        "sha256": "8ce06e7281dbea524cf0b10d289d8c6ac1cf8c94e4d56cada060c911a97558f7"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s42-graph_plus_released_nodes__binary_lightgbm.txt": {
+        "bytes": 368685,
+        "sha256": "dcac777e14feea28cf2254848e3afdf6ee0be5ff9c4b883f9354b49c4f5e8b84"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s43-graph_plus_released_nodes__binary_lightgbm.txt": {
+        "bytes": 368663,
+        "sha256": "943441dac74246d7119a3706b46ff85c0349a39239e1bb7e6e4ade89090e51b3"
+      },
+      "outputs/researchforge-study/results/ogb-expanded-10000/s44-graph_plus_released_nodes__binary_lightgbm.txt": {
+        "bytes": 193944,
+        "sha256": "86c6ef9a93c3cceb041f96d9dbb81d545659bbd41cd82b1a03c05441526bc5dd"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/best.pt": {
+        "bytes": 143836,
+        "sha256": "b260e1d4e61b21d9a294c8713622eb06ea04f881563c7928c3175895bef1a8cf"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s42/report.json": {
+        "bytes": 24686,
+        "sha256": "f7f4aca8e7c065d9252577cfa6d84dbd9e6cb53d1835bdc8e6301a90f1fd0529"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/best.pt": {
+        "bytes": 143836,
+        "sha256": "97c6569aa9f26bb7518bb9d6e1353f457e33b79b85e10c4eccc9b9bbb9053dc9"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s43/report.json": {
+        "bytes": 24671,
+        "sha256": "4883d513f263c0f854a427e3311581a5002b2edbade5a30e3bfa2fa5873aa946"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/best.pt": {
+        "bytes": 143836,
+        "sha256": "2ab352ddc860384c6009bb32e351f9d4190cd7698ec589a0b7d1a5ec242b1f30"
+      },
+      "outputs/researchforge-study/results/ncn-expanded-10000-e100-s44/report.json": {
+        "bytes": 24656,
+        "sha256": "e27c1c3e1a040c6f0863b420c14e0215bc0ff6899a5bbedcffe8357adbd8df37"
+      },
+      "outputs/researchforge-study/scripts/ncn_temporal.py": {
+        "bytes": 10202,
+        "sha256": "0fad0563787d240b551efe4f8e51edd90ecb5d95b584825028920f6d7508535d"
+      },
+      "work/NeuralCommonNeighbor/model.py": {
+        "bytes": 40763,
+        "sha256": "bf2531d5ddc6c908d20c5ac22f09a6ea63dd0938770949e209a6264e0af80ee9"
+      },
+      "work/NeuralCommonNeighbor/utils.py": {
+        "bytes": 9475,
+        "sha256": "71c39f1ab564104b604eca461ee2ea9c011fb8850f28c9ba8da0d1daeb93ff6d"
+      },
+      "outputs/researchforge-study/scripts/exharmony_final_run.py": {
+        "bytes": 15936,
+        "sha256": "8d9002b80e718c9a1db1fbd2cccc8102bf8eb57b7a68a272b9fc06513e70d171"
+      },
+      "outputs/researchforge-study/scripts/exharmony_bm25_pilot.py": {
+        "bytes": 11131,
+        "sha256": "65e662a3839f5d1d50c4beec291444d37d39e9721c9b79a01a2698ff79c0ff57"
+      },
+      "outputs/researchforge-study/scripts/exharmony_index.py": {
+        "bytes": 3484,
+        "sha256": "fa2716035a04cd1c353307b8eaa81fb228058303a5810bf6a9d1d054d9e64e56"
+      },
+      "outputs/researchforge-study/scripts/exharmony_prepare.py": {
+        "bytes": 6379,
+        "sha256": "b51ceb9a129ac2587459e979a5d3f5bc9b9b5c59cdc9cd78b771317d0d7525dd"
+      },
+      "outputs/researchforge-study/scripts/hashed_bm25.py": {
+        "bytes": 1092,
+        "sha256": "7e5161e3c4fd743298209c6972c34159228d0a0d865a2e26b4962ab1bc71b89b"
+      },
+      "work/data/exHarmony/papers_test.jsonl": {
+        "bytes": 14878120,
+        "sha256": "907f8bef000d04bac03cd5b534f42d03e980e70d65c32378866741748599e706"
+      },
+      "work/data/exHarmony/papers_test_judgeable.jsonl": {
+        "bytes": 33004629,
+        "sha256": "06129e42e1cca1922f87e0467cecfdc8932258d19715133c819a68a30f9de91b"
+      },
+      "outputs/researchforge-study/data-audit/exharmony_split.json": {
+        "bytes": 325765,
+        "sha256": "cc82ef32b37c8be9fb485a20f071350364b5c0c59f8d6aae429b27c0eb5e4f4d"
+      },
+      "work/data/exHarmony/qrels/qrels.test.authors.tsv": {
+        "bytes": 2318393,
+        "sha256": "25e829cd04bd0dd8d470f5afac7b07ce51b881c45fc42ebff53648b3b7617fc4"
+      },
+      "work/data/exHarmony/qrels/qrels.test.cite.tsv": {
+        "bytes": 48668966,
+        "sha256": "3790d9f5d4e61fc46f39aaad39088df3fe8c25fa892a45164b188469b34ab1f1"
+      },
+      "work/data/exHarmony/qrels/qrels.test.simcite.tsv": {
+        "bytes": 14203271,
+        "sha256": "bd93e29b76134af794eada7eb31a5caf24e3a93aec9df5deef3ab64cbdb9d719"
+      },
+      "work/indices/exharmony-hash18/manifest.json": {
+        "bytes": 2572,
+        "sha256": "22d8d5dd3fef0679bde86317cc43629ed4b49a31fe6004adb2ac938805a2ebe8"
+      },
+      "work/indices/exharmony-hash18/data.bin": {
+        "bytes": 371781572,
+        "sha256": "fd06789befc49ce437767be2194268cf336e02cd1184c5cfd4d94d5666913059"
+      },
+      "work/indices/exharmony-hash18/indices.bin": {
+        "bytes": 371781572,
+        "sha256": "873151b85413074f46d945f58c108268cf94e3393d8c0195f542aecd205d716f"
+      },
+      "work/indices/exharmony-hash18/indptr.npy": {
+        "bytes": 9627128,
+        "sha256": "5f78eb2ed841f7691851507986908ba3f87d9b1fe84985051d2f00bf2fd05acf"
+      },
+      "work/indices/exharmony-hash18/paper_authors.npz": {
+        "bytes": 11968279,
+        "sha256": "a44d1c819e7d2871311eec5e874843cfd7467a0c425a9554aee328c18c3ae4de"
+      },
+      "work/indices/exharmony-hash18/author_papers.npz": {
+        "bytes": 11476605,
+        "sha256": "9dd889f72295ddfeecae9a288fc0f0aadb171a67fa41de8f01cd9bf2cc5a31f8"
+      },
+      "work/indices/exharmony-hash18/author_ids.npy": {
+        "bytes": 12717912,
+        "sha256": "d07c4407073bb13f8130220d27b2b22bd0fb8748a217eba83bdf8c17818e8e09"
+      },
+      "work/indices/exharmony-hash18/bm25_stats.json": {
+        "bytes": 470,
+        "sha256": "fe02203fbf023fbc4fdfc3403fb2be27ad38a89954f277eeffe203585a9688db"
+      },
+      "work/indices/exharmony-hash18/bm25_stats.npz": {
+        "bytes": 3977631,
+        "sha256": "b93c187fdea0f18d94f827e5f6786bd5249e7dfc8b6d91a8ec755993b02ecb0b"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/lambdamart.txt": {
+        "bytes": 181470,
+        "sha256": "cd182e7581874eecaf123e50a27a6601fdc3bf8a0a5c7c9973ccc3b5e93ee969"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/report.json": {
+        "bytes": 17862,
+        "sha256": "3249ae9340b08116438d6ec774fe1d07c4013ea51e391e4fb8a9cb14197641f3"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/lambdamart.txt": {
+        "bytes": 57855,
+        "sha256": "55ae22db469f91a5aed236809b7ea16e66f54f78b7daabdc2e9bf848d56ac01c"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/report.json": {
+        "bytes": 17893,
+        "sha256": "20676ceec5f06ea1a5d9890b04bbb40470a7589d0a5d881823e92da2885b6869"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/lambdamart.txt": {
+        "bytes": 58096,
+        "sha256": "135ed17784003c5f3d56c31f419f899cea03b4412306c070c643805b520ff00b"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/report.json": {
+        "bytes": 17857,
+        "sha256": "726fa0af3a8ab002b56a15886946eb258d8b3d5710471ca6c1df2c07fba6eed0"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s42/binary_lightgbm.txt": {
+        "bytes": 179474,
+        "sha256": "0ae648681664504e3340a03ea7f3b736b80f80e5a40137f37f9cfb996b2ed5ea"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s43/binary_lightgbm.txt": {
+        "bytes": 179710,
+        "sha256": "c2e34ffc19afdb20dde8672c27b9dd8389fb3a2755576de95f5224850b88c04a"
+      },
+      "outputs/researchforge-study/results/exharmony-bm25-1000-500-1000-s44/binary_lightgbm.txt": {
+        "bytes": 57761,
+        "sha256": "b18ab5201e5a7914ebb925f4a9d7859e5715b7d152897be214ebf2a9d61790f9"
+      }
+    }
+  },
+  "lock_sha256": "0f2240d82c5013a39099cadd15b67bb2a1a1298e96fce33888dde463fd5ad091"
+}

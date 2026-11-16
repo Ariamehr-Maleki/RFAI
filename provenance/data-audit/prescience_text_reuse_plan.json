@@ -1,0 +1,42 @@
+{
+  "status": "Label-free text preprocessing inventory only; no test labels or scores accessed",
+  "columns_read": [
+    "corpus_id",
+    "title",
+    "abstract"
+  ],
+  "train_rows": 373716,
+  "test_rows": 464942,
+  "shared_corpus_ids": 336792,
+  "exact_text_reusable_rows": 336792,
+  "shared_ids_with_changed_text": 0,
+  "rows_needing_encoding": 128150,
+  "additional_float16_bytes": 98419200,
+  "full_test_float16_bytes": 357075456,
+  "wall_seconds": 36.2496390999986,
+  "source_sha256": {
+    "train": "bbd51d5048eb6683f111b2d5c28cd36d23d37470a693ab2090c1592cce96a884",
+    "test": "5e5e8ebf47b7a47d62faf5b747895b13e4e48a27081d55293e92d2aab8f89d14"
+  },
+  "plan_files": {
+    "test_ids.json": {
+      "bytes": 5907003,
+      "sha256": "7f176f25720e278c8bbd584b72516376acfb7a10ca75258066c7e64527da9a3a"
+    },
+    "test_text_sha256.npy": {
+      "bytes": 29756416,
+      "sha256": "a715f9dc105294583788aed286b798421ba9094517636092568e642d12aecffa"
+    },
+    "train_row_for_test_row.npy": {
+      "bytes": 1859896,
+      "sha256": "b955d0841d64513ca3c34e3fdd354b6d314fa123ed17737031b75f22ae538bc0"
+    }
+  },
+  "requirements": [
+    "TRAIN embedding manifest must be complete before reuse.",
+    "Pinned model revision, tokenizer, truncation, pooling and normalization must match.",
+    "Future query/candidate scoring must still mask same-day/future papers and exclude target text.",
+    "No supervised model choice may use held-out labels; final gate remains mandatory.",
+    "Official test corpus differs from TRAIN; do not silently score test with TRAIN-only candidate coverage."
+  ]
+}
