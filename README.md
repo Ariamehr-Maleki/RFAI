@@ -9,7 +9,7 @@ by ResearchForge. It is **not** a validation of the original eight-agent applica
 The original application is at [tuba89/ResearchForge-AI](https://github.com/tuba89/ResearchForge-AI).
 
 ## Start here
-
+  
 Python 3.10+ is sufficient for these read-only checks; no installation, network,
 API key, corpus download or model fitting is required:
 
