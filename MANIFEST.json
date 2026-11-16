@@ -1,5 +1,9 @@
 {
   "files": {
+    ".gitattributes": {
+      "bytes": 81,
+      "sha256": "c2b389486e240e0cb078c6860b1404dd358d140e2785f1cb7aba642a87814827"
+    },
     ".github/workflows/review-checks.yml": {
       "bytes": 377,
       "sha256": "db5cbe11cdf59dd705613e0578dca9015b77f5f40b777080b59c15eceb6088b6"
