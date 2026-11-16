@@ -8,7 +8,7 @@ This is the compact, auditable source release for an offline ranking study motiv
 by ResearchForge. It is **not** a validation of the original eight-agent application.
 The original application is at [tuba89/ResearchForge-AI](https://github.com/tuba89/ResearchForge-AI).
 
-## Start here
+## Start here    
   
 Python 3.10+ is sufficient for these read-only checks; no installation, network,
 API key, corpus download or model fitting is required:
