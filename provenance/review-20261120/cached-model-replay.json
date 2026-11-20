@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "dataset": "prescience",
+      "query_count": 1000,
+      "rankings_reexecuted": 6000,
+      "methods": [
+        "full_lambdamart",
+        "full_binary_lightgbm"
+      ],
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "exact_ranking_mismatches": [],
+      "status": "PASS",
+      "comparison_depth": 1000,
+      "score_difference": "Not available: archived ranked-author files do not retain per-author scores; exact ordered identifier parity is checked."
+    },
+    {
+      "dataset": "exHarmony",
+      "query_count": 1589,
+      "rankings_reexecuted": 9534,
+      "methods": [
+        "lambdamart",
+        "binary_lightgbm"
+      ],
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "exact_ranking_mismatches": [],
+      "status": "PASS",
+      "comparison_depth": 100,
+      "score_difference": "Not available: archived ranked-author files do not retain per-author scores; exact ordered identifier parity is checked."
+    }
+  ],
+  "elapsed_seconds": 125.45300000003772,
+  "scope": "Saved LightGBM execution on complete saved feature caches; not provider-to-feature reconstruction, model refitting, or new test evaluation.",
+  "script_sha256": "2079a0b3ef8ac861ed95f3634c864ad8a6caa5c04ded1154f2ecf68d78d190e7"
+}

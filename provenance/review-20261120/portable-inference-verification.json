@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "comparisons": 16,
+  "mode": "Separate directory tree with only the two archives, derived OGB source IDs and provenance; no provider work directory exists",
+  "script_sha256": "8aaa4776edbf489e4dd3166b6136b05f79160ae973c40372d36a2fd9fd690d03",
+  "receipt_sha256": "c642639de4a5c7712b558eadcff9be3c420cae32c9843b1788a159dd290f20a8"
+}

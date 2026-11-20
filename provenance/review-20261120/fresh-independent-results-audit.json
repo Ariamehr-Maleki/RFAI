@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "queries": 1000,
+  "clusters": 994,
+  "sample_sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182",
+  "summary": {
+    "ranker": {
+      "ndcg10": 0.4209332770733778,
+      "ndcg1000": 0.47922103799825655,
+      "rprecision": 0.33306138596170853,
+      "recall10": 0.44338905495379904,
+      "recall50": 0.5569409657487077,
+      "new_recall10": 0.02554146507087684,
+      "repeat_recall10": 0.7809075934805348,
+      "candidate_recall": 0.6443755374203481
+    },
+    "classifier": {
+      "ndcg10": 0.4081189411733917,
+      "ndcg1000": 0.4690539932774135,
+      "rprecision": 0.321708938425348,
+      "recall10": 0.4344601236142436,
+      "recall50": 0.5533828055363679,
+      "new_recall10": 0.02880061115355233,
+      "repeat_recall10": 0.7637266439450229,
+      "candidate_recall": 0.6443755374203481
+    },
+    "official": {
+      "ndcg10": 0.44163949603743313,
+      "ndcg1000": 0.5002692017530262,
+      "rprecision": 0.3531457606570615,
+      "recall10": 0.46438601431488885,
+      "recall50": 0.5690275211791481,
+      "new_recall10": 0.0343982683982684,
+      "repeat_recall10": 0.8156316135923143,
+      "candidate_recall": 0.6617065996914102
+    }
+  },
+  "contrasts": {
+    "ranker_minus_official": {
+      "delta": -0.0210481637547696,
+      "ci95": [
+        -0.029404175310767843,
+        -0.012738271780362178
+      ],
+      "p": 9.999000099990002e-05,
+      "queries": 1000,
+      "clusters": 994,
+      "holm_p": 0.00019998000199980003
+    },
+    "ranker_minus_classifier": {
+      "delta": 0.010167044720843111,
+      "ci95": [
+        0.0050889487278968125,
+        0.015273176852962795
+      ],
+      "p": 0.00029997000299970003,
+      "queries": 1000,
+      "clusters": 994,
+      "holm_p": 0.00029997000299970003
+    }
+  },
+  "max_numeric_difference": 2.220446049250313e-16,
+  "script_sha256": "1edca8583d062509d7b6dd6d9f3d4b33705eb7f58ec57eae246e9d3ed81c8aba",
+  "scope": "All official output metrics, all summary metrics and both prespecified seed-author clustered contrasts. Does not independently reimplement the official scoring algorithm."
+}

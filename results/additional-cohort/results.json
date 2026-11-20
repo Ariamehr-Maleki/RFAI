@@ -1,0 +1,72 @@
+{
+  "status": "Complete additional disjoint-query sample; post-result robustness, not independent external replication",
+  "sample_sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182",
+  "queries": 1000,
+  "seed_author_clusters": 994,
+  "summary": {
+    "ranker": {
+      "ndcg1000": 0.47922103799825655,
+      "recall10": 0.44338905495379904,
+      "new_recall10": 0.02554146507087684,
+      "repeat_recall10": 0.7809075934805348,
+      "candidate_recall": 0.6443755374203481
+    },
+    "classifier": {
+      "ndcg1000": 0.4690539932774135,
+      "recall10": 0.4344601236142436,
+      "new_recall10": 0.02880061115355233,
+      "repeat_recall10": 0.7637266439450229,
+      "candidate_recall": 0.6443755374203481
+    },
+    "official": {
+      "ndcg1000": 0.5002692017530262,
+      "recall10": 0.46438601431488885,
+      "new_recall10": 0.0343982683982684,
+      "repeat_recall10": 0.8156316135923143,
+      "candidate_recall": 0.6617065996914102
+    }
+  },
+  "per_seed_ndcg1000": {
+    "full_lambdamart.s42": 0.4756036899501672,
+    "full_lambdamart.s43": 0.4800642255607668,
+    "full_lambdamart.s44": 0.4819951984838359,
+    "full_binary_lightgbm.s42": 0.46754379906493,
+    "full_binary_lightgbm.s43": 0.46725529401427535,
+    "full_binary_lightgbm.s44": 0.472362886753035
+  },
+  "contrasts": {
+    "ranker_minus_official": {
+      "delta": -0.021048163754769596,
+      "ci95": [
+        -0.029404175310767843,
+        -0.012738271780362177
+      ],
+      "p_two_sided_cluster_signflip": 9.999000099990002e-05,
+      "queries": 1000,
+      "clusters": 994,
+      "repetitions": 10000,
+      "random_seed": 314159,
+      "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+      "holm_p_two_contrasts": 0.00019998000199980003
+    },
+    "ranker_minus_classifier": {
+      "delta": 0.01016704472084311,
+      "ci95": [
+        0.0050889487278968125,
+        0.015273176852962795
+      ],
+      "p_two_sided_cluster_signflip": 0.00029997000299970003,
+      "queries": 1000,
+      "clusters": 994,
+      "repetitions": 10000,
+      "random_seed": 314159,
+      "assumptions": "Paired cluster sign symmetry under null; cluster bootstrap; crossed network dependence not captured",
+      "holm_p_two_contrasts": 0.00029997000299970003
+    }
+  },
+  "limitations": [
+    "Same provider release and overlapping historical network; no independent dataset",
+    "No refitting or tuning",
+    "Operational durations are not isolated latency benchmarks"
+  ]
+}

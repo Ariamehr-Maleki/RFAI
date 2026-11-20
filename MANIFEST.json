@@ -12,21 +12,33 @@
       "bytes": 166,
       "sha256": "a233a7e280a75d27910e4dd2b5dfa2610c9a7e2bc7c3822ca0833057ecc52c33"
     },
+    "docs/ADDITIONAL_COHORT.md": {
+      "bytes": 3462,
+      "sha256": "b7b6f323680654dabc3adfe36854567eb6b8d373c430a1ae12e14d5d1666f563"
+    },
     "docs/DATA_AND_LIMITATIONS.md": {
       "bytes": 2775,
       "sha256": "0a50712ffca05c3e27a450438da4a363944bec8470f3d6e55b095d6a63d390f0"
+    },
+    "docs/JOINT_COVERAGE.md": {
+      "bytes": 5132,
+      "sha256": "69cf8c0dbd17c66d6ed898e20a381e429061d0a39b099bf5b7ffc42ae1139094"
     },
     "docs/MODULE_MAP.md": {
       "bytes": 29100,
       "sha256": "4caddd99037196245081d44bbe5b580fe46fff5859effe2d5f1040fe4a24086a"
     },
     "docs/REPRODUCE.md": {
-      "bytes": 4580,
-      "sha256": "53a33b7e9f69c8a7f80b38d23cc2bfe9ba73410ef1cb85f2e61410f59830c3f8"
+      "bytes": 5054,
+      "sha256": "b40efa770fa367648ba25ccb0ba2a007e3735d12a843eadc5ba36f3af2929058"
+    },
+    "docs/SOURCE_LICENSES.md": {
+      "bytes": 2374,
+      "sha256": "e5cc04019e77c7b1e68940fd229d0e9e4b5580413db1e4ee908539e68ce3e816"
     },
     "docs/VALIDATION.md": {
-      "bytes": 770,
-      "sha256": "64da8b2b557b856e26740601cffe13cf1c5f15e133f369dca7941f49b20da02c"
+      "bytes": 1346,
+      "sha256": "34ddfc1efb4c7afddb5bfaa5dc6edd5897aa01ac756286b99cd55f75fced5bb0"
     },
     "experiments/outputs/researchforge-study/environment-current.json": {
       "bytes": 3217,
@@ -155,6 +167,114 @@
     "experiments/outputs/researchforge-study/review-20261107/upstream-discovery.json": {
       "bytes": 129946,
       "sha256": "687dc99a4c09ea5bb3bc84a894b9e939c4c8082c9fbfdbf6963da37c88fd4420"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/audit_archive_evidence.py": {
+      "bytes": 8711,
+      "sha256": "1e70d271732af74dd43cf355194b55fedc1519156482b4ba4a9b3b8de776dce2"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/audit_fresh_overlap_features.py": {
+      "bytes": 1940,
+      "sha256": "5ab836cf6c8725a2ad3b5d13aaec84552b1e87e6766a2359282aa7cb58ed01a8"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/audit_fresh_rankers.py": {
+      "bytes": 3720,
+      "sha256": "d824cc2abb9cf7dd7882b115ab03c2b5fe0f9979123dc504efc43a23344765fd"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/audit_fresh_results.py": {
+      "bytes": 3891,
+      "sha256": "1edca8583d062509d7b6dd6d9f3d4b33705eb7f58ec57eae246e9d3ed81c8aba"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/check_inference_families.py": {
+      "bytes": 6092,
+      "sha256": "8aaa4776edbf489e4dd3166b6136b05f79160ae973c40372d36a2fd9fd690d03"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/pre-inference-lock-v2.json": {
+      "bytes": 17325,
+      "sha256": "2520685b6f0c1f85fe2fce7762ec03d18f16936a8a3a11cdfe5cbfb1a13c52a4"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/pre-inference-lock-v3.json": {
+      "bytes": 17665,
+      "sha256": "97e4799da38463a567b90ad92227b1de38ffe8f932552090a1fde2b69eb2a29a"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/pre-inference-lock.json": {
+      "bytes": 17035,
+      "sha256": "3b6a84d00f704f8669f10846e738aa768814964a2fb807e904a64dc9a3fcee87"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/runtime-write-lock-v3.json": {
+      "bytes": 717,
+      "sha256": "d13ea21aa220f3e15702eed10492bcb07f43985f1460931d989bcca2e80b1cae"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/runtime-write-lock-v4.json": {
+      "bytes": 816,
+      "sha256": "48500a5a46b28b9fe576ad32edf1056664179a61955ba285e2159907e13089ad"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh-cohort/sample-manifest.json": {
+      "bytes": 92107,
+      "sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh_cohort.py": {
+      "bytes": 12766,
+      "sha256": "a5df51a12c588c8f34867ad4eb7a870d0f06d1a6a18cd20675287f81bf6a2923"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/FRESH_COHORT_PROTOCOL.md": {
+      "bytes": 3807,
+      "sha256": "342de7c84cebb763b65730b12ad95500b4d70836b43abcb37b17aa2f1867dbd2"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh_cohort_v3_imported_archive.py": {
+      "bytes": 13143,
+      "sha256": "437691d2f50b7705149f1afed0ff1ec55777787bdc38eb56474519fb2699fd77"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh_io_v3.py": {
+      "bytes": 2006,
+      "sha256": "9c1bfdcc31424fe43f1dc890bbbba88916d4051771944c6e1ca5a557502fedf8"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/fresh_io_v4.py": {
+      "bytes": 1890,
+      "sha256": "fa50e7632410c39b66c9015948bc9ede80f108b951058ae176511f69493cf188"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/ogb-cluster-provenance.json": {
+      "bytes": 472,
+      "sha256": "27602f5ac2789bcb06cdbc06e0514dad9a81994374a303c882459f75d403ea66"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/ogb-test-source-nodes.npy": {
+      "bytes": 370760,
+      "sha256": "00463531533870397532037986f5a1651e293ba0a29fdbec16be8f6695905c0f"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/OVERLAP_INCIDENT.md": {
+      "bytes": 2641,
+      "sha256": "01206573b52880f156a398a99ba33d08bd35a3d180e3f9bc86c43d2496663eb3"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/replay_cached_models.py": {
+      "bytes": 4163,
+      "sha256": "2079a0b3ef8ac861ed95f3634c864ad8a6caa5c04ded1154f2ecf68d78d190e7"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/RESOURCE_ADDENDUM_V2.md": {
+      "bytes": 1542,
+      "sha256": "1d2f99d75e892b8a7ea839404640dbb6d64b9ce94ae9a51c077540b92e866a31"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/RESOURCE_ADDENDUM_V3.md": {
+      "bytes": 1152,
+      "sha256": "58aa0c25e44a13f3c04df4a6af5df472f846b61d1a465baabdf696afc31a2e68"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/run_fresh_stages.py": {
+      "bytes": 881,
+      "sha256": "38859de06eeed1e0153c2bdc9b3b772d8848925ec9e3584f2b8da9638cf711e5"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/run_fresh_v3.py": {
+      "bytes": 921,
+      "sha256": "c158a9362c19dd880a8fa85aaf9577472e3bbfb81c52276147ff0a1799339dc2"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/run_fresh_v4.py": {
+      "bytes": 2795,
+      "sha256": "b643abc58d2291209436282f8f6356f00ac0143b4f5560cf9eb6a43f87d6b747"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/v2-v3-operational.diff": {
+      "bytes": 3409,
+      "sha256": "872b4cf8eb1dc6dd003f6fcfaec109b51ad28cd91da30dd4f15ae5ede3fb6ef1"
+    },
+    "experiments/outputs/researchforge-study/review-20261120/V3_ABORTED_NOTE.md": {
+      "bytes": 1748,
+      "sha256": "e0119fdf5d77aba7a4c8d783857c92d3ec143c2b12396de18afaeec8c16e3829"
     },
     "experiments/outputs/researchforge-study/scripts/account_train_encoding_cost.py": {
       "bytes": 3463,
@@ -824,6 +944,42 @@
       "bytes": 512,
       "sha256": "0a79d3fe0997e34fc36acaab072fcb08fbc9efbeac00f56c4256544a1824aa38"
     },
+    "provenance/review-20261120/archive-integrity.json": {
+      "bytes": 575,
+      "sha256": "8f6e6b4c9a66b34dd40b18695c27a8511ad67d52d4c9a37cdd08d3be63bfdde5"
+    },
+    "provenance/review-20261120/cached-model-replay.json": {
+      "bytes": 1325,
+      "sha256": "a416f495e3b3cd22ea1fcfd1e8dc28f2993db969a923103d1bdee2563e7fb197"
+    },
+    "provenance/review-20261120/fresh-independent-ranker-audit.json": {
+      "bytes": 220477,
+      "sha256": "d8ec06c15d6a78292386bfb4742418a0f97bab9042b2a2e86dfe1efec93c24ed"
+    },
+    "provenance/review-20261120/fresh-independent-results-audit.json": {
+      "bytes": 2182,
+      "sha256": "199df8ad46fb59e78b2e3cce31748d68d33403ca4aaba7b0a62fa7e028933e3f"
+    },
+    "provenance/review-20261120/fresh-overlap-feature-audit.json": {
+      "bytes": 3029,
+      "sha256": "dfece745cc8c98d8c1cd9c96bc5f4700c3e9f9b4506da1184be028350556be5e"
+    },
+    "provenance/review-20261120/independent-inference.json": {
+      "bytes": 6347,
+      "sha256": "92b94649bad592e7e6c09b7bdfe6fdb0d4750f5209e771a3dcd5f78a24be9d1b"
+    },
+    "provenance/review-20261120/independent-metrics.json": {
+      "bytes": 183755,
+      "sha256": "e98daf021e62d3f13b64efc2c4a1712437b86a3f6c21862d1af7af2564f9bafe"
+    },
+    "provenance/review-20261120/joint-coverage-manifest.json": {
+      "bytes": 43125,
+      "sha256": "267e4ed0b3da9205c4cead4f5a11d3caaaca043de58e09a5095633913a6da38b"
+    },
+    "provenance/review-20261120/portable-inference-verification.json": {
+      "bytes": 362,
+      "sha256": "b4123eeb52faf5caedbe911b90a8c52af3912f247205abc31f12b296747ef663"
+    },
     "provenance/scientific-fixtures-20261116.log": {
       "bytes": 5402,
       "sha256": "ec0d5c6cab8f548ddca1c48ea67f6044ee56a4a9068a57cc80952c22bb31556e"
@@ -833,12 +989,20 @@
       "sha256": "83a8e6c0ef6893be7b12d82ccf7bda087ba32080accae04de31c398ff573c736"
     },
     "README.md": {
-      "bytes": 4384,
-      "sha256": "272e6ac8d22b84327c6459c7e86fcf16fe1cc8091c42e93c3d1a4c506113450b"
+      "bytes": 6350,
+      "sha256": "1179bf9cc47d1eb4c525c599d5f9e93ca20771f7299d82969d40d4ce2dad32d0"
     },
     "requirements-experiment.lock.txt": {
       "bytes": 870,
       "sha256": "7c5a0c2e3f0ad867ef93fabe62f61ba8cfc26a0e84e524df877372d2735ec920"
+    },
+    "results/additional-cohort/figureS3_additional_cohort.csv": {
+      "bytes": 486,
+      "sha256": "a74dec18839a1db1d16920b25010572a0f92844c21c2c418078777b00b62acef"
+    },
+    "results/additional-cohort/results.json": {
+      "bytes": 2609,
+      "sha256": "f06cadab2be72818860c4b4d0386ead815ecb3176677c8782bb82d5c8afed571"
     },
     "results/benchmark_results.csv": {
       "bytes": 44789,
@@ -901,8 +1065,8 @@
       "sha256": "8134dc71036ab6fef7cb605ec59b400b2864890fc00526f9763c447e2937e295"
     },
     "src/rfai_review/cli.py": {
-      "bytes": 4269,
-      "sha256": "471fe256e06571903029888e2c1882c1515cf7c558dddef71206b6e98478d4a2"
+      "bytes": 4353,
+      "sha256": "362c1eff070e42399c14b799df70e788e4bd483f35499760b20d248d602a3aa9"
     },
     "tests/test_review.py": {
       "bytes": 1464,

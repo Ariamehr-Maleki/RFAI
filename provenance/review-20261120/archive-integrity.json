@@ -1,0 +1,18 @@
+[
+  {
+    "archive": "researchforge-reproducibility.zip",
+    "sha256": "94dc644363e1a62ae619664af5359c56135ab76e4b9156a389cef2180845dedb",
+    "compressed_bytes": 881638857,
+    "expanded_bytes": 4841561998,
+    "files": 9295,
+    "all_manifest_payloads_verified": true
+  },
+  {
+    "archive": "ResearchForge_Review_Extension_20261108.zip",
+    "sha256": "361cebe39933ae9d54f8d60ccb7182e8bb75985dc8856e6c4b3ab5a0fac66eb1",
+    "compressed_bytes": 91722707,
+    "expanded_bytes": 293195044,
+    "files": 3101,
+    "all_manifest_payloads_verified": true
+  }
+]

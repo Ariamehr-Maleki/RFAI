@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "queries": [
+    {
+      "position": 1,
+      "qid": "273022610",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 85,
+      "qid": "273695651",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 86,
+      "qid": "273695869",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 87,
+      "qid": "273707063",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 88,
+      "qid": "273707463",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 89,
+      "qid": "273798014",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 90,
+      "qid": "273798759",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 91,
+      "qid": "273798251",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 92,
+      "qid": "273798290",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 93,
+      "qid": "273811468",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 94,
+      "qid": "273963793",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 95,
+      "qid": "273811375",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 96,
+      "qid": "273812247",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 97,
+      "qid": "274131244",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 98,
+      "qid": "273811381",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 99,
+      "qid": "273811748",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 100,
+      "qid": "273821501",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 101,
+      "qid": "273821926",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 102,
+      "qid": "273821518",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 427,
+      "qid": "277596079",
+      "features_labels_candidates_new_truth": "exact parity"
+    },
+    {
+      "position": 1000,
+      "qid": "281683049",
+      "features_labels_candidates_new_truth": "exact parity"
+    }
+  ],
+  "sample_sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182",
+  "script_sha256": "5ab836cf6c8725a2ad3b5d13aaec84552b1e87e6766a2359282aa7cb58ed01a8",
+  "scope": "Every query in conservative overlap interval plus three fixed positions; not reconstruction of all 1000 feature matrices"
+}

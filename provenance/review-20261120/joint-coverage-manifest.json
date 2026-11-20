@@ -1,0 +1,714 @@
+{
+  "version": "2026-11-20",
+  "manuscript_source_sha256": "14451e725cc18b441a4515ad0e6c33da1ecb8bca371984234b31df1b075026c4",
+  "supplement_source_sha256": "38c7d5c53ed229f566d7391217ec51990c8471e99555118834d3c1197c161ec7",
+  "archives": [
+    {
+      "archive": "researchforge-reproducibility.zip",
+      "sha256": "94dc644363e1a62ae619664af5359c56135ab76e4b9156a389cef2180845dedb",
+      "compressed_bytes": 881638857,
+      "expanded_bytes": 4841561998,
+      "files": 9295,
+      "all_manifest_payloads_verified": true
+    },
+    {
+      "archive": "ResearchForge_Review_Extension_20261108.zip",
+      "sha256": "361cebe39933ae9d54f8d60ccb7182e8bb75985dc8856e6c4b3ab5a0fac66eb1",
+      "compressed_bytes": 91722707,
+      "expanded_bytes": 293195044,
+      "files": 3101,
+      "all_manifest_payloads_verified": true
+    }
+  ],
+  "display_coverage": [
+    {
+      "display": "Table 1",
+      "title": "Method families",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/references.json",
+          "sha256": "1e010fdb1ef3f8f1fb11e2a06dd5d054d0c9040ebdd48b509be8abadd2d51066",
+          "archive_matches": []
+        }
+      ],
+      "metric_recalculation": "Interpretive literature synthesis, not a metric result; references.json supplies metadata but does not independently validate every synthesized claim.",
+      "model_execution": "Not a model-execution result: conceptual diagram, literature synthesis, schema or interpretation",
+      "provider_dependency": "Literature/source records or interpreted empirical findings",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure 1",
+      "title": "Application context and offline pipeline",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/figure0_architecture.pdf",
+          "sha256": "8b3ac6f7e9a512e6e9249e6f215fcab5eae635db56560ce29c717c24efd37e9d",
+          "archive_matches": []
+        },
+        {
+          "delivery_file": "revision-20261116/fig_architecture.py",
+          "sha256": "61889aac49f688a3c2407bdb87ed0a55ac0eaed96cf1708ac10a07fc1481aa34",
+          "archive_matches": []
+        }
+      ],
+      "metric_recalculation": "Not an empirical metric display",
+      "model_execution": "Not a model-execution result: conceptual diagram, literature synthesis, schema or interpretation",
+      "provider_dependency": "Literature/source records or interpreted empirical findings",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table 2",
+      "title": "PreScience performance",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/official-comparator-results.json",
+          "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/deliverables/review-20261108/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            },
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/review-20261107/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "Cached-model replay PASS only for full LambdaMART and matched classifier. Logistic, no-content and other baselines: metric recomputation only in this audit. Official scorer: saved rankings re-evaluated; scorer not reexecuted here.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure 2",
+      "title": "Comparator contrasts",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/official-comparator-results.json",
+          "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/deliverables/review-20261108/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            },
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/review-20261107/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/primary_contrasts.csv",
+          "sha256": "f7dd9487e640d13ea8dbd36ade91d9001bc9dfefc71a424010be02354a45f063",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/tables/primary_contrasts.csv",
+              "sha256": "f7dd9487e640d13ea8dbd36ade91d9001bc9dfefc71a424010be02354a45f063",
+              "bytes": 2071
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: all relevant declared contrasts independently replayed, including marginal intervals and within-family Holm; see independent-inference.json",
+      "model_execution": "Cached-model replay covers full ranker and matched classifier only. Other original and all official comparators: saved outputs, no new scorer execution.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure 3",
+      "title": "Eight-cell factorial",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "All eight factorial cells: saved metrics recomputed; factorial models not reexecuted in this audit.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table 3",
+      "title": "OGB and expertise",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/ogb-report.json",
+          "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/ogbl-collab/report.json",
+              "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+              "bytes": 26359
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/exharmony-report.json",
+          "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/exHarmony/report.json",
+              "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+              "bytes": 914438
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "Adapted exHarmony ranker/classifier: cached-model replay PASS. BM25 and all OGB methods including NCN: saved metrics recomputed only.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed.",
+      "additional_cluster_artifacts": [
+        {
+          "file": "ogb-test-source-nodes.npy",
+          "sha256": "00463531533870397532037986f5a1651e293ba0a29fdbec16be8f6695905c0f"
+        },
+        {
+          "file": "ogb-cluster-provenance.json",
+          "sha256": "27602f5ac2789bcb06cdbc06e0514dad9a81994374a303c882459f75d403ea66"
+        }
+      ]
+    },
+    {
+      "display": "Table 4",
+      "title": "Applications and boundaries",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/ogb-report.json",
+          "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/ogbl-collab/report.json",
+              "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+              "bytes": 26359
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/exharmony-report.json",
+          "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/exHarmony/report.json",
+              "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+              "bytes": 914438
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/pipeline-cost.json",
+          "sha256": "cf0b78a16f7c9f6bd400f08bc02b89328515e43f314b1173af249c6b16a40b8e",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/isolated_pipeline_cost.json",
+              "sha256": "cf0b78a16f7c9f6bd400f08bc02b89328515e43f314b1173af249c6b16a40b8e",
+              "bytes": 126499
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "Interpretive application recommendations based on checked performance and archived timing evidence; no deployment-benefit experiment. Timing quantiles were not remeasured.",
+      "model_execution": "Not a model-execution result: conceptual diagram, literature synthesis, schema or interpretation",
+      "provider_dependency": "Literature/source records or interpreted empirical findings",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S1",
+      "title": "Feature definitions",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "Not an empirical metric display",
+      "model_execution": "Not a model-execution result: conceptual diagram, literature synthesis, schema or interpretation",
+      "provider_dependency": "Literature/source records or interpreted empirical findings",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S2",
+      "title": "PreScience methods 1",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "Full ranker/classifier cached replay PASS. Other listed models and baselines: saved metrics recomputed only.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S3",
+      "title": "PreScience methods 2",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "Saved metrics recomputed for all listed methods; no cached-model replay for these factorial/standalone methods.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S4",
+      "title": "Expertise judgments",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/exharmony-report.json",
+          "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/exHarmony/report.json",
+              "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+              "bytes": 914438
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "Ranker/classifier cached replay PASS at retained top100 depth, shared across judgments. Fixed methods: saved metrics recomputed.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S5",
+      "title": "Original primary contrasts",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/primary_contrasts.csv",
+          "sha256": "f7dd9487e640d13ea8dbd36ade91d9001bc9dfefc71a424010be02354a45f063",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/tables/primary_contrasts.csv",
+              "sha256": "f7dd9487e640d13ea8dbd36ade91d9001bc9dfefc71a424010be02354a45f063",
+              "bytes": 2071
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/ogb-report.json",
+          "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/ogbl-collab/report.json",
+              "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+              "bytes": 26359
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/exharmony-report.json",
+          "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/exHarmony/report.json",
+              "sha256": "aabd3436fb92b47b99c5565c500de096475579a3a45d73cd26238f88cb4bf4dc",
+              "bytes": 914438
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: all relevant declared contrasts independently replayed, including marginal intervals and within-family Holm; see independent-inference.json",
+      "model_execution": "Only the full PreScience and exHarmony ranker/classifier models have new cached replay. Other contrast inputs have metric-level checks.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed.",
+      "additional_cluster_artifacts": [
+        {
+          "file": "ogb-test-source-nodes.npy",
+          "sha256": "00463531533870397532037986f5a1651e293ba0a29fdbec16be8f6695905c0f"
+        },
+        {
+          "file": "ogb-cluster-provenance.json",
+          "sha256": "27602f5ac2789bcb06cdbc06e0514dad9a81994374a303c882459f75d403ea66"
+        }
+      ]
+    },
+    {
+      "display": "Table S6",
+      "title": "Official-source contrasts",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/official-comparator-results.json",
+          "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/deliverables/review-20261108/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            },
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/review-20261107/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: all relevant declared contrasts independently replayed, including marginal intervals and within-family Holm; see independent-inference.json",
+      "model_execution": "Official scorer saved rankings re-evaluated; no new scorer execution. Full practical ranker cached replay PASS.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S7",
+      "title": "Quarter sensitivity",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/dependence-robustness.json",
+          "sha256": "219f74208d9d37979ee98730e5568a4179fb89eaf19a4de1c6b5e33a86f94ada",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/deliverables/review-20261108/dependence-robustness.json",
+              "sha256": "219f74208d9d37979ee98730e5568a4179fb89eaf19a4de1c6b5e33a86f94ada",
+              "bytes": 10266
+            },
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/review-20261107/dependence-robustness.json",
+              "sha256": "219f74208d9d37979ee98730e5568a4179fb89eaf19a4de1c6b5e33a86f94ada",
+              "bytes": 10266
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "Source rankings/metrics verified; this quarter/subgroup resampling was not independently rerun in the November 20 audit",
+      "model_execution": "Quarter strata use archived predictions; full practical ranker/classifier cached replay PASS; factorial models not reexecuted.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure S1",
+      "title": "History and outcome subgroups",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/subgroups.json",
+          "sha256": "a11d8fbe22677c7e3989a946759684a6f9faf69e632948d7af198faa39a88ab1",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/subgroups.json",
+              "sha256": "a11d8fbe22677c7e3989a946759684a6f9faf69e632948d7af198faa39a88ab1",
+              "bytes": 33202
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "Source rankings/metrics verified; this quarter/subgroup resampling was not independently rerun in the November 20 audit",
+      "model_execution": "Full practical ranker/classifier cached replay PASS; subgroup membership and uncertainty are separate analyses.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure S2",
+      "title": "Warm latency",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/pipeline-cost.json",
+          "sha256": "cf0b78a16f7c9f6bd400f08bc02b89328515e43f314b1173af249c6b16a40b8e",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/prescience-expanded-1200-1000-500-1000/isolated_pipeline_cost.json",
+              "sha256": "cf0b78a16f7c9f6bd400f08bc02b89328515e43f314b1173af249c6b16a40b8e",
+              "bytes": 126499
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "Saved timing observations available; original hardware workload cannot be recreated from predictions",
+      "model_execution": "Historical timing observations only; timing experiment not repeated.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S8",
+      "title": "Complete OGB methods",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/ogb-report.json",
+          "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/ogbl-collab/report.json",
+              "sha256": "62211ab2ddc2e8ab5cf89549646f5281551de518266681311f23e5ee37f03907",
+              "bytes": 26359
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: independent metrics from archived rankings/scores; see independent-metrics.json",
+      "model_execution": "All OGB methods have independent saved-score metric recomputation only; neither feature-to-score nor raw graph-to-feature pipeline reexecuted.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed.",
+      "additional_cluster_artifacts": [
+        {
+          "file": "ogb-test-source-nodes.npy",
+          "sha256": "00463531533870397532037986f5a1651e293ba0a29fdbec16be8f6695905c0f"
+        },
+        {
+          "file": "ogb-cluster-provenance.json",
+          "sha256": "27602f5ac2789bcb06cdbc06e0514dad9a81994374a303c882459f75d403ea66"
+        }
+      ]
+    },
+    {
+      "display": "Table S9",
+      "title": "Comparison design",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/main.tex",
+          "sha256": "14451e725cc18b441a4515ad0e6c33da1ecb8bca371984234b31df1b075026c4",
+          "archive_matches": []
+        },
+        {
+          "delivery_file": "review-20261120/article-working/supplement.tex",
+          "sha256": "38c7d5c53ed229f566d7391217ec51990c8471e99555118834d3c1197c161ec7",
+          "archive_matches": []
+        }
+      ],
+      "metric_recalculation": "Not an empirical metric display",
+      "model_execution": "Not a model-execution result: conceptual diagram, literature synthesis, schema or interpretation",
+      "provider_dependency": "Literature/source records or interpreted empirical findings",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Table S10",
+      "title": "Additional disjoint queries",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/fresh-results.json",
+          "sha256": "f06cadab2be72818860c4b4d0386ead815ecb3176677c8782bb82d5c8afed571",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Additional_Cohort_20261120.zip",
+              "source_file": "outputs/researchforge-study/review-20261120/fresh-cohort/results.json",
+              "sha256": "f06cadab2be72818860c4b4d0386ead815ecb3176677c8782bb82d5c8afed571",
+              "bytes": 2609,
+              "verification": "Payload read-back is recorded separately in package-additional-receipt.json; no circular archive self-hash."
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/fresh-independent-results-audit.json",
+          "sha256": "199df8ad46fb59e78b2e3cce31748d68d33403ca4aaba7b0a62fa7e028933e3f",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Additional_Cohort_20261120.zip",
+              "source_file": "outputs/researchforge-study/review-20261120/fresh-independent-results-audit.json",
+              "sha256": "199df8ad46fb59e78b2e3cce31748d68d33403ca4aaba7b0a62fa7e028933e3f",
+              "bytes": 2182,
+              "verification": "Payload read-back is recorded separately in package-additional-receipt.json; no circular archive self-hash."
+            }
+          ]
+        }
+      ],
+      "metric_recalculation": "PASS: all additional metrics and two contrasts independently recalculated; all 6000 model rankings replayed; source fresh-independent-results-audit.json",
+      "model_execution": "All 6000 learned rankings independently replayed from caches; 21 feature matrices rebuilt from provider data; official scorer executed for all 1000 queries, its saved metrics independently checked.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    },
+    {
+      "display": "Figure S3",
+      "title": "Effects across disjoint-query cohorts",
+      "source_files": [
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/prescience-report.json",
+          "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+          "archive_matches": [
+            {
+              "archive": "researchforge-reproducibility.zip",
+              "source_file": "outputs/researchforge-study/results/final/prescience/report.json",
+              "sha256": "4e4957ab33c5858c054a201de4e8a9bb4a110937a96c0d7f5f3cae1a961f6187",
+              "bytes": 775886
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/official-comparator-results.json",
+          "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/deliverables/review-20261108/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            },
+            {
+              "archive": "ResearchForge_Review_Extension_20261108.zip",
+              "source_file": "outputs/researchforge-study/review-20261107/official-comparator-results.json",
+              "sha256": "778cf94eb57cc509339831e85362778018119c1bd6a312f6e67bba7be1f9b919",
+              "bytes": 39424
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/fresh-results.json",
+          "sha256": "f06cadab2be72818860c4b4d0386ead815ecb3176677c8782bb82d5c8afed571",
+          "archive_matches": [
+            {
+              "archive": "ResearchForge_Additional_Cohort_20261120.zip",
+              "source_file": "outputs/researchforge-study/review-20261120/fresh-cohort/results.json",
+              "sha256": "f06cadab2be72818860c4b4d0386ead815ecb3176677c8782bb82d5c8afed571",
+              "bytes": 2609,
+              "verification": "Payload read-back is recorded separately in package-additional-receipt.json; no circular archive self-hash."
+            }
+          ]
+        },
+        {
+          "delivery_file": "review-20261120/article-working/numerical-source/figureS3_additional_cohort.csv",
+          "sha256": "a74dec18839a1db1d16920b25010572a0f92844c21c2c418078777b00b62acef",
+          "archive_matches": []
+        }
+      ],
+      "metric_recalculation": "PASS: all additional metrics and two contrasts independently recalculated; all 6000 model rankings replayed; source fresh-independent-results-audit.json",
+      "model_execution": "Original-cohort and additional-cohort contrast values independently checked; no between-cohort inferential test.",
+      "provider_dependency": "Provider corpora/indices required to reconstruct retrieval/features or execute official scorer; not required for metric recalculation or checked cached-LightGBM replay",
+      "licence_and_reviewer_access": "Local archives verified; not yet publicly deposited or provided through an actual reviewer link. Per-file redistribution clearance incomplete. Compact GitHub summaries/code are public.",
+      "chronology": "Post-result official-source/quarter analysis is separate from original frozen evaluation; no prospective public preregistration is claimed."
+    }
+  ],
+  "reproduction_levels": [
+    "Archive integrity",
+    "Metric recalculation from saved rankings/scores",
+    "Saved model execution on saved features",
+    "Additional cohort: new raw-input inference for 1000 queries; independent raw-feature parity for 21; official scorer executed anew; not an independent algorithm reimplementation",
+    "Training reproduction (not newly executed)"
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.5.4",
+      "lightgbm": "4.7.0",
+      "scikit-learn": "1.9.1",
+      "pyarrow": "26.0.0"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Additional held-out-query robustness check — 20 November 2026
+
+This protocol is fixed before any score on the new cohort. It adapts the reviewing chat's proposal in `ResearchForge_fresh_cohort_protocol.md`. The original results and the official comparator's advantage are already known. This is an additional disjoint-query sample from the same provider release, not external validation or an independent dataset; authors, historical networks and target teams may overlap with the original cohort.
+
+## Fixed design
+
+Use the unchanged historical eligibility rule and final corpus. Enumerate the original 47,997 eligible targets using identifiers, dates, author eligibility and the role field; no target text or future outcome scores are used for sampling. Exclude the original 1,000 final query IDs and every ID in the saved expanded-development query manifest. Sort remaining query IDs lexicographically. Select exactly 1,000 without replacement with NumPy default_rng(20261120), then process selected queries in date/ID order. Persist ID/seed/date manifest, its hash, quarter distribution and overlap counts before model inference. Do not silently reduce the sample size. The target-author list is necessarily read to establish the original eligibility rule, but is not used to select a favorable cohort or model.
+
+Use the three original saved full LambdaMART models and three input-matched classifier models (42/43/44), original full retrieval pool of 1,000, padding seed42, the same feature order, original text indexes and no fitting. Execute the pinned official scorer only in the harmonized historical-input policy, preserving upstream constants/function bodies, historical citation masking, author deduplication and history ordering. PYTHONHASHSEED=0 is required. Candidate policies remain those declared for each method; candidate recall is separate from rank accuracy.
+
+Before new inference, compare five lexicographically first original query caches against newly reconstructed features, labels and candidate order. This is implementation parity on already-evaluated queries, not a new pilot or a selection criterion. Any mismatch halts the new experiment and is documented. Bind the original global lock, protocol, runner, reused sources, models and inputs before eligibility scanning; bind the sampled IDs in a second manifest before scoring.
+
+Primary contrast: seed-averaged LambdaMART minus harmonized official scorer in nDCG@1000. Secondary contrast: LambdaMART minus matched classifier. Report both together with separate means, marginal95% author-cluster bootstrap intervals, 10,000 draws, seed314159 and Holm correction over these two contrasts. New/repeat Recall@10 and candidate recall are descriptive secondary outcomes; omit empty relevant subsets only for their own metric. Report per-seed means, failures and cohort composition. No subgroup/model selection follows the result.
+
+## Resource and timing clarification before outcomes
+
+Run ranker and official stages in separate processes to release corpus memory. Require at least3,500MiB available RAM before ranking,1,800MiB before official loading,640MiB runtime reserve and1GiB free disk; save a checkpoint per query. If resources are insufficient, wait or exit resumably without changing scientific settings. Cached/resumed records must match the frozen manifest. Record operational elapsed time and memory, but do not label contended timings as a new isolated warm-query latency study. The original isolated cost experiment remains the article's latency evidence.
+
+No expectation of positive results is imposed. Both directions and inconclusive outcomes must be retained. New results will be an explicitly post-result robustness addition and will not replace any original result or be pooled with the original primary family.

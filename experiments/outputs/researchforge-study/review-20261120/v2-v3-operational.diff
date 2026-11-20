@@ -1,0 +1,46 @@
+--- V2
++++ V3 imported
+@@ -1,6 +1,6 @@
+ """Resumable, pre-frozen additional-query check. Never modifies original artifacts."""
+ from pathlib import Path
+-import sys,os,json,hashlib,time,gc,argparse,shutil
++import sys,os,json,hashlib,time,gc,argparse,shutil,uuid
+ from datetime import date,timedelta,datetime,timezone
+ import numpy as np
+ import pyarrow.parquet as pq
+@@ -20,7 +20,18 @@
+ def sha(p):
+  with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+ def write(p,o):
+- p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);t=p.with_suffix(p.suffix+'.partial');t.write_text(json.dumps(o,indent=2),encoding='utf-8');t.replace(p)
++ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
++ t=p.with_name(p.name+'.partial.'+str(os.getpid())+'.'+uuid.uuid4().hex)
++ try:
++  t.write_text(json.dumps(o,indent=2),encoding='utf-8')
++  for attempt in range(12):
++   try:
++    t.replace(p);return
++   except PermissionError:
++    if attempt==11:raise
++    time.sleep(min(0.05*2**attempt,1.0))
++ finally:
++  t.unlink(missing_ok=True)
+ def freeze(p,o):
+  if p.exists():assert read(p)==o,'Frozen manifest changed: '+str(p)
+  else:write(p,o)
+@@ -38,12 +49,12 @@
+  for art in cfg['artifacts']:
+   path=art['path'];expected=lock['payload']['artifacts'][path]['sha256'];actual=sha(ROOT/path)
+   assert actual==expected,'Original locked asset changed: '+path;assets[path]=actual
+- dependencies=[R/'FRESH_COHORT_PROTOCOL.md',R/'RESOURCE_ADDENDUM_V2.md',R/'fresh-resource-probe.json',Path(__file__),S/'final/global-lock.json',S/'results/prescience-expanded-1200-1000-500-1000/query_manifest.json']
++ dependencies=[R/'FRESH_COHORT_PROTOCOL.md',R/'RESOURCE_ADDENDUM_V2.md',R/'RESOURCE_ADDENDUM_V3.md',R/'fresh-resource-probe.json',Path(__file__),S/'final/global-lock.json',S/'results/prescience-expanded-1200-1000-500-1000/query_manifest.json']
+  dependencies+=list((S/'review-20261107').glob('official_comparator*.py'))
+  dependencies+=list((S/'review-20261107/upstream').rglob('*.py'))
+  for p in dependencies:assets[str(p.relative_to(ROOT)).replace('\\','/')]=sha(p)
+- spec={'design':'Additional disjoint-query sample; known original outcomes; no refitting','date':'2026-11-20','count':1000,'sampling_seed':20261120,'padding_seed':42,'model_seeds':[42,43,44],'original_lock_sha256':lock['lock_sha256'],'assets':assets,'methods':['full_lambdamart','full_binary_lightgbm','official_harmonized'],'primary':'full_lambdamart minus official_harmonized','secondary':'full_lambdamart minus full_binary_lightgbm','inference':{'repetitions':10000,'seed':314159,'holm_family_size':2}}
+- freeze(OUT/'pre-inference-lock-v2.json',spec);return cfg
++ spec={'design':'Additional disjoint-query sample; known original outcomes; no refitting','date':'2026-11-20','count':1000,'sampling_seed':20261120,'padding_seed':42,'model_seeds':[42,43,44],'original_lock_sha256':lock['lock_sha256'],'resume_from_lock_v2_sha256':sha(OUT/'pre-inference-lock-v2.json'),'frozen_sample_sha256':sha(OUT/'sample-manifest.json'),'assets':assets,'methods':['full_lambdamart','full_binary_lightgbm','official_harmonized'],'primary':'full_lambdamart minus official_harmonized','secondary':'full_lambdamart minus full_binary_lightgbm','inference':{'repetitions':10000,'seed':314159,'holm_family_size':2}}
++ freeze(OUT/'pre-inference-lock-v3.json',spec);return cfg
+ 
+ def load_slim(cfg):
+  papers={}

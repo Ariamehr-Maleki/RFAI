@@ -85,3 +85,7 @@ November official-source and additional dependence checks were specified after
 the original outcomes were known. The November 16 manuscript revision introduces
 no new fitting, model selection, test cohort changes or altered numerical results.
 The local freeze is not a public prospective preregistration.
+
+## Additional cohort and independent checks (20 November)
+
+Follow [ADDITIONAL_COHORT.md](ADDITIONAL_COHORT.md) for the third archive and independent saved-evidence audits. New code remains under `experiments/outputs/researchforge-study/review-20261120/` to preserve its original relative-path and hash provenance. The compact `results/additional-cohort/` folder contains summaries rather than all prediction caches. No full archive is currently linked by a public DOI.

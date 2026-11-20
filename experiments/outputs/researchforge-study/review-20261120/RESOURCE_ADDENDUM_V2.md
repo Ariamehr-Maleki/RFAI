@@ -1,0 +1,7 @@
+# Resource-only amendment before new-cohort inference
+
+20 November 2026. The first worker remained at the 3,500MiB startup gate. It was stopped without selecting a new cohort or generating any new-cohort scores. The first `pre-inference-lock.json` remains unchanged and is superseded operationally by `pre-inference-lock-v2.json`.
+
+A guarded diagnostic then rebuilt the corpus and indexes and exactly reconstructed features, labels and candidate order for five previously evaluated original queries. Its first attempt had an input-adapter error (passing a complete result row into QueryEngine); the corrected probe passed all five. Both records are retained. The passing receipt records approximately1.81GB peak process RSS and approximately1.97GB minimum available system memory. It provides evidence about these five old queries, not a guarantee of peak memory for every new query.
+
+The new ranker startup gate is3,000MiB available RAM, retaining the640MiB between-query reserve and1GiB disk reserve. This provides margin over the observed probe footprint without requiring the earlier3,500MiB. The official stage keeps its1,800MiB startup gate. Resource waits are bounded at300seconds per call; a resource exit remains resumable and does not permit selecting another cohort, changing models or reducing the requested1,000 queries. All query sampling, feature construction, ranking and inference settings are unchanged. This amendment and the successful probe receipt are bound in the new pre-inference lock, before any new cohort outcome.

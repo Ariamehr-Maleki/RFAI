@@ -1,0 +1,8 @@
+{
+  "provider_file": "work/data/ogbl-collab/extracted/collab/split/time/test.pt",
+  "provider_sha256": "75315d4e3f3d73fe5cc1079758adecf1a87d17bd4dc4466701b5cbdfcbcac006",
+  "derived_file": "ogb-test-source-nodes.npy",
+  "derived_sha256": "00463531533870397532037986f5a1651e293ba0a29fdbec16be8f6695905c0f",
+  "rows": 46329,
+  "meaning": "First endpoint of each positive test edge, in released order; required for source-cluster inference; not an input to ranking."
+}

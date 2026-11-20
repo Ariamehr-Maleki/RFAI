@@ -2,7 +2,7 @@
 
 **Ranking gains in scientific collaborator forecasting depend on evidence and comparator choice**  
 Ariamehr Maleki · Amirhossein Keyhanipour  
-Intelligent Information Fusion Lab, Faculty of Engineering, College of Farabi, University of Tehran
+Intelligent Information Fusion Lab, Faculty of Engineering, College of Farabi, University of Tehran, Tehran, Iran
 
 This is the compact, auditable source release for an offline ranking study motivated
 by ResearchForge. It is **not** a validation of the original eight-agent application.
@@ -38,6 +38,35 @@ correction families and limitations remain in the reports. The official
 PreScience comparison is a **post-result supplementary analysis**, not an original
 untouched confirmation. Negative results are retained.
 
+## Additional cohort and independent audit — 20 November 2026
+
+An additional **1,000 disjoint query identities** were evaluated with the frozen
+models, without fitting or tuning. This is a post-result within-release check,
+not an external replication; 16 seed authors overlap the original cohort.
+
+| Additional PreScience sample | nDCG@1000 | New-collaborator Recall@10 |
+|---|---:|---:|
+| LambdaMART | 0.479 | 0.026 |
+| Matched classifier | 0.469 | 0.029 |
+| Official harmonized scorer | 0.500 | 0.034 |
+
+The paired ranker-minus-classifier difference is +0.010 (95% CI +0.005 to +0.015),
+while ranker-minus-official is −0.021 (−0.029 to −0.013). The two comparisons use
+their own Holm family; new-collaborator recall is descriptive. Candidate policies
+are method-specific for the official comparison. These results retain the
+original positive and negative findings.
+
+Independent checks reproduced 213 original prediction/score files, 15,534 saved
+PreScience/exHarmony model rankings and 16 original inferential contrasts. For the
+additional cohort, all 6,000 learned rankings and saved metrics passed independent
+replay; 21 raw feature matrices were reconstructed exactly. This does not mean
+every raw feature, every baseline model or every subgroup analysis was rerun.
+
+See [additional-cohort reproduction](docs/ADDITIONAL_COHORT.md),
+[full-precision results](results/additional-cohort/results.json) and
+[per-display coverage](docs/JOINT_COVERAGE.md). Full caches and predictions remain
+in local archives, not this Git repository. No public archive DOI is asserted.
+
 ## Repository map
 
 | Path | Purpose |
@@ -47,6 +76,9 @@ untouched confirmation. Negative results are retained.
 | `results/` | Exact aggregate reports, contrasts, cost and subgroup evidence |
 | `experiments/outputs/researchforge-study/scripts/` | Byte-preserved original experiment modules and fixtures |
 | `experiments/outputs/researchforge-study/review-20261107/` | Official-scorer extension and its pinned upstream source |
+| `experiments/outputs/researchforge-study/review-20261120/` | Independent audits, frozen additional-cohort protocol and exact execution sources |
+| `results/additional-cohort/` | Full-precision new sample summary and effect-plot values |
+| `provenance/review-20261120/` | Independent verification and per-display coverage receipts |
 | `provenance/` | Original lock, archive inventory, source identity and release scope |
 | `docs/` | Reproduction steps, method map, data requirements and limitations |
 

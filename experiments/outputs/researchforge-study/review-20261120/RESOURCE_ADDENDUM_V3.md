@@ -1,0 +1,5 @@
+# Operational resume amendment after Windows status-write failure
+
+20 November 2026. The V2 ranker worker stopped after saving the 84th complete query because Windows denied an atomic replacement of `progress.json`. The scientific configuration, sample manifest, saved models, feature construction and 84 completed query outputs were not changed. A read-only check of all 84 query JSON files, receipts and NPZ caches found matching sample, JSON and cache SHA256 values, with zero failures. `progress.json` recorded only 83 because its update followed the completed 84th query.
+
+V3 changes only the JSON writer: each write uses a unique temporary filename and retries a Windows `PermissionError` on atomic replacement with bounded backoff. Existing outputs are verified again by the runner before being skipped. The original sample manifest continues to reference the V2 pre-inference lock under which its IDs were selected. A new V3 operational lock binds this addendum, the revised runner and the unchanged sample hash before resumed scoring. No model, query, metric, random seed or inference setting changes. V1 and V2 locks remain intact for audit.

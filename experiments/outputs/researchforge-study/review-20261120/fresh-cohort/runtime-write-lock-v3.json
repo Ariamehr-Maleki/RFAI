@@ -1,0 +1,10 @@
+{
+  "change": "Only unique temporary filenames and bounded PermissionError retries for identical JSON serialization; no model/data/sampling/statistical change",
+  "prior_prelock_sha256": "2520685b6f0c1f85fe2fce7762ec03d18f16936a8a3a11cdfe5cbfb1a13c52a4",
+  "sample_sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182",
+  "frozen_runner_sha256": "437691d2f50b7705149f1afed0ff1ec55777787bdc38eb56474519fb2699fd77",
+  "wrapper_sha256": "9c1bfdcc31424fe43f1dc890bbbba88916d4051771944c6e1ca5a557502fedf8",
+  "retry_attempts": 40,
+  "backoff_seconds": "0.1, 0.2, 0.4, 0.8, then <=1.0",
+  "reason": "WinError5 replacing progress.json after 84 fully committed queries; cause not established"
+}

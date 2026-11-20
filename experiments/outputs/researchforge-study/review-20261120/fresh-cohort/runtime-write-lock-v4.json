@@ -1,0 +1,12 @@
+{
+  "version": 4,
+  "scope": "Operational resume; no scientific settings changed",
+  "runner_sha256": "a5df51a12c588c8f34867ad4eb7a870d0f06d1a6a18cd20675287f81bf6a2923",
+  "wrapper_sha256": "fa50e7632410c39b66c9015948bc9ede80f108b951058ae176511f69493cf188",
+  "sample_sha256": "acb12965ab4c6c9d4bb34de3466e12089eb67d363c4430e05ca4699f71ef0182",
+  "v2_lock_sha256": "2520685b6f0c1f85fe2fce7762ec03d18f16936a8a3a11cdfe5cbfb1a13c52a4",
+  "v3_runtime_lock_sha256": "d13ea21aa220f3e15702eed10492bcb07f43985f1460931d989bcca2e80b1cae",
+  "imported_v3_runner_sha256": "437691d2f50b7705149f1afed0ff1ec55777787bdc38eb56474519fb2699fd77",
+  "incident_sha256": "01206573b52880f156a398a99ba33d08bd35a3d180e3f9bc86c43d2496663eb3",
+  "scientific_function_AST_parity": "PASS except explicitly operational write/prelock"
+}

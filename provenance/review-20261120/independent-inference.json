@@ -1,0 +1,210 @@
+{
+  "status": "PASS",
+  "families": {
+    "prescience": {
+      "full_lambdamart__minus__full_binary_lightgbm": {
+        "delta": 0.01007005675221985,
+        "ci95": [
+          0.005509069636848965,
+          0.014700606352640184
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 0.0
+      },
+      "full_lambdamart__minus__frequency45": {
+        "delta": 0.043831980941269104,
+        "ci95": [
+          0.035313649047113746,
+          0.05226310814579414
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 6.938893903907228e-18
+      },
+      "full_lambdamart__minus__semantic_standalone": {
+        "delta": 0.37201681491896016,
+        "ci95": [
+          0.3538087288071627,
+          0.39055720868791893
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 0.0
+      },
+      "full_lambdamart__minus__rrf": {
+        "delta": 0.05052629331800121,
+        "ci95": [
+          0.042487335357080214,
+          0.058930946155212036
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 6.938893903907228e-18
+      },
+      "full_lambdamart__minus__fixed_selected": {
+        "delta": 0.014494002815503594,
+        "ci95": [
+          0.0069119741842019475,
+          0.022294023320915794
+        ],
+        "p": 0.00039996000399960006,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 0.0
+      },
+      "factorial_text+network+explicit_time__minus__factorial_network+explicit_time": {
+        "delta": -0.009146552965215332,
+        "ci95": [
+          -0.012605948405915272,
+          -0.00572373484810715
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 1.734723475976807e-18
+      },
+      "factorial_text+network+explicit_time__minus__factorial_text+explicit_time": {
+        "delta": 0.010702368969074474,
+        "ci95": [
+          0.005236755989754973,
+          0.016226164002623344
+        ],
+        "p": 0.00019998000199980003,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.0007999200079992001,
+        "max_error": 3.469446951953614e-18
+      },
+      "factorial_text+network+explicit_time__minus__factorial_text+network": {
+        "delta": 0.008223291083918258,
+        "ci95": [
+          0.0035624576402729373,
+          0.013043122251573863
+        ],
+        "p": 0.000999900009999,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.000999900009999,
+        "max_error": 5.204170427930421e-18
+      }
+    },
+    "ogbl-collab": {
+      "graph__lambdamart__minus__graph__binary_lightgbm": {
+        "delta": -0.0016548310273622714,
+        "ci95": [
+          -0.002653781680845422,
+          -0.0006189433604253596
+        ],
+        "p": 0.0014998500149985001,
+        "queries": 46329,
+        "clusters": 14170,
+        "holm_p": 0.0029997000299970002,
+        "max_error": 4.336808689942018e-19
+      },
+      "graph__lambdamart__minus__adamic_adar": {
+        "delta": 2.877967004108165e-05,
+        "ci95": [
+          -0.0017994307454429488,
+          0.0018154865675277276
+        ],
+        "p": 0.9804019598040196,
+        "queries": 46329,
+        "clusters": 14170,
+        "holm_p": 0.9804019598040196,
+        "max_error": 1.734723475976807e-18
+      },
+      "graph__lambdamart__minus__ncn": {
+        "delta": -0.01225294451999108,
+        "ci95": [
+          -0.01541028699502464,
+          -0.00932537033549556
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 46329,
+        "clusters": 14170,
+        "holm_p": 0.00029997000299970003,
+        "max_error": 3.469446951953614e-18
+      }
+    },
+    "exHarmony": {
+      "lambdamart__minus__binary_lightgbm": {
+        "delta": 0.004344866899378323,
+        "ci95": [
+          0.001884097726767811,
+          0.006875863624961923
+        ],
+        "p": 0.0005999400059994001,
+        "queries": 1589,
+        "clusters": 1589,
+        "holm_p": 0.0011998800119988001,
+        "max_error": 1.734723475976807e-18
+      },
+      "lambdamart__minus__max_paper_bm25": {
+        "delta": -0.00475123467708827,
+        "ci95": [
+          -0.01039309533732152,
+          0.0008347388755448839
+        ],
+        "p": 0.09969003099690031,
+        "queries": 1589,
+        "clusters": 1589,
+        "holm_p": 0.09969003099690031,
+        "max_error": 1.0842021724855044e-18
+      }
+    },
+    "official-supplementary": {
+      "published_input": {
+        "delta": -0.02027643527349771,
+        "ci95": [
+          -0.028184963293840005,
+          -0.012602404742064461
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.00029997000299970003,
+        "max_error": 6.938893903907228e-18
+      },
+      "historical_input": {
+        "delta": -0.019323174456450484,
+        "ci95": [
+          -0.02722595817890998,
+          -0.011549480488335014
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.00029997000299970003,
+        "max_error": 3.469446951953614e-18
+      },
+      "harmonized_historical_input": {
+        "delta": -0.01908815230857847,
+        "ci95": [
+          -0.027010370508045375,
+          -0.011301504051079336
+        ],
+        "p": 9.999000099990002e-05,
+        "queries": 1000,
+        "clusters": 989,
+        "holm_p": 0.00029997000299970003,
+        "max_error": 0.0
+      }
+    }
+  },
+  "comparisons": 16,
+  "repetitions": 10000,
+  "seed": 314159,
+  "intervals": "Marginal 95%, cluster bootstrap; Holm separately within each declared family",
+  "script_sha256": "340ec7c20cefd9cadb38b8b6544a7fa343a0b5528c50d3195098790109aec600"
+}
